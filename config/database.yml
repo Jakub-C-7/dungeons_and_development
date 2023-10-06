@@ -22,7 +22,8 @@ default: &default
   password: <%= ENV["POSTGRES_PASSWORD"] %>
 
 
-
+  # host: <%= ENV["POSTGRES_HOST"] %>
+  # port: 5432
 
 development:
   <<: *default
@@ -63,6 +64,8 @@ development:
 test:
   <<: *default
   database: dungeons_and_development_test
+  username: <%= ENV["POSTGRES_USER"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -86,6 +89,7 @@ test:
 #
 production:
   <<: *default
-  database: dungeons_and_development_production
-  username: dungeons_and_development
-  password: <%= ENV["DUNGEONS_AND_DEVELOPMENT_DATABASE_PASSWORD"] %>
+  # database: dungeons_and_development_production
+  username: <%= ENV["POSTGRES_DB"] %>
+  password: <%= ENV["POSTGRES_PASSWORD"] %>
+  username: <%= ENV["POSTGRES_USER"] %>
