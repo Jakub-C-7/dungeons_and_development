@@ -34,9 +34,9 @@ interestLast = Interest.last
 user1.user_interests.create(
 interest: interest
 )
-user1.user_interests.create(
-interest: interest
-)
+# user1.user_interests.create(
+# interest: interest
+# )
 user1.user_interests.create(
 interest: interestLast
 )
