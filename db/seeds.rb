@@ -32,14 +32,16 @@ interest = Interest.first
 interestLast = Interest.last
 
 user1.user_interests.create(
-interest: interest
+interest: interest,
+isPrimaryRole: true
 )
 # user1.user_interests.create(
 # interest: interest
 # )
 user1.user_interests.create(
-interest: interestLast
-)
+interest: interestLast,
+isPrimaryRole: true
+)   #this one is not created because isPrimaryRole can not be true for multiple entries
 
 user2.user_interests.create(
 interest: interest
