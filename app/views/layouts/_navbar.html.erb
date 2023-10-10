@@ -1,13 +1,13 @@
-<nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <a href="/" class="navbar-brand">DungeonsAndDevelopment</a>
-    <ul class="navbar-nav">
+<nav class="">
+  <div class="flex justify-between mt-2 mb-2">
+    <a href="/" class="ml-2 font-logoTitle text-2xl">DungeonsAndDevelopment</a>
+    <ul class="flex gap-4 mr-8">
         <% if current_user %>
-          <li class="nav-item"> <%= link_to "Edit Account", edit_user_registration_path, class: "nav-link" %></li>
-          <li class="nav-item"> <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-small btn-primary mx-2" %></li>
+          <li class="p-1 text-black"> <%= link_to "Edit Account", edit_user_registration_path, class: "nav-link" %></li>
+          <li class="nav-btn-primary"> <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-small btn-primary mx-2" %></li>
         <% else %>
-          <li class="nav-item"> <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"  %></li>
-          <li class="nav-item"> <%= link_to "Sign In", new_user_session_path, class: "nav-link"  %></li>
+          <li class="nav-btn-primary"> <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"  %></li>
+          <li class="nav-btn-primary"> <%= link_to "Sign In", new_user_session_path, class: "nav-link"  %></li>
         <% end %>
       </ul>
   </div>
