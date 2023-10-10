@@ -1,5 +1,34 @@
-<h1 class="text-3xl font-bold underline">
-    About#home
-</h1>
+<main> 
 
-<p>Find me in app/views/main/about.html.erb</p>
+    <div class="container flex-col gap-4 mx-auto">       
+        <h1 class="head-text mt-12">
+            About Us!
+        </h1>  
+        <div class="flex justify-center mb-32 gap-4"> 
+            <%= image_tag ("telemetry.jpg"), width: '30%', height: '30%' %> 
+
+            <div class="flex-col"> 
+                <h2 class="font-bold">
+                    What?
+                </h2> 
+                <p>Find me in app/views/main/about.html.erb</p>
+            </div>
+
+        </div>
+
+        <div class="flex flex-row-reverse justify-center mb-4 gap-4"> 
+            <%= image_tag ("telemetry.jpg"), width: '30%', height: '30%' %>
+
+            <div class="flex-col"> 
+                <h2 class="font-bold">
+                    Why?
+                </h2> 
+                <p>Find me in app/views/main/about.html.erb</p>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+
