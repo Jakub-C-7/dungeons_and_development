@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 import { GLTFLoader } from "https://ga.jspm.io/npm:three@0.157.0/examples/jsm/loaders/GLTFLoader.js"
-// import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import * as THREE from "three";
 
 // Connects to data-controller="landingpage"
@@ -21,16 +20,14 @@ export default class extends Controller {
     this.renderer.setSize(window.innerWidth * 0.75, window.innerHeight * 0.75);
     document.body.appendChild(this.renderer.domElement);
 
-    // const light = new THREE.AmbientLight(0xffffff,4)  //colour, intensity
-    // this.scene.add(light)
-    const directionalLight = new THREE.DirectionalLight( 0xffffff, 3 );
+    const directionalLight = new THREE.DirectionalLight( 0xffffff, 3 ); // (colour, intensity)
     directionalLight.position.set(5,10,7.5)
     this.scene.add(directionalLight)
 
     this.camera.position.set(0,48,96)
     this.camera.lookAt(0,0,0);  
     
-        // loading model
+    // loading model
     loader.load('/medieval_fantasy_book.glb', (gltf) => {
       this.globalGLTF = gltf
       this.mixer = new THREE.AnimationMixer( gltf.scene );
@@ -40,7 +37,6 @@ export default class extends Controller {
       this.scene.add(gltf.scene);
       this.clock = new THREE.Clock();
       this.animate();
-      //this.renderer.render(this.scene, this.camera);
     }, undefined, function(error){
       console.error(error);
     })
@@ -52,9 +48,7 @@ export default class extends Controller {
       requestAnimationFrame(this.animate.bind(this))
       var delta = this.clock.getDelta();
       if(this.mixer) this.mixer.update(delta)
-
       this.globalGLTF.scene.rotation.y = this.globalGLTF.scene.rotation. y + (delta  * 0.05)
-
       this.renderer.render(this.scene, this.camera)
     }
    
