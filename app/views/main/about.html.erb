@@ -3,14 +3,31 @@
         About#home
     </h1>
 
-    <div class="container flex justify-center "> 
-        <div class="flex-col"> 
-            <img src="images/telemetry.jpg"> </img>
-            <p>Find me in app/views/main/about.html.erb</p>
+    <div class="container flex-col justify-center">         
+        <div class="flex justify-center mb-4"> 
+            <%= image_tag ("telemetry.jpg"), width: '30%', height: '30%' %> 
+
+            <div class="flex-col"> 
+                <h2 class="text-xl font-bold underline">
+                    What?
+                </h2> 
+
+                <p>Find me in app/views/main/about.html.erb</p>
+            </div>
+
         </div>
-        <div class="flex"> 
-            <img src="images/telemetry.jpg"> </img>
-            <p>Find me in app/views/main/about.html.erb</p>
+
+        <div class="flex justify-center"> 
+            <%= image_tag ("telemetry.jpg"), width: '30%', height: '30%' %>
+
+            <div class="flex-col"> 
+                <h2 class="text-xl font-bold underline">
+                    Why?
+                </h2> 
+
+                <p>Find me in app/views/main/about.html.erb</p>
+            </div>
+
         </div>
     </div>
 
