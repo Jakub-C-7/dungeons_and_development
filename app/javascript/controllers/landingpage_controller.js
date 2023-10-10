@@ -18,7 +18,7 @@ export default class extends Controller {
     );
 
     this.renderer = new THREE.WebGLRenderer({alpha: true} );
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(window.innerWidth * 0.75, window.innerHeight * 0.75);
     document.body.appendChild(this.renderer.domElement);
 
     // const light = new THREE.AmbientLight(0xffffff,4)  //colour, intensity
@@ -32,6 +32,7 @@ export default class extends Controller {
     
         // loading model
     loader.load('/medieval_fantasy_book.glb', (gltf) => {
+      this.globalGLTF = gltf
       this.mixer = new THREE.AnimationMixer( gltf.scene );
       var action = this.mixer.clipAction( gltf.animations[0] );
       action.play();
@@ -51,6 +52,8 @@ export default class extends Controller {
       requestAnimationFrame(this.animate.bind(this))
       var delta = this.clock.getDelta();
       if(this.mixer) this.mixer.update(delta)
+
+      this.globalGLTF.scene.rotation.y = this.globalGLTF.scene.rotation. y + (delta  * 0.05)
 
       this.renderer.render(this.scene, this.camera)
     }
