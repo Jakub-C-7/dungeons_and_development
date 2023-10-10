@@ -29,18 +29,32 @@ export default class extends Controller {
 
     this.camera.position.set(0,48,96)
     this.camera.lookAt(0,0,0);  
-
+    
         // loading model
     loader.load('/medieval_fantasy_book.glb', (gltf) => {
-      this.scene.add(gltf.scene);
-      this.renderer.render(this.scene, this.camera);
+      this.mixer = new THREE.AnimationMixer( gltf.scene );
+      var action = this.mixer.clipAction( gltf.animations[0] );
+      action.play();
 
+      this.scene.add(gltf.scene);
+      this.clock = new THREE.Clock();
+      this.animate();
+      //this.renderer.render(this.scene, this.camera);
     }, undefined, function(error){
       console.error(error);
     })
-
-   
-
+    
+    
 
   }
+    animate() {
+      requestAnimationFrame(this.animate.bind(this))
+      var delta = this.clock.getDelta();
+      if(this.mixer) this.mixer.update(delta)
+
+      this.renderer.render(this.scene, this.camera)
+    }
+   
+
+  
 }
