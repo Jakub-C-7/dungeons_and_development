@@ -1,12 +1,12 @@
 <nav class="border-solid border-b-[2px] border-primaryFaded">
-  <div class="flex justify-between mt-2 mb-2 w-full h-[10vh] text-center ">
-    <a href="/" class="ml-2 pb-12 font-logoTitle text-2xl text-start text-primaryText">
+  <div class="flex justify-between mt-2 mb-2 w-full">
+    <a href="/" class="ml-2 pb-2 pt-2 font-logoTitle text-2xl lg:text-4xl 2xl:text-6xl text-start text-primaryText">
       Dungeons<br>
       And Development
     </a>
     <ul class="flex gap-4 mr-16">
         <% if current_user %>
-          <li class="p-1 text-black"> <%= link_to "Edit Account", edit_user_registration_path, class: "nav-link" %></li>
+          <li class="nav-btn-default"> <%= link_to "Edit Account", edit_user_registration_path, class: "nav-link" %></li>
           <li class="nav-btn-primary"> <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-small btn-primary mx-2" %></li>
         <% else %>
           <li class="nav-btn-primary"> <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"  %></li>
