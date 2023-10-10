@@ -5,8 +5,9 @@ import * as THREE from "three";
 // Connects to data-controller="landingpage"
 export default class extends Controller {
   connect() {
-    console.log("Hello stimulus")
     const loader = new GLTFLoader();
+    console.log(this.element);
+  
 
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
@@ -16,9 +17,8 @@ export default class extends Controller {
       1000
     );
 
-    this.renderer = new THREE.WebGLRenderer({alpha: true} );
+    this.renderer = new THREE.WebGLRenderer({alpha: true, canvas: this.element} );
     this.renderer.setSize(window.innerWidth * 0.75, window.innerHeight * 0.75);
-    document.body.appendChild(this.renderer.domElement);
 
     const directionalLight = new THREE.DirectionalLight( 0xffffff, 3 ); // (colour, intensity)
     directionalLight.position.set(5,10,7.5)
