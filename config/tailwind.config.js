@@ -12,6 +12,8 @@ module.exports = {
     extend: {
       colors: {
         primary: "#87619A",
+        primaryFaded: "#E7DFEA",
+        primaryText: "#51596A",
       },
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],

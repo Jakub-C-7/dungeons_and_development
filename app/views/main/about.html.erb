@@ -1,34 +1,32 @@
 <main> 
-    <h1 class="text-3xl font-bold underline">
-        About#home
+    <h1 class="text-3xl font-bold underline heading-margins">
+        About Us!
     </h1>
 
-    <div class="container flex-col justify-center">         
-        <div class="flex justify-center mb-4"> 
+    <div class="container flex-col justify-center gap-4">         
+        <div class="flex justify-center mb-8 gap-4"> 
             <%= image_tag ("telemetry.jpg"), width: '30%', height: '30%' %> 
 
             <div class="flex-col"> 
                 <h2 class="text-xl font-bold underline">
                     What?
                 </h2> 
-
                 <p>Find me in app/views/main/about.html.erb</p>
             </div>
 
         </div>
 
-        <div class="flex justify-center"> 
+        <div class="flex flex-row-reverse justify-center mb-4 gap-4"> 
             <%= image_tag ("telemetry.jpg"), width: '30%', height: '30%' %>
 
             <div class="flex-col"> 
                 <h2 class="text-xl font-bold underline">
                     Why?
                 </h2> 
-
                 <p>Find me in app/views/main/about.html.erb</p>
             </div>
-
         </div>
+
     </div>
 
 </main>

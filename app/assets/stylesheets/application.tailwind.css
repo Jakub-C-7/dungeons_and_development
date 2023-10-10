@@ -4,6 +4,9 @@
 
 @layer components {
   .nav-btn-primary {
-    @apply bg-primary rounded-md p-1 px-2 text-white;
+    @apply bg-primary rounded-md p-1 px-2 text-white mx-auto my-auto;
+  }
+  .heading-margins {
+    @apply mt-4 mb-8 ml-4 mr-4;
   }
 }
