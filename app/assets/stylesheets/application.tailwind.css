@@ -15,4 +15,7 @@
   .sub-text {
     @apply text-primaryText font-medium lg:text-[30px] sm:text-[26px] text-[16px] lg:leading-[40px] select-none;
   }
+  .sub-text-small {
+    @apply text-primaryText font-medium lg:text-[25px] sm:text-[21px] text-[11px] lg:leading-[35px] select-none;
+  }
 }
