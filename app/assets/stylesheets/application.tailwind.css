@@ -20,4 +20,8 @@
     @apply nav-btn-primary text-4xl min-w-[500px] text-center
   }
 
+  .background-image{
+    @apply fixed z-[-10]
+  }
+
 }
