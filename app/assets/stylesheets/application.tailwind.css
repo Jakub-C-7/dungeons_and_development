@@ -13,6 +13,11 @@
     @apply text-primaryText lg:text-[80px] sm:text-[60px] text-[40px] lg:leading-[98px] mt-4 mb-8 ml-4 mr-4 select-none pointer-events-none;
   }
   .sub-text {
-    @apply text-primaryText font-medium lg:text-[30px] sm:text-[26px] text-[16px] lg:leading-[40px] select-none pointer-events-none;
+    @apply text-primaryText font-medium lg:text-[30px] sm:text-[26px] text-[16px] lg:leading-[40px] select-none;
   }
+
+  .btn-primary {
+    @apply nav-btn-primary text-4xl min-w-[500px] text-center
+  }
+
 }
