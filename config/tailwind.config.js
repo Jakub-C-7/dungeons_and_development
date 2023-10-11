@@ -17,7 +17,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
-        logoTitle: ["Pixelify Sans", "sans-serif"],
+        logoTitle: ["MedievalSharp", "cursive"],
         headings: ["Dosis", "sans-serif"],
       },
     },
