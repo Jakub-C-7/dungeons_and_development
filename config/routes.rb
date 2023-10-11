@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'main#home'
+  unauthenticated do 
+    root 'main#home' 
+  end
+  authenticated do 
+    root 'users#profile', as: :authenticated_root
+  end
   get '/about', to: 'main#about'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -11,4 +16,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
 end
