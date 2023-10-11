@@ -7,10 +7,10 @@
     <ul class="flex gap-4 xl:gap-16 mr-16">
         <% if current_user %>
           <li class="nav-btn-default"> <%= link_to "Edit Account", edit_user_registration_path, class: "nav-link" %></li>
-          <li class="nav-btn-primary"> <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-small btn-primary mx-2" %></li>
+          <li class="nav-btn-primary"> <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-small btn-primary mx-2" %></li>
         <% else %>
-          <li class="nav-btn-primary"> <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"  %></li>
-          <li class="nav-btn-primary"> <%= link_to "Sign In", new_user_session_path, class: "nav-link"  %></li>
+          <li class="nav-btn-primary"> <%= link_to "Register", new_user_registration_path, class: "nav-link"  %></li>
+          <li class="nav-btn-primary"> <%= link_to "Login", new_user_session_path, class: "nav-link"  %></li>
         <% end %>
       </ul>
   </div>
