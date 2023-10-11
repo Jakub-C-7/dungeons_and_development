@@ -18,13 +18,13 @@ export default class extends Controller {
     );
 
     this.renderer = new THREE.WebGLRenderer({alpha: true, canvas: this.element} );
-    this.renderer.setSize(window.innerWidth * 0.75, window.innerHeight * 0.75);
+    this.renderer.setSize(window.innerWidth , window.innerHeight ) ;
 
     const directionalLight = new THREE.DirectionalLight( 0xffffff, 3 ); // (colour, intensity)
     directionalLight.position.set(5,10,7.5)
     this.scene.add(directionalLight)
 
-    this.camera.position.set(0,48,96)
+    this.camera.position.set(0,37,74)
     this.camera.lookAt(0,0,0);  
     
     // loading model
