@@ -31,7 +31,7 @@ If you already have the container ready to run, skip to the 'Running the docker 
 
 - Ruby version 3.2.2
 
-- Rails version 7.0.8
+- Rails version 7.1
 - Database: PostgreSQL
 
 - System dependencies...
