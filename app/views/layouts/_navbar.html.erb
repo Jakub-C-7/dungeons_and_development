@@ -10,7 +10,7 @@
           <li class="nav-btn-primary"> <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-small btn-primary mx-2" %></li>
         <% else %>
           <li class="nav-btn-primary"> <%= link_to "Register", new_user_registration_path, class: "nav-link"  %></li>
-          <li class="nav-btn-primary"> <%= link_to "Login", new_user_session_path, class: "nav-link"  %></li>
+          <li class="nav-btn-primary"> <%= link_to "Log in", new_user_session_path, class: "nav-link"  %></li>
         <% end %>
       </ul>
   </div>
