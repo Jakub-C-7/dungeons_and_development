@@ -1,15 +1,15 @@
 <div class="flex flex-col mt-16"> 
     <h1 class="text-3xl font-bold mx-auto mb-12">
-        Your profile!
+        Welcome Back!
     </h1>
 
     <div class="flex flex-col xl:flex-row"> 
         <div class="flex flex-col mx-auto justify-center items-center gap-4"> 
-            <h2 class="p-1 bg-[#E6DEEB]">AWS ENIGMA</h2> 
+            <h2 class="p-1 bg-[#E6DEEB]">The AWS Enigma</h2> 
             <%= image_tag ("telemetry.jpg"), width: '30%', height: '30%' %> 
             <h2 class="p-1 bg-[#E6DEEB]">TOBOLD SMALLBURROW - Level 2</h2> 
             <h2 class="p-1 bg-[#E6DEEB]">ARCHITECT</h2> 
-            <h2 class="p-1 bg-[#E6DEEB]">Customise Profile</h2> 
+            <h2 class="p-1">Customise Profile</h2> 
             <p class="p-1">Interests box here</p> 
         </div>
 
@@ -31,13 +31,6 @@
             <div class="flex flex-row p-2 bg-[#F9EFD6] w-3/4 justify-center items-center gap-8"> 
                 <div>
                     <h2>Memorial Hall</h2>
-                    <%= current_user.email %>
-                </div>
-                <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
-            </div>
-            <div class="flex flex-row p-2 bg-[#E6DEEB] w-3/4 justify-center items-center gap-8"> 
-                <div>
-                    <h2>Discover</h2>
                     <%= current_user.email %>
                 </div>
                 <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
