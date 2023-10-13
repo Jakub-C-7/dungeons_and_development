@@ -1,9 +1,9 @@
 <div class="flex flex-col mt-16"> 
-    <h1 class="text-3xl font-bold mx-auto">
+    <h1 class="text-3xl font-bold mx-auto mb-12">
         Your profile!
     </h1>
 
-    <div class="flex flex-row space-around"> 
+    <div class="flex flex-row"> 
         <div class="flex flex-col mx-auto justify-center items-center gap-4"> 
             <h2>AWS ENIGMA</h2> 
             <%= image_tag ("telemetry.jpg"), width: '30%', height: '30%' %> 
@@ -12,20 +12,32 @@
         </div>
 
         <div class="flex flex-col mx-auto justify-center items-center gap-4"> 
-            <div class="flex flex-row"> 
-                <%= current_user.email %>
+            <div class="flex flex-row p-2 bg-[#D8E9F0] w-3/4 justify-center items-center"> 
+                <div>
+                    <h2>Discover</h2>
+                    <%= current_user.email %>
+                </div>
                 <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
             </div>
-             <div class="flex flex-row"> 
-                <%= current_user.email %>
+            <div class="flex flex-row p-2 bg-[#D5ECE2] w-3/4 justify-center items-center"> 
+                <div>
+                    <h2>Discover</h2>
+                    <%= current_user.email %>
+                </div>
                 <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
             </div>
-             <div class="flex flex-row"> 
-                <%= current_user.email %>
+            <div class="flex flex-row p-2 bg-[#F9EFD6] w-3/4 justify-center items-center"> 
+                <div>
+                    <h2>Discover</h2>
+                    <%= current_user.email %>
+                </div>
                 <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
             </div>
-             <div class="flex flex-row"> 
-                <%= current_user.email %>
+            <div class="flex flex-row p-2 bg-[#E6DEEB] w-3/4 justify-center items-center"> 
+                <div>
+                    <h2>Discover</h2>
+                    <%= current_user.email %>
+                </div>
                 <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
             </div>
         </div>
