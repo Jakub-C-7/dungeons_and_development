@@ -1,5 +1,15 @@
-<div class="flex mt-16"> 
+<div class="flex flex-col mt-16"> 
     <h1 class="text-3xl font-bold mx-auto">
         Your profile!
     </h1>
+
+    <div class="flex flex-row space-around"> 
+        <div class="flex flex-col mx-auto"> 
+            <%= current_user.email %>
+        </div>
+
+        <div class="flex flex-col mx-auto"> 
+            <%= current_user.email %>
+        </div>
+    </div>
 </div>
