@@ -4,12 +4,31 @@
     </h1>
 
     <div class="flex flex-row space-around"> 
-        <div class="flex flex-col mx-auto"> 
-            <%= current_user.email %>
+        <div class="flex flex-col mx-auto justify-center items-center gap-4"> 
+            <h2>AWS ENIGMA</h2> 
+            <%= image_tag ("telemetry.jpg"), width: '30%', height: '30%' %> 
+            <h2>TOBOLD SMALLBURROW</h2> 
+            <h2>ARCHITECT</h2> 
         </div>
 
-        <div class="flex flex-col mx-auto"> 
-            <%= current_user.email %>
+        <div class="flex flex-col mx-auto justify-center items-center gap-4"> 
+            <div class="flex flex-row"> 
+                <%= current_user.email %>
+                <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
+            </div>
+             <div class="flex flex-row"> 
+                <%= current_user.email %>
+                <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
+            </div>
+             <div class="flex flex-row"> 
+                <%= current_user.email %>
+                <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
+            </div>
+             <div class="flex flex-row"> 
+                <%= current_user.email %>
+                <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
+            </div>
         </div>
+        
     </div>
 </div>
