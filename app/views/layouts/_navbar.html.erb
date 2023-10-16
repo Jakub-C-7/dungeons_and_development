@@ -21,10 +21,10 @@
         <%= link_to "About", about_path, class: "block mt-4 lg:inline-block lg:mt-0 hover:text-primary mr-4"  %>
       <% end %>
     </div>
-    <div>
+    <div class="flex">
       <% if current_user %>
         <%= link_to "Settings", edit_user_registration_path, class: "inline-block text-sm px-4 py-2 leading-none border border-primary hover:text-black hover:bg-primaryFaded mt-4 lg:mt-0" %>
-        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "inline-block text-sm px-4 py-2 leading-none border border-primary hover:text-black hover:bg-primaryFaded mt-4 lg:mt-0" %></li>
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "inline-block text-sm px-4 py-2 leading-none border border-primary hover:text-black hover:bg-primaryFaded mt-4 lg:mt-0" %>
       <% else %>
         <%= link_to "Register", new_user_registration_path, class: "inline-block text-sm px-4 py-2 leading-none border border-primary hover:text-black hover:bg-primaryFaded mt-4 lg:mt-0"  %>
         <%= link_to "Log in", new_user_session_path, class: "inline-block text-sm px-4 py-2 leading-none border border-primary hover:text-black hover:bg-primaryFaded mt-4 lg:mt-0"  %>
@@ -32,36 +32,3 @@
     </div>
   </div>
 </nav>
-
-
-<%
-=begin%>
- <nav class="border-solid border-b-[2px] border-primaryFaded">
-  <div class="flex justify-between mt-2 mb-2 w-full">
-    <a href="/" class="ml-4 pb-2 pt-2 font-logoTitle text-2xl lg:text-3xl 2xl:text-5xl text-start text-primaryText">
-      Dungeons<br>
-      And Development
-    </a>
-    <ul class="flex gap-4 xl:gap-16 mr-16">
-        <% if current_user %>
-          <li class="nav-btn-default"> <%= link_to "Profile", edit_user_registration_path, class: "nav-link" %></li>
-          <li class="nav-btn-default"> <%= link_to "Active Quests", edit_user_registration_path, class: "nav-link" %></li>
-          <li class="nav-btn-default"> <%= link_to "Hub", edit_user_registration_path, class: "nav-link" %></li>
-          <li class="nav-btn-default"> <%= link_to "Memorial Hall", edit_user_registration_path, class: "nav-link" %></li>
-        <% else %>
-          <li class="nav-btn-primary"> <%= link_to "About", about_path, class: "nav-link"  %></li>
-        <% end %>
-      </ul>
-    <ul class="flex gap-4 xl:gap-16 mr-16">
-        <% if current_user %>
-          <li class="nav-btn-default"> <%= link_to "Settings", edit_user_registration_path, class: "nav-link" %></li>
-          <li class="nav-btn-primary"> <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-small btn-primary mx-2" %></li>
-        <% else %>
-          <li class="nav-btn-primary"> <%= link_to "Register", new_user_registration_path, class: "nav-link"  %></li>
-          <li class="nav-btn-primary"> <%= link_to "Log in", new_user_session_path, class: "nav-link"  %></li>
-        <% end %>
-      </ul>
-  </div>
-</nav> 
-<%
-=end%>
