@@ -13,28 +13,37 @@
             <p class="p-1">Interests box here</p> 
         </div>
 
-        <div class="flex flex-col mx-auto justify-center items-center gap-4 mt-16 xl:mt-0"> 
-            <div class="flex flex-row p-2 bg-[#D8E9F0] w-3/4 justify-center items-center gap-8 transition-grow"> 
-                <div class="sub-text-small">
-                    <h2 class="sub-text underline">The Hub</h2>
-                    <%= current_user.email %>
+        <div class="flex flex-col mx-auto justify-center items-center gap-4 mt-16 self-center xl:mt-0"> 
+            <%= link_to edit_user_registration_path, class: "flex flex-col justify-center items-center" do %>
+                <div class="flex flex-row p-2 bg-[#D8E9F0] w-3/4 justify-center items-center gap-8 transition-grow"> 
+                    <div class="sub-text-small">
+                        <h2 class="sub-text underline">The Hub</h2>
+                        <%= current_user.email %>
+                    </div>
+                    <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
                 </div>
-                <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
-            </div>
-            <div class="flex flex-row p-2 bg-[#D5ECE2] w-3/4 justify-center items-center gap-8 transition-grow"> 
-                <div class="sub-text-small">
-                    <h2 class="sub-text underline">Active Quests</h2>
-                    <%= current_user.email %>
+            <% end %>
+            
+            <%= link_to edit_user_registration_path, class: "flex flex-col justify-center items-center" do %>
+                <div class="flex flex-row p-2 bg-[#D5ECE2] w-3/4 justify-center items-center gap-8 transition-grow"> 
+                    <div class="sub-text-small">
+                        <h2 class="sub-text underline">Active Quests</h2>
+                        <%= current_user.email %>
+                    </div>
+                    <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
                 </div>
-                <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
-            </div>
-            <div class="flex flex-row p-2 bg-[#F9EFD6] w-3/4 justify-center items-center gap-8 transition-grow"> 
-                <div class="sub-text-small">
-                    <h2 class="sub-text underline">Memorial Hall</h2>
-                    <%= current_user.email %>
+            <% end %>
+
+            <%= link_to edit_user_registration_path, class: "flex flex-col justify-center items-center" do %>
+                <div class="flex flex-row p-2 bg-[#F9EFD6] w-3/4 justify-center items-center gap-8 transition-grow"> 
+                    <div class="sub-text-small">
+                        <h2 class="sub-text underline">Memorial Hall</h2>
+                        <%= current_user.email %>
+                    </div>
+                    <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
                 </div>
-                <%= image_tag ("telemetry.jpg"), width: '25%', height: '25%' %> 
-            </div>
+            <% end %>
+
         </div>
         
     </div>
