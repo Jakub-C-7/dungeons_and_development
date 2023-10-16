@@ -22,11 +22,12 @@
     @apply sub-text-small opacity-70 hover:opacity-90 m-1;
   }
   .btn-primary {
-    @apply nav-btn-primary text-4xl min-w-[500px] text-center
+    @apply nav-btn-primary text-4xl min-w-[500px] text-center;
   }
-
-  .background-image{
-    @apply fixed z-[-10]
+  .background-image {
+    @apply fixed z-[-10];
   }
-
+  .transition-grow {
+    @apply transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none;
+  }
 }
