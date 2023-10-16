@@ -2,9 +2,7 @@
 <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script>
 
 
-<select name="interests" id="interests" multiple data-controller="interestselection">
-    <% @interests.each do |interest| %>
-        <option value ="<%= interest.id %>" > <%= interest.name %> </option>
-    <% end %>
-</select>
 
+ 
+<%= select_tag "interests", options_from_collection_for_select(@interests, "id", "name"), multiple:true, data: {controller:"interestselection"}%>
+    

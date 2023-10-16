@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user 
-    before_action :check_setup, except: [:setup]
+    before_action :check_setup, except: [:setup, :updateprofile]
 
     def profile
 
@@ -8,12 +8,16 @@ class UsersController < ApplicationController
 
     def setup
         @interests = Interest.all();
-        p @interests
+        @jobs = Interest.where(isRole: true)
     end
 
 
     def set_user
         @user = current_user
+    end
+
+    def updateprofile
+        p "Updated"
     end
 
     

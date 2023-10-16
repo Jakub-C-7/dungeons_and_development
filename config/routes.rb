@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   authenticated do 
     root 'users#profile', as: :authenticated_root
     get '/setup', to: "users#setup",  as: :setup  
+    post '/updateProfile', to: "users#updateprofile", as: :updateprofile
   end
   get '/about', to: 'main#about'
 

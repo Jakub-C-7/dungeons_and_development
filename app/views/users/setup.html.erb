@@ -1,8 +1,13 @@
-
 <div class="flex mt-16"> 
-    <h1 class="text-3xl font-bold mx-auto">
-        Set up
-    </h1>
-</div>
+        <h1 class="text-3xl font-bold mx-auto">
+            Set up
+        </h1>
+    </div>
+<%= form_tag :controller => "users", :action => "updateprofile", :method => "post" do  %>
 
-<%= render 'users/interests' %>
+    <%= select_tag "jobs", options_from_collection_for_select(@jobs, "id", "name") %>
+
+    <%= render 'users/interests' %>
+    <%= submit_tag 'Submit' %>
+
+<% end %>
