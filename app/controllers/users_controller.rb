@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user 
-    before_action :check_setup, except: [:setup, :updateprofile]
+    before_action :check_setup, except: [:setup, :update_interests]
 
     def profile
 
@@ -16,8 +16,9 @@ class UsersController < ApplicationController
         @user = current_user
     end
 
-    def updateprofile
+    def update_interests
         p "Updated"
+        p interest_params
     end
 
     
@@ -28,4 +29,13 @@ class UsersController < ApplicationController
             redirect_to setup_path
         end
     end
+
+     # Only allow a list of trusted parameters through.
+     def interest_params
+        params.permit(:primary_role, :interests => [])
+    end
+
+
+     
+  
 end
