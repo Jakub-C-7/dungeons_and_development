@@ -18,7 +18,23 @@ class UsersController < ApplicationController
 
     def update_interests
         p "Updated"
-        p interest_params
+
+        UserInterest.destroy_by(user_id: current_user.id)
+        @user_interest  = UserInterest.new(user_id: current_user.id, interest_id: interest_params[:primary_role], isPrimaryRole: true)
+        begin
+            @user_interest.save
+        rescue => error
+        end
+        interest_params[:interests].each  do|interest|
+            p interest
+            @user_interest  = UserInterest.new(user_id: current_user.id, interest_id: interest, isPrimaryRole: false)
+            begin
+                @user_interest.save
+            rescue => error
+                p error 
+            end
+        end
+        
     end
 
     

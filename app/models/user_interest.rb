@@ -1,5 +1,5 @@
 class UserInterest < ApplicationRecord
-  validates_uniqueness_of :user_id, conditions: -> { where(isPrimaryRole: true) }
+  validates :user_id, uniqueness: true, if: -> {isPrimaryRole}
 
   belongs_to :user
   belongs_to :interest
