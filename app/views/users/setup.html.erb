@@ -1,30 +1,65 @@
 
 <div class="flex mt-16"> 
-                <h1 class="text-4xl font-bold mx-auto border-b-[10px] border-primary w-full ml-[200px]">
-                    Finish setting up your profile
-                </h1>
+    <h1 class="text-4xl font-bold mx-auto border-b-[10px] border-primary w-full ml-[200px]">
+        Finish setting up your profile
+    </h1>
                 
 </div>
-            <h2 class="text-2xl font-bold mx-auto w-full ml-[200px]">
-                    You can always change these later
-            </h2>
-
-<div class="w-[1000px]  flex flex-col justify-center mx-auto bg-primaryFaded mt-16 p-10" >
-        
-        <%= form_tag({:controller => "users", :action => "update_interests", :method => "post" }, {:class => "space-y-5"}) do  %>
-            <div class="flex">
-                <%= label_tag :name, "Full Name:",class:"w-[200px]"  %>
-
-                <%= text_field_tag "name", nil, class:"grow", :required => true %>
-            </div>
-            <div class="flex">
-                <%= label_tag :primary_role, "Job Title:", class:"w-[200px]" %>
-
-                <%= select_tag "primary_role", options_from_collection_for_select(@jobs, "id", "name"), class:"grow", :include_blank => '-- Select One --' , :required => true %>
-            </div>
-            <%= render partial: 'users/interests', locals: {selected_interests: [], mode:"edit"} %>
-            <div class="flex  items-center">
-                <%= submit_tag 'Next', class:'btn-primary' %>
-            </div>
-        <% end %>
+<div class="flex "> 
+  <h2 class="text-2xl font-bold mx-auto w-full ml-[200px]">
+    You can always change these later
+    </h2>              
 </div>
+
+
+        
+<%= form_tag({:controller => "users", :action => "update_interests", :method => "post" }, {:class => "flex flex-col space-y-5 items-center"}) do  %>
+    <div class="flex "> 
+        <h2 class="text-2xl font-bold mx-auto w-full">
+           Choose your look 
+        </h2>              
+    </div>
+    <div class="flex flex-row mt-16 justify-center items-center max-w-[1000px] overflow-x-scroll">
+
+        <label>
+            <%= radio_button_tag :character,"warrior", class:"character-select hidden" %>
+            <%= image_tag("character.png", :alt => "warrior", class:"max-w-[300px]") %>
+        </label>
+        <label>
+            <%= radio_button_tag :character,"wizard",class:"character-select hidden" %>
+            <%= image_tag("character.png", :alt => "wizard",class:"max-w-[300px]") %>
+        </label>
+        <label>
+            <%= radio_button_tag :character,"witch",class:"character-select hidden"%>
+            <%= image_tag("character.png", :alt => "witch",class:"max-w-[300px]") %>
+        </label>
+        <label>
+            <%= radio_button_tag :character,"boar", class:"character-select hidden"%>
+            <%= image_tag("character.png", :alt => "boar",class:"max-w-[300px]") %>
+        </label>
+        <label>
+            <%= radio_button_tag :character,"maiden", class:"character-select hidden"%>
+            <%= image_tag("character.png", :alt => "maiden",class:"max-w-[300px]") %>
+        </label>
+       
+    </div>
+  
+
+    <div class="w-[1000px]  flex flex-col justify-center mx-auto bg-primaryFaded mt-16 p-10 space-y-5" >
+
+        <div class="flex">
+            <%= label_tag :name, "Full Name:",class:"w-[200px]"  %>
+
+            <%= text_field_tag "name", nil, class:"grow", :required => true %>
+        </div>
+        <div class="flex">
+            <%= label_tag :primary_role, "Job Title:", class:"w-[200px]" %>
+
+            <%= select_tag "primary_role", options_from_collection_for_select(@jobs, "id", "name"), class:"grow", :include_blank => '-- Select One --' , :required => true %>
+        </div>
+        <%= render partial: 'users/interests', locals: {selected_interests: [], mode:"edit"} %>
+        <div class="flex  items-center">
+            <%= submit_tag 'Next', class:'btn-primary' %>
+        </div>
+    </div>
+<% end %>
