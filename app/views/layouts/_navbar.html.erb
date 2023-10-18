@@ -13,9 +13,9 @@
   <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
     <div class="text-base lg:flex-grow">
       <% if current_user %>
-        <%= link_to "Profile", edit_user_registration_path, class: "block mt-4 lg:inline-block lg:mt-0 hover:text-primary mr-4 border-solid border-l-[2px] border-r-[2px] border-primaryFaded hover:bg-primaryFaded px-4 py-2" %>
+        <%= link_to "Profile", authenticated_root_path, class: "block mt-4 lg:inline-block lg:mt-0 hover:text-primary mr-4 border-solid border-l-[2px] border-r-[2px] border-primaryFaded hover:bg-primaryFaded px-4 py-2" %>
         <%= link_to "Active Quests", edit_user_registration_path, class: "block mt-4 lg:inline-block lg:mt-0 hover:text-primary mr-4 border-solid border-l-[2px] border-r-[2px] border-primaryFaded hover:bg-primaryFaded px-4 py-2" %>
-        <%= link_to "Hub", edit_user_registration_path, class: "block mt-4 lg:inline-block lg:mt-0 hover:text-primary mr-4 border-solid border-l-[2px] border-r-[2px] border-primaryFaded hover:bg-primaryFaded px-4 py-2" %>
+        <%= link_to "Hub", tavern_path, class: "block mt-4 lg:inline-block lg:mt-0 hover:text-primary mr-4 border-solid border-l-[2px] border-r-[2px] border-primaryFaded hover:bg-primaryFaded px-4 py-2" %>
         <%= link_to "Memorial Hall", edit_user_registration_path, class: "block mt-4 lg:inline-block lg:mt-0 hover:text-primary border-solid border-l-[2px] border-r-[2px] border-primaryFaded hover:bg-primaryFaded px-4 py-2" %>
       <% else %>
         <%= link_to "About", about_path, class: "block mt-4 lg:inline-block lg:mt-0 hover:text-primary mr-4 border-solid border-l-[2px] border-r-[2px] border-primaryFaded hover:bg-primaryFaded px-4 py-2"  %>
