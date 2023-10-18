@@ -17,22 +17,29 @@ class UsersController < ApplicationController
     end
 
     def update_interests
-        p "Updated"
+        if UserInterest.destroy_by(user_id: current_user.id)
 
-        UserInterest.destroy_by(user_id: current_user.id)
-        @user_interest  = UserInterest.new(user_id: current_user.id, interest_id: interest_params[:primary_role], isPrimaryRole: true)
-        begin
-            @user_interest.save
-        rescue => error
-        end
-        interest_params[:interests].each  do|interest|
-            p interest
-            @user_interest  = UserInterest.new(user_id: current_user.id, interest_id: interest, isPrimaryRole: false)
+        #Doesn't work and I want to understand why - probably a race condition
+        # UserInterest.where(["user_id = ? and interest_id NOT IN (?)", current_user.id, interest_params[:interests]]).destroy_all
+        # UserInterest.where(user_id: current_user.id, isPrimaryRole: true).destroy_all
+
+            @user_interest  = UserInterest.new(user_id: current_user.id, interest_id: interest_params[:primary_role], isPrimaryRole: true)
             begin
                 @user_interest.save
             rescue => error
-                p error 
+                p error
             end
+            
+            interest_params[:interests].each  do|interest|
+                p interest
+                @user_interest  = UserInterest.new(user_id: current_user.id, interest_id: interest, isPrimaryRole: false)
+                begin
+                    @user_interest.save
+                rescue => error
+                    p error 
+                end
+            end
+            redirect_to root_path
         end
         
     end

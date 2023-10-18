@@ -1,19 +1,30 @@
-<div class="max-w-[800px] mx-auto" >
 
-    <div class="flex mt-16"> 
-            <h1 class="text-3xl font-bold mx-auto">
-                Set up
-            </h1>
-        </div>
-    <%= form_tag :controller => "users", :action => "update_interests", :method => "post" do  %>
+<div class="flex mt-16"> 
+                <h1 class="text-4xl font-bold mx-auto border-b-[10px] border-primary w-full ml-[200px]">
+                    Finish setting up your profile
+                </h1>
+                
+</div>
+            <h2 class="text-2xl font-bold mx-auto w-full ml-[200px]">
+                    You can always change these later
+            </h2>
 
-        <div class="flex">
-            <%= label :primary_role, "Primary Role:" %>
+<div class="w-[1000px]  flex flex-col justify-center mx-auto bg-primaryFaded mt-16 p-10" >
+        
+        <%= form_tag({:controller => "users", :action => "update_interests", :method => "post" }, {:class => "space-y-5"}) do  %>
+            <div class="flex">
+                <%= label_tag :name, "Full Name:",class:"w-[200px]"  %>
 
-            <%= select_tag "primary_role", options_from_collection_for_select(@jobs, "id", "name"), class:"grow", :include_blank => '-- Select One --' , :required => true %>
-        </div>
-        <%= render partial: 'users/interests', locals: {selected_interests: []} %>
-        <%= submit_tag 'Submit', class:'btn-primary' %>
+                <%= text_field_tag "name", nil, class:"grow", :required => true %>
+            </div>
+            <div class="flex">
+                <%= label_tag :primary_role, "Job Title:", class:"w-[200px]" %>
 
-    <% end %>
+                <%= select_tag "primary_role", options_from_collection_for_select(@jobs, "id", "name"), class:"grow", :include_blank => '-- Select One --' , :required => true %>
+            </div>
+            <%= render partial: 'users/interests', locals: {selected_interests: [], mode:"edit"} %>
+            <div class="flex  items-center">
+                <%= submit_tag 'Next', class:'btn-primary' %>
+            </div>
+        <% end %>
 </div>
