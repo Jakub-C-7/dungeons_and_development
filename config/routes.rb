@@ -3,11 +3,17 @@ Rails.application.routes.draw do
   unauthenticated do 
     root 'main#home' 
   end
+
   authenticated do 
     root 'users#profile', as: :authenticated_root
+
     get '/setup', to: "users#setup",  as: :setup  
     post '/updateInterests', to: "users#update_interests", as: :update_interests
+
+    get '/tavern', to: 'tavern#home'
+
   end
+  
   get '/about', to: 'main#about'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
