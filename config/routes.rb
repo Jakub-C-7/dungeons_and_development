@@ -6,7 +6,12 @@ Rails.application.routes.draw do
 
   authenticated do 
     root 'users#profile', as: :authenticated_root
+
+    get '/setup', to: "users#setup",  as: :setup  
+    post '/updateInterests', to: "users#update_interests", as: :update_interests
+
     get '/tavern', to: 'tavern#home'
+
   end
   
   get '/about', to: 'main#about'
@@ -19,5 +24,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+
 
 end

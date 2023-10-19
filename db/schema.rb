@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_18_150419) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_18_172947) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "character_selections", force: :cascade do |t|
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "interests", force: :cascade do |t|
     t.string "name"
@@ -126,6 +132,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_18_150419) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "character_selection_id"
+    t.index ["character_selection_id"], name: "index_users_on_character_selection_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -142,6 +150,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_18_150419) do
   add_foreign_key "task_interests", "tasks"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"
+  add_foreign_key "users", "character_selections"
   add_foreign_key "user_tasks", "tasks"
   add_foreign_key "user_tasks", "users"
 end

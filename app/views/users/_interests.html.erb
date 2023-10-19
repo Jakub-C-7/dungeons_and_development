@@ -1,0 +1,6 @@
+<%= stylesheet_link_tag "multi-select", "data-turbo-track": "reload" %>
+
+
+<div class=" <%= mode %>">
+    <%= select_tag "interests", options_from_collection_for_select(@interests, "id", "name",{:selected => selected_interests}), :required => true, multiple:true, data: {controller:"interestselection"}%>
+</div>    

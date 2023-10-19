@@ -24,3 +24,9 @@
     bottom: 10px;
     z-index: -5;
  }
+
+ input.character-select:checked +img {
+   border: 10px solid green;
+}
+
+ 

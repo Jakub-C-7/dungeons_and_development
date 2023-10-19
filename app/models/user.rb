@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_interests
   has_many :interests, through: :user_interests 
+  belongs_to :character_selection, optional: true
   has_many :user_tasks
   has_many :tasks, through: :user_tasks 
 end

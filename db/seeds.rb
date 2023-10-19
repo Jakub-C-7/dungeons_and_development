@@ -7,9 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-UserInterest.destroy_all
+require 'faker'
 
-User.destroy_all
+require_relative './seedData/01_usersSeed.rb'
+require_relative './seedData/02_interestSeed.rb'
+require_relative './seedData/03_characterSelectionSeed.rb'
 
 user1 = User.create! :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
 user2 = User.create! :email => 'sally@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
@@ -149,3 +151,4 @@ user1.user_tasks.create(
     task_id: 1,
     progress: 0
     )
+
