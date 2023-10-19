@@ -3,7 +3,9 @@ class UsersController < ApplicationController
     before_action :check_setup, except: [:setup, :update_interests]
 
     def profile
-
+        @interests = Interest.all();
+        @selected_interests = current_user.interests.pluck(:id);
+        
     end
 
     def setup
@@ -41,6 +43,7 @@ class UsersController < ApplicationController
                 end
             end
             current_user.character_selection_id = interest_params[:character_selection]
+            current_user.name = interest_params[:name]
             respond_to do |format|
                 if current_user.save
                     format.html{ redirect_to root_path, notice: "Details saved"}
@@ -64,7 +67,7 @@ class UsersController < ApplicationController
 
      # Only allow a list of trusted parameters through.
      def interest_params
-        params.permit(:primary_role, :character_selection, :interests => [])
+        params.permit(:primary_role, :character_selection, :name, :interests => [])
     end
 
 

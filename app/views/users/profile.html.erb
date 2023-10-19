@@ -3,14 +3,14 @@
         Welcome Back!
     </h1>
 
-    <div class="flex flex-col xl:flex-row mb-12"> 
+    <div class="flex flex-col xl:flex-row mb-12" data-controller="profileedit" data-profileedit-target="editContainer"> 
         <div class="flex flex-col mx-auto justify-center items-center gap-4"> 
             <h2 class="p-1 bg-[#E6DEEB]">The AWS Enigma</h2> 
-            <%= image_tag ("telemetry.jpg"), width: '30%', height: '30%' %> 
-            <h2 class="p-1 bg-[#E6DEEB]"><%= current_user.email %> - Level 2</h2> 
+            <%= image_tag (current_user.character_selection.url), width: '300px' %> 
+            <h2 class="p-1 bg-[#E6DEEB]"><%= current_user.name %> - Level 2</h2> 
             <h2 class="p-1 bg-[#E6DEEB]">ARCHITECT</h2> 
-            <h2 class="p-1">Customise Profile</h2> 
-            <p class="p-1">Interests box here</p> 
+            <h2 class="p-1" id="toggleEdit">Customise Profile</h2> 
+            <%= render partial: 'users/interests', locals: {selected_interests: @selected_interests, mode:"display"} %>
         </div>
 
         <div class="flex flex-col mx-auto justify-center items-center gap-4 mt-16 self-center xl:mt-0 min-w-[50vw]"> 
