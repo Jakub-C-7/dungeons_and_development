@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   unauthenticated do 
     root 'main#home' 
   end
+
   authenticated do 
     root 'users#profile', as: :authenticated_root
+    get '/tavern', to: 'tavern#home'
   end
+  
   get '/about', to: 'main#about'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

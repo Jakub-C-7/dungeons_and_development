@@ -20,6 +20,9 @@ module.exports = {
         logoTitle: ["MedievalSharp", "cursive"],
         headings: ["Dosis", "sans-serif"],
       },
+      backgroundImage: {
+        "tavern-landing": "url('tavern-landing-bg.jpg')",
+      },
     },
   },
   plugins: [

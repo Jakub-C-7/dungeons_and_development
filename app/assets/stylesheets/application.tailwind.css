@@ -28,6 +28,6 @@
     @apply fixed z-[-10];
   }
   .transition-grow {
-    @apply transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none;
+    @apply transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none;
   }
 }

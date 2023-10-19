@@ -1,0 +1,2 @@
+module TavernHelper
+end

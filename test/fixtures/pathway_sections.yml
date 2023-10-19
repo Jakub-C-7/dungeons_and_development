@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  section: one
+  pathway: one
+  step_number: 1
+
+two:
+  section: two
+  pathway: two
+  step_number: 1
