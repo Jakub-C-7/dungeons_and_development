@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     def setup
         @interests = Interest.all();
         @jobs = Interest.where(isRole: true)
+        @character_selection = CharacterSelection.all();
     end
 
 
@@ -39,8 +40,16 @@ class UsersController < ApplicationController
                     p error 
                 end
             end
-            redirect_to root_path
+            current_user.character_selection_id = interest_params[:character_selection]
+            respond_to do |format|
+                if current_user.save
+                    format.html{ redirect_to root_path, notice: "Details saved"}
+                else 
+                    format.html{ render :setup, status: :unprocessable_entity}
+                end
+            end
         end
+
         
     end
 
@@ -55,7 +64,7 @@ class UsersController < ApplicationController
 
      # Only allow a list of trusted parameters through.
      def interest_params
-        params.permit(:primary_role, :interests => [])
+        params.permit(:primary_role, :character_selection, :interests => [])
     end
 
 

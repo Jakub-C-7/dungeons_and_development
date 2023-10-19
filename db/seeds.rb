@@ -12,3 +12,4 @@ require 'faker'
 
 require_relative './seedData/01_usersSeed.rb'
 require_relative './seedData/02_interestSeed.rb'
+require_relative './seedData/03_characterSelectionSeed.rb'

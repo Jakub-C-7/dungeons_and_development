@@ -19,30 +19,17 @@
            Choose your look 
         </h2>              
     </div>
-    <div class="flex flex-row mt-16 justify-center items-center max-w-[1000px] overflow-x-scroll">
+        <div class="flex flex-row mt-16 justify-center items-center max-w-[1000px] pl-[300px] overflow-x-scroll">
 
+        <% @character_selection.each do |character_selection| %>
         <label>
-            <%= radio_button_tag :character,"warrior", class:"character-select hidden" %>
-            <%= image_tag("character.png", :alt => "warrior", class:"max-w-[300px]") %>
-        </label>
-        <label>
-            <%= radio_button_tag :character,"wizard",class:"character-select hidden" %>
-            <%= image_tag("character.png", :alt => "wizard",class:"max-w-[300px]") %>
-        </label>
-        <label>
-            <%= radio_button_tag :character,"witch",class:"character-select hidden"%>
-            <%= image_tag("character.png", :alt => "witch",class:"max-w-[300px]") %>
-        </label>
-        <label>
-            <%= radio_button_tag :character,"boar", class:"character-select hidden"%>
-            <%= image_tag("character.png", :alt => "boar",class:"max-w-[300px]") %>
-        </label>
-        <label>
-            <%= radio_button_tag :character,"maiden", class:"character-select hidden"%>
-            <%= image_tag("character.png", :alt => "maiden",class:"max-w-[300px]") %>
-        </label>
+                <%= radio_button_tag :character_selection,character_selection.id, class:"character-select hidden" %>
+                <%= image_tag(character_selection.url, :alt => character_selection.id, class:"max-w-[300px]") %>
+          </label>
+        <% end %>
        
     </div>
+    
   
 
     <div class="w-[1000px]  flex flex-col justify-center mx-auto bg-primaryFaded mt-16 p-10 space-y-5" >
