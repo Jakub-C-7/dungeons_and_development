@@ -43,6 +43,14 @@ function MultiSelectTag (el, customs = {shadow: false, rounded:true}) {
         enableItemSelection()
         setValues(false)
 
+        inputContainer.addEventListener('click', () => {
+            if(drawer.classList.contains('hidden')) {
+                initOptions()
+                enableItemSelection()
+                drawer.classList.remove('hidden')
+                input.focus()
+            }
+        })
         button.addEventListener('click', () => {
             if(drawer.classList.contains('hidden')) {
                 initOptions()
