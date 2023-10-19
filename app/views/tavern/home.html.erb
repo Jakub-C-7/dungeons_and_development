@@ -1,4 +1,15 @@
-<div class="bg-tavern-landing bg-cover bg-no-repeat bg-center w-full h-full" >
-  <h1 class="font-bold text-4xl">Tavern#home</h1>
-  <p>Find me in app/views/tavern/home.html.erb</p>
+<div class="bg-tavern-landing bg-cover bg-no-repeat bg-center w-full h-full relative" >
+  <h1 class="font-bold text-4xl">Welcome to the Tavern</h1>
+
+  <%= link_to root_path do %>
+    <%= image_tag("character.png", :alt => "npc1", class:"w-[100px] lg:w-[150px] 2xl:w-[200px] absolute bottom-[22%] left-[23%] transition-grow") %>
+  <% end %>
+
+  <%= link_to root_path do %>
+    <%= image_tag("character.png", :alt => "npc2", class:"w-[100px] lg:w-[150px] 2xl:w-[200px] absolute bottom-[37%] left-[32%] transition-grow") %>
+  <% end %>
+
+  <%= link_to root_path do %>
+    <%= image_tag("character.png", :alt => "npc3", class:"w-[100px] lg:w-[150px] 2xl:w-[200px] absolute bottom-[16%] right-[30%] transition-grow") %>
+  <% end %> 
 </div>
