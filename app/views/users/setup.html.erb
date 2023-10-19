@@ -41,8 +41,8 @@
                 <%= select_tag "primary_role", options_from_collection_for_select(@jobs, "id", "name"), class:"grow", :include_blank => '-- Select One --' , :required => true %>
             </div>
             <%= render partial: 'users/interests', locals: {selected_interests: [], mode:"edit"} %>
-            <div class="flex  items-center">
-                <%= submit_tag 'Next', class:'btn-primary' %>
+            <div class="flex items-center w-1/4 mx-auto ">
+                <%= submit_tag 'Next', class:'btn-primary w-full' %>
             </div>
         </div>
     <% end %>

@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 @layer components {
-  .nav-btn-primary {
-    @apply bg-primary rounded-md p-1 2xl:p-2 px-2 2xl:px-4 text-white mx-auto my-auto text-xl lg:text-2xl;
+  .nav-btn-primary-left {
+    @apply block mt-4 lg:inline-block lg:mt-0 hover:text-primary mr-4 border-solid border-l-[2px] border-r-[2px] border-primaryFaded hover:bg-primaryFaded px-4 py-2;
+  }
+  .nav-btn-primary-right {
+    @apply inline-block text-sm px-4 py-2 leading-none border border-primary hover:text-black hover:bg-primaryFaded mt-4 lg:mt-0;
   }
   .nav-btn-default {
     @apply p-1 2xl:p-2 px-2 2xl:px-4 text-primaryText mx-auto my-auto text-xl lg:text-2xl 2xl:text-4xl;
