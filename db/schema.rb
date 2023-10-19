@@ -150,7 +150,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_18_172947) do
   add_foreign_key "task_interests", "tasks"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"
-  add_foreign_key "users", "character_selections"
   add_foreign_key "user_tasks", "tasks"
   add_foreign_key "user_tasks", "users"
+  add_foreign_key "users", "character_selections"
 end
