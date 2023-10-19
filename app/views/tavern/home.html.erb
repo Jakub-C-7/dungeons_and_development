@@ -2,14 +2,17 @@
   <h1 class="font-bold text-4xl">Welcome to the Tavern</h1>
 
   <%= link_to root_path do %>
-    <%= image_tag("character.png", :alt => "npc1", class:"w-[100px] lg:w-[150px] 2xl:w-[200px] absolute bottom-[22%] left-[23%] transition-grow") %>
+      <%= image_tag("character.png", :alt => "npc1", class:"w-[100px] lg:w-[150px] 2xl:w-[200px] absolute bottom-[22%] left-[23%] transition-grow after:content-['Quest Board'] text-white") %>
+      <h2 class="absolute bottom-[22%] left-[23%] text-white"> Quest Board</h2>  
   <% end %>
 
   <%= link_to root_path do %>
     <%= image_tag("character.png", :alt => "npc2", class:"w-[100px] lg:w-[150px] 2xl:w-[200px] absolute bottom-[37%] left-[32%] transition-grow") %>
+    <h2 class="absolute bottom-[37%] left-[32%] text-white"> Bard</h2>
   <% end %>
 
   <%= link_to root_path do %>
     <%= image_tag("character.png", :alt => "npc3", class:"w-[100px] lg:w-[150px] 2xl:w-[200px] absolute bottom-[16%] right-[30%] transition-grow") %>
+    <h2 class="absolute bottom-[16%] right-[30%] text-white"> NPC 3</h2>
   <% end %> 
 </div>
