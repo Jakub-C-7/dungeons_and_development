@@ -1,52 +1,49 @@
+<div class="w-full mx-auto"> 
+    <div class="flex mt-16"> 
+        <h1 class="text-4xl font-bold mx-auto border-b-[10px] border-primary w-full ml-[200px] pb-2">
+            Finish setting up your profile
+        </h1>    
+    </div>
 
-<div class="flex mt-16"> 
-    <h1 class="text-4xl font-bold mx-auto border-b-[10px] border-primary w-full ml-[200px]">
-        Finish setting up your profile
-    </h1>
-                
-</div>
-<div class="flex "> 
-  <h2 class="text-2xl font-bold mx-auto w-full ml-[200px]">
-    You can always change these later
-    </h2>              
-</div>
-
-
-        
-<%= form_tag({:controller => "users", :action => "update_interests", :method => "post" }, {:class => "flex flex-col space-y-5 items-center"}) do  %>
-    <div class="flex "> 
-        <h2 class="text-2xl font-bold mx-auto w-full">
-           Choose your look 
+    <div class="flex"> 
+        <h2 class="text-2xl mx-auto w-full ml-[200px] mt-2">
+            You can always change these later!
         </h2>              
     </div>
-        <div class="flex flex-row mt-16 justify-center items-center max-w-[1000px] pl-[300px] overflow-x-scroll">
-
-        <% @character_selection.each do |character_selection| %>
-        <label>
-                <%= radio_button_tag :character_selection,character_selection.id, class:"character-select hidden" %>
-                <%= image_tag(character_selection.url, :alt => character_selection.id, class:"max-w-[300px]") %>
-          </label>
-        <% end %>
-       
-    </div>
-    
-  
-
-    <div class="w-[1000px]  flex flex-col justify-center mx-auto bg-primaryFaded mt-16 p-10 space-y-5" >
-
-        <div class="flex">
-            <%= label_tag :name, "Full Name:",class:"w-[200px]"  %>
-
-            <%= text_field_tag "name", nil, class:"grow", :required => true %>
+            
+    <%= form_tag({:controller => "users", :action => "update_interests", :method => "post" }, {:class => "flex flex-col space-y-5 items-center"}) do  %>
+        
+        <div class="flex flex-row-reverse mt-16 justify-center items-center w-1/2 p-16 overflow-x-scroll overflow-y-hidden">
+            <% @character_selection.each do |character_selection| %>
+                <label>
+                    <%= radio_button_tag :character_selection,character_selection.id, class:"character-select hidden", required: 'required', checked: true %>
+                    <%= image_tag(character_selection.url, :alt => character_selection.id, class:"transition-grow cursor-pointer") %>
+                </label>
+            <% end %>
         </div>
-        <div class="flex">
-            <%= label_tag :primary_role, "Job Title:", class:"w-[200px]" %>
 
-            <%= select_tag "primary_role", options_from_collection_for_select(@jobs, "id", "name"), class:"grow", :include_blank => '-- Select One --' , :required => true %>
+        <div class="flex "> 
+            <h2 class="text-2xl font-bold mx-auto w-full">
+                Choose your initial avatar! 
+            </h2>              
         </div>
-        <%= render partial: 'users/interests', locals: {selected_interests: [], mode:"edit"} %>
-        <div class="flex  items-center">
-            <%= submit_tag 'Next', class:'btn-primary' %>
+        
+        <div class="w-2/3 flex flex-col justify-center mx-auto bg-primaryFaded mt-16 p-10 space-y-5" >
+
+            <div class="flex">
+                <%= label_tag :name, "Full Name:",class:"w-[200px]"  %>
+
+                <%= text_field_tag "name", nil, class:"grow", :required => true %>
+            </div>
+            <div class="flex">
+                <%= label_tag :primary_role, "Job Title:", class:"w-[200px]" %>
+
+                <%= select_tag "primary_role", options_from_collection_for_select(@jobs, "id", "name"), class:"grow", :include_blank => '-- Select One --' , :required => true %>
+            </div>
+            <%= render partial: 'users/interests', locals: {selected_interests: [], mode:"edit"} %>
+            <div class="flex items-center w-1/4 mx-auto ">
+                <%= submit_tag 'Next', class:'btn-primary w-full' %>
+            </div>
         </div>
-    </div>
-<% end %>
+    <% end %>
+</div>
