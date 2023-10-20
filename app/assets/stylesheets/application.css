@@ -29,4 +29,21 @@
    border: 10px solid green;
 }
 
- 
+.edit #save-profile{
+   display: block;
+}
+
+#save-profile{
+   display: none;
+}
+
+
+select#primary_role:disabled {
+   font-size: inherit;
+   font-weight: inherit;
+   border: none;
+   background-color: #E6DEEB;
+   opacity: 1;
+   background-image: none;
+   text-align: center;
+}
