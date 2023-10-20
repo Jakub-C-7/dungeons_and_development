@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
     before_action :set_user 
-    before_action :check_setup, except: [:setup, :update_profile]
+    before_action :check_setup, except: [:setup, :update_profile, :update_character_selection, :update_name, :update_interests ]
 
     def profile
         @interests = Interest.all();
         @selected_interests = current_user.interests.pluck(:id);
         @jobs = Interest.where(isRole: true)
         @current_job= current_user.user_interests.where(isPrimaryRole: true).pluck(:interest_id)
-        p "Hello"
         p @current_job
 
         
@@ -25,10 +24,10 @@ class UsersController < ApplicationController
     end
 
     def update_profile
-        p interest_params
+
         if (interest_params[:interests] && interest_params[:primary_role])
             p interest_params[:primary_role]
-            update_interests()
+            p update_interests()
         end
         if (interest_params[:character_selection])
             update_character_selection()
@@ -36,11 +35,7 @@ class UsersController < ApplicationController
         if (interest_params[:name])
             update_name()
         end
-
         redirect_to root_path
-                
-
-        
     end
 
     
@@ -59,7 +54,6 @@ class UsersController < ApplicationController
 
 
     def update_interests
-        p "Updating interests"
         if UserInterest.destroy_by(user_id: current_user.id)
 
         #Doesn't work and I want to understand why - probably a race condition
@@ -74,7 +68,6 @@ class UsersController < ApplicationController
             end
             
             interest_params[:interests].each  do|interest|
-                p interest
                 @user_interest  = UserInterest.new(user_id: current_user.id, interest_id: interest, isPrimaryRole: false)
                 begin
                     @user_interest.save
@@ -86,11 +79,15 @@ class UsersController < ApplicationController
     end
 
     def update_character_selection
+
         current_user.character_selection_id = interest_params[:character_selection]
+        current_user.save
     end
 
     def update_name
+
         current_user.name = interest_params[:name]
+        current_user.save
     end
 
      
