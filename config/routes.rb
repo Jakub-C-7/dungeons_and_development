@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     post '/updateInterests', to: "users#update_interests", as: :update_interests
 
     get '/tavern', to: 'tavern#home'
+    get '/questboard', to: 'tavern#quest_board'
+    post 'search', to: 'tavern#search_quests'
+
 
   end
   
