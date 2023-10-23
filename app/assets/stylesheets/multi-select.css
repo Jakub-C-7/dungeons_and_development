@@ -12,7 +12,14 @@
     --tw-shadow-color: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
     --border-color: rgb(218, 221, 224);
     font-family: Verdana, sans-serif;
+    pointer-events: none;
 }
+
+.edit .mult-select-tag {
+   
+    pointer-events:all;
+}
+
 
 .mult-select-tag .wrapper {
     width: 100%;
@@ -51,7 +58,7 @@
     border: 1px solid var(--border-color);
 }
 
-.mult-select-tag .btn-container {
+.edit .mult-select-tag .btn-container {
     color: #e2eBf0;
     padding: 0.5rem;
     display: flex;
@@ -71,6 +78,11 @@
     -webkit-appearance: none;
     text-transform: none;
     margin: 0;
+    display: none;
+}
+
+.edit .mult-select-tag button {
+    display: block;
 }
 
 .mult-select-tag button:first-child {
