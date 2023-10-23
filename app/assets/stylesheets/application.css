@@ -14,19 +14,14 @@
  *= require_self
  */
 
-
- canvas{
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    bottom: 10px;
-    z-index: -5;
- }
-
- input.character-select:checked +img {
-   border: 10px solid green;
+canvas {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 10px;
+  z-index: -5;
 }
 
 .edit #save-profile{
@@ -37,7 +32,6 @@
    display: none;
 }
 
-
 select#primary_role:disabled {
    font-size: inherit;
    font-weight: inherit;
@@ -47,3 +41,12 @@ select#primary_role:disabled {
    background-image: none;
    text-align: center;
 }
+
+input.character-select:checked + img {
+  border: 10px solid #e7dfea;
+  scale: 1.3;
+  animation: none;
+  transition-property: none;
+  transform: none;
+}
+
