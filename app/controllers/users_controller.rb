@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
     before_action :set_user 
-    before_action :check_setup, except: [:setup, :update_interests]
+    before_action :check_setup, except: [:setup, :update_profile, :update_character_selection, :update_name, :update_interests ]
 
     def profile
+        @interests = Interest.all();
+        @selected_interests = current_user.interests.pluck(:id);
+        @jobs = Interest.where(isRole: true)
+        @current_job= current_user.user_interests.where(isPrimaryRole: true).pluck(:interest_id)
+        p @current_job
 
+        
     end
 
     def setup
@@ -16,6 +22,36 @@ class UsersController < ApplicationController
     def set_user
         @user = current_user
     end
+
+    def update_profile
+
+        if (interest_params[:interests] && interest_params[:primary_role])
+            p interest_params[:primary_role]
+            p update_interests()
+        end
+        if (interest_params[:character_selection])
+            update_character_selection()
+        end
+        if (interest_params[:name])
+            update_name()
+        end
+        redirect_to root_path
+    end
+
+    
+
+    def check_setup
+        isSetup = UserInterest.where(user_id: current_user.id, isPrimaryRole: true).count
+        if(isSetup ==0)
+            redirect_to setup_path
+        end
+    end
+
+     # Only allow a list of trusted parameters through.
+     def interest_params
+        params.permit(:primary_role, :character_selection, :name, :interests => [])
+    end
+
 
     def update_interests
         if UserInterest.destroy_by(user_id: current_user.id)
@@ -32,7 +68,6 @@ class UsersController < ApplicationController
             end
             
             interest_params[:interests].each  do|interest|
-                p interest
                 @user_interest  = UserInterest.new(user_id: current_user.id, interest_id: interest, isPrimaryRole: false)
                 begin
                     @user_interest.save
@@ -40,33 +75,20 @@ class UsersController < ApplicationController
                     p error 
                 end
             end
-            current_user.character_selection_id = interest_params[:character_selection]
-            respond_to do |format|
-                if current_user.save
-                    format.html{ redirect_to root_path, notice: "Details saved"}
-                else 
-                    format.html{ render :setup, status: :unprocessable_entity}
-                end
-            end
-        end
-
-        
-    end
-
-    
-
-    def check_setup
-        isSetup = UserInterest.where(user_id: current_user.id, isPrimaryRole: true).count
-        if(isSetup ==0)
-            redirect_to setup_path
         end
     end
 
-     # Only allow a list of trusted parameters through.
-     def interest_params
-        params.permit(:primary_role, :character_selection, :interests => [])
+    def update_character_selection
+
+        current_user.character_selection_id = interest_params[:character_selection]
+        current_user.save
     end
 
+    def update_name
+
+        current_user.name = interest_params[:name]
+        current_user.save
+    end
 
      
   

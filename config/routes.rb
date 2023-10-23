@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     root 'users#profile', as: :authenticated_root
 
     get '/setup', to: "users#setup",  as: :setup  
-    post '/updateInterests', to: "users#update_interests", as: :update_interests
+    post '/updateProfile', to: "users#update_profile", as: :update_profile
 
     get '/tavern', to: 'tavern#home'
 
