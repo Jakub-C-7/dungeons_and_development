@@ -1,34 +1,18 @@
-
 <div class="w-full mx-auto"> 
     <div class="flex mt-16"> 
         <h1 class="text-4xl font-bold mx-auto border-b-[10px] border-primary w-full ml-[200px] pb-2">
             Finish setting up your profile
         </h1>               
     </div>
+</div>
 
 <div class="flex "> 
-  <h2 class="text-2xl font-bold mx-auto w-full ml-[200px]">
+    <h2 class="text-2xl font-bold mx-auto w-full ml-[200px]">
     You can always change these later
     </h2>              
 </div>
-
-
         
 <%= form_tag({:controller => "users", :action => "update_profile", :method => "post" }, {:class => "flex flex-col space-y-5 items-center"}) do  %>
-    <div class="flex "> 
-        <h2 class="text-2xl font-bold mx-auto w-full">
-           Choose your look 
-        </h2>              
-
-    </div>
-
-    <div class="flex"> 
-        <h2 class="text-2xl mx-auto w-full ml-[200px] mt-2">
-            You can always change these later!
-        </h2>              
-    </div>
-            
-    <%= form_tag({:controller => "users", :action => "update_interests", :method => "post" }, {:class => "flex flex-col space-y-5 items-center"}) do  %>
         
         <div class="flex flex-row-reverse mt-16 justify-center items-center w-1/2 p-16 overflow-x-scroll overflow-y-hidden">
             <% @character_selection.each do |character_selection| %>
@@ -62,5 +46,5 @@
                 <%= submit_tag 'Next', class:'btn-primary w-full' %>
             </div>
         </div>
-    <% end %>
-</div>
+<% end %>
+
