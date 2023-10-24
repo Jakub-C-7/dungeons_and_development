@@ -3,14 +3,14 @@ class TavernController < ApplicationController
   end
 
   def quest_board
-     @quests = Section.all
+     @quests = Section.all.order(:name) + Pathway.all.order(:name)
   end
 
 
   def search_quests
     search_field = params[:search].present? ? params[:search] : ""
 
-    @quests = Section.where("name ILIKE ?", "%" + search_field + "%")
+    @quests = Section.where("name ILIKE ?", "%" + search_field + "%") + Pathway.where("name ILIKE ?", "%" + search_field + "%") 
     p "HELLO"
     p @quests
     respond_to do |format|
