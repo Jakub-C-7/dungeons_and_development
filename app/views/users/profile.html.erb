@@ -3,18 +3,17 @@
         Welcome Back!
     </h1>
 
-    <div class="flex flex-col xl:flex-row mb-12" data-controller="profileedit" data-profileedit-target="editContainer"> 
-        <%= form_tag({:controller => "users", :action => "update_profile", :method => "post" }, {:class => "flex flex-col mx-auto justify-center items-center gap-4"}) do  %>
-
-                <h2 class="p-1 bg-[#E6DEEB]">The AWS Enigma</h2> 
-                <%= image_tag (current_user.character_selection.url), width: '300px' %> 
-                <h2 class="p-1 bg-[#E6DEEB]"><%= current_user.name %> - Level 2</h2> 
-                <%= select_tag "primary_role" , options_from_collection_for_select(@jobs, "id", "name", selected: @current_job), class:"grow" , :required => true, :disabled => true,data: { "profileedit-target" =>"editableField"} %>
-                <h2 class="p-1" id="toggleEdit">Customise Profile</h2> 
-                <%= render partial: 'users/interests', locals: {selected_interests: @selected_interests, mode:"display"} %>
-                <div class="flex  items-center" id="save-profile">
-                    <%= submit_tag 'Save', class:'btn-primary' %>
-                </div>
+    <div class="flex flex-col xl:flex-row mb-12 m-8" data-controller="profileedit" data-profileedit-target="editContainer"> 
+        <%= form_tag({:controller => "users", :action => "update_profile", :method => "post" }, {:class => "flex flex-col mx-auto justify-center items-center text-center gap-4"}) do  %>
+            <h2 class="p-1 bg-[#E6DEEB]">The AWS Enigma</h2> 
+            <%= image_tag (current_user.character_selection.url), width: '300px' %> 
+            <h2 class="p-1 bg-[#E6DEEB]"><%= current_user.name %> - Level 2</h2> 
+            <%= select_tag "primary_role" , options_from_collection_for_select(@jobs, "id", "name", selected: @current_job), class:"grow" , :required => true, :disabled => true,data: { "profileedit-target" =>"editableField"} %>
+            <h2 class="p-1" id="toggleEdit">Customise Profile</h2> 
+            <%= render partial: 'users/interests', locals: {selected_interests: @selected_interests, mode:"display"} %>
+            <div class="flex  items-center" id="save-profile">
+                <%= submit_tag 'Save', class:'btn-primary' %>
+            </div>
         <% end %>
 
 
