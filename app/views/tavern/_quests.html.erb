@@ -1,4 +1,15 @@
 <% @quests.each do |quest| %>
-    <%= quest.name %>
+    <div class="p-[10px] hover:bg-slate-100">
+        <%= quest['name'] %>
+        <% quest['interests'].each do |interest| %>
+            <p class="interest-tag">
+                <%= interest %>
+            </p>
+        <% end %>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="control-button">+</button>
+        </div>
+    </div>
 <% end %>
 

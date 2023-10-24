@@ -1,12 +1,26 @@
-<h1 class="font-bold text-4xl">Tavern#questboard</h1>
-<%= form_with url: search_path, method: :post do |form| %>
-  <%= form.label :search %>
-  <%= form.text_field :search %>
-  <%= form.select :category, options_for_select([['All', 0], ['Pathways',1], ['Modules',2]]) %>
-  <%= render partial: 'users/interests', locals: {selected_interests: @selected_interests, mode:"edit"} %>
 
-  <%= form.submit "Search", class: "btn btn-secondary" %>
-<% end %>
-<div id="quests">
-    <%= render partial: 'tavern/quests', locals: {quests: @quests} %>
+<div class="flex flex-col mt-16"> 
+
+  <h1 class="font-bold text-4xl">Tavern#questboard</h1>
+
+  <div class="flex flex-col xl:flex-row mb-12"> 
+          <div class="flex flex-col mx-auto justify-center items-center gap-4 w-1/2"> 
+             <%= image_tag ("architect.png"), width: '50%' %> 
+          </div>
+
+          <div class="flex flex-col mx-auto justify-center items-center gap-4 mt-16 self-center xl:mt-0 min-w-[50vw] w-1/2"> 
+
+            <%= form_with url: search_path, method: :post do |form| %>
+              <%= form.label :search %>
+              <%= form.text_field :search %>
+              <%= form.select :category, options_for_select([['All', 0], ['Pathways',1], ['Modules',2]]) %>
+              <%= render partial: 'users/interests', locals: {selected_interests: @selected_interests, mode:"edit"} %>
+
+              <%= form.submit "Search", class: "btn btn-secondary" %>
+            <% end %>
+              <div id="quests" class="overflow-y-scroll max-h-[500px] w-full">
+                <%= render partial: 'tavern/quests', locals: {quests: @quests} %>
+            </div>
+          </div>
+  </div>
 </div>

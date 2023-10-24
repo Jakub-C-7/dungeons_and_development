@@ -2,10 +2,25 @@ class TavernController < ApplicationController
   def home
   end
 
+   #IN SERIOUS NEED OF REWORKING#
+  def retrieve_quest_interests(sectionQuests, pathwayQuests)
+    pathwayQuests.each do |q|
+      q['interests'] = Interest.joins(:pathway_interests).where(pathway_interests: { pathway_id: q['id']}).pluck(:name)
+    end
+    sectionQuests.each do |q|
+      q['interests'] = Interest.joins(:section_interests).where(section_interests: { section_id: q['id']}).pluck(:name)
+    end
+    @quests = pathwayQuests + sectionQuests
+
+  end
+
   def quest_board
     @selected_interests = current_user.interests.pluck(:id)
     @interests = Interest.all
-    @quests = Section.joins(:section_interests).where(section_interests: { interest_id: @selected_interests }).order(:name) + Pathway.joins(:pathway_interests).where(pathway_interests: { interest_id: @selected_interests }).order(:name)
+    pathwayQuests = Pathway.joins(:pathway_interests).where(pathway_interests: { interest_id: @selected_interests }).order(:name).as_json
+    sectionQuests = Section.joins(:section_interests).where(section_interests: { interest_id: @selected_interests }).order(:name).as_json 
+    retrieve_quest_interests(sectionQuests, pathwayQuests)
+
   end
 
 
@@ -14,19 +29,27 @@ class TavernController < ApplicationController
 #
     if params[:interests].present? then
       if params[:category] == "1" then
-        @quests = Pathway.where("name ILIKE ?", "%" + search_field + "%").joins(:pathway_interests).where(pathway_interests: { interest_id: params[:interests] }).order(:name)
+        quests = Pathway.where("name ILIKE ?", "%" + search_field + "%").joins(:pathway_interests).where(pathway_interests: { interest_id: params[:interests] }).order(:name).as_json
+        retrieve_quest_interests([], quests)
       elsif params[:category] == "2" then
-        @quests = Section.where("name ILIKE ?", "%" + search_field + "%").joins(:section_interests).where(section_interests: { interest_id: params[:interests] }).order(:name)
+        quests = Section.where("name ILIKE ?", "%" + search_field + "%").joins(:section_interests).where(section_interests: { interest_id: params[:interests] }).order(:name).as_json
+        retrieve_quest_interests(@uests, [])
       else
-        @quests = Section.where("name ILIKE ?", "%" + search_field + "%").joins(:section_interests).where(section_interests: { interest_id: params[:interests] }).order(:name) + Pathway.where("name ILIKE ?", "%" + search_field + "%").joins(:pathway_interests).where(pathway_interests: { interest_id: params[:interests] }).order(:name)
+        sectionQuests = Section.where("name ILIKE ?", "%" + search_field + "%").joins(:section_interests).where(section_interests: { interest_id: params[:interests] }).order(:name).as_json
+        pathwayQuests = Pathway.where("name ILIKE ?", "%" + search_field + "%").joins(:pathway_interests).where(pathway_interests: { interest_id: params[:interests] }).order(:name).as_json
+        retrieve_quest_interests(sectionQuests, pathwayQuests)
       end
     else
       if params[:category] == "1" then
-        @quests = Pathway.where("name ILIKE ?", "%" + search_field + "%").order(:name)
+        quests = Pathway.where("name ILIKE ?", "%" + search_field + "%").order(:name).as_json
+        retrieve_quest_interests([], quests)
       elsif params[:category] == "2" then
-        @quests = Section.where("name ILIKE ?", "%" + search_field + "%").order(:name)
+        quests = Section.where("name ILIKE ?", "%" + search_field + "%").order(:name).as_json        
+        retrieve_quest_interests(quests, [])
       else
-        @quests = Section.where("name ILIKE ?", "%" + search_field + "%").order(:name) + Pathway.where("name ILIKE ?", "%" + search_field + "%").order(:name)
+        sectionQuests = Section.where("name ILIKE ?", "%" + search_field + "%").order(:name).as_json 
+        pathwayQuests = Pathway.where("name ILIKE ?", "%" + search_field + "%").order(:name).as_json 
+        retrieve_quest_interests(sectionQuests, pathwayQuests)
       end
     end
     respond_to do |format|
