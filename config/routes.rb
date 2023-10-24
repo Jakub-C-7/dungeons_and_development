@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     post '/updateProfile', to: "users#update_profile", as: :update_profile
 
     get '/tavern', to: 'tavern#home'
+    
+    get '/active_quests', to: 'active_quests#home'
+    get '/active_quests/show', to: 'active_quests#show'
+    get '/active_quests/update', to: 'active_quests#update'
+    get '/active_quests/search', to: 'active_quests#search'
 
   end
   

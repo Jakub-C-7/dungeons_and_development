@@ -1,8 +1,4 @@
 <div class="flex flex-col mt-16"> 
-    <h1 class="text-3xl font-bold mx-auto mb-12">
-        Welcome Back!
-    </h1>
-
     <div class="flex flex-col xl:flex-row mb-12 m-8" data-controller="profileedit" data-profileedit-target="editContainer"> 
         <%= form_tag({:controller => "users", :action => "update_profile", :method => "post" }, {:class => "flex flex-col mx-auto justify-center items-center text-center gap-4"}) do  %>
             <h2 class="p-1 bg-[#E6DEEB]">The AWS Enigma</h2> 
@@ -28,7 +24,7 @@
                 </div>
             <% end %>
             
-            <%= link_to edit_user_registration_path, class: "flex flex-col justify-center items-center w-full" do %>
+            <%= link_to active_quests_path, class: "flex flex-col justify-center items-center w-full" do %>
                 <div class="flex flex-row-reverse p-2 bg-[#D5ECE2] w-3/4 justify-end items-center gap-8 transition-grow"> 
                     <div class="sub-text-small">
                         <h2 class="sub-text underline">Active Quests</h2>
