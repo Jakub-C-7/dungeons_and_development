@@ -122,3 +122,28 @@ user1.user_tasks.create(
     progress: 0
     )
 
+
+UserPathway.destroy_all
+
+user1.user_pathways.create(
+    pathway_id: 1,
+    progress: 0
+    )
+
+user1.user_pathways.create(
+    pathway_id: 2,
+    progress: 2
+    )
+
+UserSection.destroy_all
+
+user1.user_sections.create(
+    section_id: 1,
+    progress: 0
+    )
+    
+user1.user_sections.create(
+    section_id: 2,
+    progress: 2
+    )
+    
