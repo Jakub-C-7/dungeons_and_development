@@ -1,4 +1,36 @@
-<div>
   <h1 class="font-bold text-4xl">ActiveQuests#home</h1>
   <p>Find me in app/views/active_quests/home.html.erb</p>
-</div>
+
+    <div class="flex flex-col xl:flex-row mb-12 m-8 p-12"> 
+        <div class="flex flex-col w-1/4"> 
+            <h2> My Active Quests </h2> 
+            <% @current_pathways.each do |pathway| %>
+                <div class="w-full active-quest-btn">
+                    <h3> 
+                        <%= "Quest #{pathway.id}: #{pathway.name}"  %>
+                    </h3>
+                </div>
+            <% end %>
+        </div>
+       
+
+        <div class="flex flex-row mx-auto justify-center items-center text-center gap-4 w-3/4">
+            <div>
+                <h2 class="p-1 bg-[#E6DEEB]">The AWS Enigma</h2> 
+                <h2 class="p-1 bg-[#E6DEEB]"><%= current_user.name %> - Level 2</h2> 
+            </div>
+            <div>
+                <h2 class="p-1 bg-[#E6DEEB]">The AWS Enigma</h2> 
+                <h2 class="p-1 bg-[#E6DEEB]"><%= current_user.name %> - Level 2</h2> 
+                <h2 class="p-1 btn-primary sub-link" id="toggleEdit">Switch to map view</h2> 
+            </div>
+            
+            
+        </div>
+
+    </div>
+    
+
+
+    <%= @currently_active_sections %>
+    <%= @currently_active_tasks %>
