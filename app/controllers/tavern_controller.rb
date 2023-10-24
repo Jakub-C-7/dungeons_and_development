@@ -3,16 +3,32 @@ class TavernController < ApplicationController
   end
 
   def quest_board
-     @quests = Section.all.order(:name) + Pathway.all.order(:name)
+    @selected_interests = current_user.interests.pluck(:id)
+    @interests = Interest.all
+    @quests = Section.joins(:section_interests).where(section_interests: { interest_id: @selected_interests }).order(:name) + Pathway.joins(:pathway_interests).where(pathway_interests: { interest_id: @selected_interests }).order(:name)
   end
 
 
   def search_quests
     search_field = params[:search].present? ? params[:search] : ""
-
-    @quests = Section.where("name ILIKE ?", "%" + search_field + "%") + Pathway.where("name ILIKE ?", "%" + search_field + "%") 
-    p "HELLO"
-    p @quests
+#
+    if params[:interests].present? then
+      if params[:category] == "1" then
+        @quests = Pathway.where("name ILIKE ?", "%" + search_field + "%").joins(:pathway_interests).where(pathway_interests: { interest_id: params[:interests] }).order(:name)
+      elsif params[:category] == "2" then
+        @quests = Section.where("name ILIKE ?", "%" + search_field + "%").joins(:section_interests).where(section_interests: { interest_id: params[:interests] }).order(:name)
+      else
+        @quests = Section.where("name ILIKE ?", "%" + search_field + "%").joins(:section_interests).where(section_interests: { interest_id: params[:interests] }).order(:name) + Pathway.where("name ILIKE ?", "%" + search_field + "%").joins(:pathway_interests).where(pathway_interests: { interest_id: params[:interests] }).order(:name)
+      end
+    else
+      if params[:category] == "1" then
+        @quests = Pathway.where("name ILIKE ?", "%" + search_field + "%").order(:name)
+      elsif params[:category] == "2" then
+        @quests = Section.where("name ILIKE ?", "%" + search_field + "%").order(:name)
+      else
+        @quests = Section.where("name ILIKE ?", "%" + search_field + "%").order(:name) + Pathway.where("name ILIKE ?", "%" + search_field + "%").order(:name)
+      end
+    end
     respond_to do |format|
       format.html { render :quest_board }
       format.turbo_stream do 

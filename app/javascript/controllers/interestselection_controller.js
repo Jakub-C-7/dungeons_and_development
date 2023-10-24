@@ -121,6 +121,11 @@ function MultiSelectTag (el, customs = {shadow: false, rounded:true}) {
         inputBody.append(input)
 
         body.append(inputContainer)
+        if(element.hasAttribute('required')){
+            inputContainer.innerHTML = "-- Select at least one interest --"
+        }else{
+            console.log("not required")
+        }
         inputContainer.innerHTML = "-- Select at least one interest --"
 
         // .btn-container
@@ -245,7 +250,9 @@ function MultiSelectTag (el, customs = {shadow: false, rounded:true}) {
                 inputContainer.removeChild(child)
             }
             if(inputContainer.childElementCount < 1){
-                inputContainer.innerHTML = "-- Select at least one interest --"
+                if(element.hasAttribute('required')){
+                    inputContainer.innerHTML = "-- Select at least one interest --"
+                }
             }
         }
     }

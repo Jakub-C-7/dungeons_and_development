@@ -2,5 +2,5 @@
 
 
 <div class=" <%= mode %>">
-    <%= select_tag "interests", options_from_collection_for_select(@interests, "id", "name",{:selected => selected_interests}), :required => true, multiple:true, data: {controller:"interestselection"}%>
+    <%= select_tag "interests", options_from_collection_for_select(@interests, "id", "name",{:selected => selected_interests}), :required => @required, multiple:true, data: {controller:"interestselection"}%>
 </div>    
