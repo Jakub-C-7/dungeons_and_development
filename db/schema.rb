@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_19_120537) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_24_090741) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -111,6 +111,32 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_120537) do
     t.index ["user_id"], name: "index_user_interests_on_user_id"
   end
 
+  create_table "user_pathways", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "pathway_id", null: false
+    t.integer "progress"
+    t.datetime "last_updated"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pathway_id"], name: "index_user_pathways_on_pathway_id"
+    t.index ["user_id", "pathway_id"], name: "index_user_pathways_on_user_id_and_pathway_id", unique: true
+    t.index ["user_id"], name: "index_user_pathways_on_user_id"
+  end
+
+  create_table "user_sections", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "section_id", null: false
+    t.integer "progress"
+    t.datetime "last_updated"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_user_sections_on_section_id"
+    t.index ["user_id", "section_id"], name: "index_user_sections_on_user_id_and_section_id", unique: true
+    t.index ["user_id"], name: "index_user_sections_on_user_id"
+  end
+
   create_table "user_tasks", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "task_id", null: false
@@ -151,6 +177,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_19_120537) do
   add_foreign_key "task_interests", "tasks"
   add_foreign_key "user_interests", "interests"
   add_foreign_key "user_interests", "users"
+  add_foreign_key "user_pathways", "pathways"
+  add_foreign_key "user_pathways", "users"
+  add_foreign_key "user_sections", "sections"
+  add_foreign_key "user_sections", "users"
   add_foreign_key "user_tasks", "tasks"
   add_foreign_key "user_tasks", "users"
   add_foreign_key "users", "character_selections"
