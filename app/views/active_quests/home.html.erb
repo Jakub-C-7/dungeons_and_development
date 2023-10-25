@@ -13,21 +13,6 @@
                     <%= label_tag pathway.id, "Quest!!! #{pathway.id}: #{pathway.name}", class: 'z-0 pointer-events-none' %>
                 </label>
 
-                <%
-=begin%>
- <div class="relative w-full active-quest-btn">
-                    <%= text_field_tag pathway.id, "Quest #{pathway.id}: #{pathway.name}", :readonly => true  %>
-                    <%= button_tag "", class:'absolute inset-0 w-full h-full z-50 m-0 p-0' %>
-                </div>
-
-                <div class="w-full active-quest-btn">
-                    <h3> 
-                        <%= "Quest #{pathway.id}: #{pathway.name}"  %>
-                    </h3>
-                </div> 
-<%
-=end%>
-
             <% end %>
 
         <% end %>
@@ -44,28 +29,9 @@
                     <%= render partial: 'active_quests/active_tasks', locals: {active_tasks: nil} %>
                 </div>
             </div>
-            
-
-            <%
-=begin%>
- <%= form_tag({:controller => "active_quests", :action => "show", :method => "get" }, {:class => "flex flex-col mx-auto justify-center items-center text-center gap-4"}) do  %>
-                <%= select_tag "selected_pathway" , options_from_collection_for_select(@current_pathways, "id", "name", selected: @latest_pathway), class:"grow" , :required => true %>
-                
-                <h2 class="p-1 bg-[#E6DEEB]">The AWS Enigma</h2> 
-                <%= image_tag (current_user.character_selection.url), width: '300px' %> 
-                <h2 class="p-1 bg-[#E6DEEB]"><%= current_user.name %> - Level 2</h2> 
-
-                <div class="flex items-center" id="refresh-quest">
-                    <%= submit_tag 'Refresh Quest', class:'btn-primary' %>
-                </div>
-
-            <% end %> 
-<%
-=end%>
 
             <div>
-                <h2 class="p-1 bg-[#E6DEEB]">The AWS Enigma</h2> 
-                <h2 class="p-1 bg-[#E6DEEB]"><%= current_user.name %> - Level 2</h2> 
+                <h2 class="p-1 bg-[#E6DEEB]">ENTER MAP IMG HERE</h2> 
                 <h2 class="p-1 btn-primary sub-link" id="toggleEdit">Switch to map view</h2> 
             </div>
             
