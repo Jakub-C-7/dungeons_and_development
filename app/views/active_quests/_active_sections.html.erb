@@ -1,0 +1,8 @@
+<% if active_sections != nil %>
+
+    <%= form_tag({:controller => "active_quests", :action => "refreshSection", :method => "post" }, {:class => "flex flex-col space-y-5 items-center"}) do  %>
+
+        <%= select_tag "select_section" , options_from_collection_for_select(@current_sections, "id", "name", selected: @selected_section, include_blank: "- nothing selected -"), class:"grow text-center", :include_blank => '-- Select Section --', :onclick => "this.form.requestSubmit();"  %>
+    
+    <% end %>
+<% end %>
