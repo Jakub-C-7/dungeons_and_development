@@ -51,3 +51,24 @@ input.character-select:checked + img {
     color: #2c7a7b;
     width:fit-content
 }
+
+div#quest-description {
+  /* display: -webkit-box; */
+  font-size: small;
+  line-height: normal;
+  margin-bottom: 20px;
+  /* height: 20px; */
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quest-container:hover div#quest-description {
+  white-space: normal;
+
+}
+
+.tab-content>.active {
+  display: inline-grid ;
+}

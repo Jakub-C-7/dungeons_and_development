@@ -22,6 +22,7 @@ module.exports = {
       },
       backgroundImage: {
         "tavern-landing": "url('tavern-landing-bg.jpg')",
+        
       },
     },
   },

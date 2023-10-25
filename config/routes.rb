@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get '/tavern', to: 'tavern#home'
     get '/questboard', to: 'tavern#quest_board'
     post 'search', to: 'tavern#search_quests'
+    post 'updaterecommended', to: "tavern#update_recommended"
 
 
   end
