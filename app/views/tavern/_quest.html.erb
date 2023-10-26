@@ -12,8 +12,9 @@
                 <%= quest['description'] %>
             </div>
 
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="control-button">+</button>
+            <div class="btn-group" id= "quest-status-<%=quest['id']%>" role="group" aria-label="Basic example">
+                    <%= render partial: 'tavern/quest_status', locals: {questid: quest['id'], status: quest['status']} %>
+
             </div>
         </div>
 <% end %>
