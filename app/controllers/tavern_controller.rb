@@ -41,6 +41,8 @@ class TavernController < ApplicationController
         end
       end
 
+      
+
   end
 
 
