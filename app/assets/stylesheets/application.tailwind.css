@@ -33,4 +33,7 @@
   .transition-grow {
     @apply transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none;
   }
+  .active-quest-btn {
+    @apply p-2 m-2 transition-grow border-solid border-[2px] border-black hover:border-primary text-center cursor-pointer sub-text-small;
+  }
 }
