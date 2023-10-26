@@ -1,0 +1,42 @@
+  <h1 class="font-bold text-4xl">ActiveQuests#home</h1>
+  <p>Find me in app/views/active_quests/home.html.erb</p>
+
+    <div class="flex flex-col xl:flex-row mb-12 m-8 p-12"> 
+        <%= form_tag({:controller => "active_quests", :action => "refreshPathway", :method => "post" }, {:class => "flex flex-col w-1/4"}) do  %>
+
+            <h2> My Active Quests </h2> 
+
+            <% @current_pathways.each do |pathway| %>
+
+                <label class="active-quest-btn">
+                    <%= radio_button_tag :selected_pathway, pathway.id, class:"character-select hidden z-50 cursor-pointer", required: 'required', checked: true, :onclick => "this.form.requestSubmit();" %>
+                    <%= label_tag pathway.id, "Quest!!! #{pathway.id}: #{pathway.name}", class: 'z-0 pointer-events-none' %>
+                </label>
+
+            <% end %>
+
+        <% end %>
+       
+
+        <div class="flex flex-row mx-auto justify-center items-center text-center gap-4 w-3/4">
+
+            <div class="flex flex-col"> 
+                <div id="active_sections_partial_div"> 
+                    <%= render partial: 'active_quests/active_sections', locals: {active_sections: nil} %>
+                </div>
+
+                <div id="active_tasks_partial_div"> 
+                    <%= render partial: 'active_quests/active_tasks', locals: {active_tasks: nil} %>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="p-1 bg-[#E6DEEB]">ENTER MAP IMG HERE</h2> 
+                <h2 class="p-1 btn-primary sub-link" id="toggleEdit">Switch to map view</h2> 
+            </div>
+            
+            
+        </div>
+
+    </div>
+

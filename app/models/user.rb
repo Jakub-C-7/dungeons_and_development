@@ -8,4 +8,8 @@ class User < ApplicationRecord
   belongs_to :character_selection, optional: true
   has_many :user_tasks
   has_many :tasks, through: :user_tasks 
+  has_many :user_pathways
+  has_many :pathways, through: :user_pathways 
+  has_many :user_sections
+  has_many :sections, through: :user_sections 
 end

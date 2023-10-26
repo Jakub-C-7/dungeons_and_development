@@ -3,14 +3,21 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller{
     connect(){
         console.log("hello")
+        var elementExists = document.getElementById("multiTagSelect");
 
-        new MultiSelectTag('interests',{
-            rounded: true,    // default true
-            shadow: true,      // default false
-            placeholder: 'Search',  // default Search...
-            onChange: function(values) {
-                console.log(values)
-        }})  
+        if(!elementExists){
+            new MultiSelectTag('interests',{
+                rounded: true,    // default true
+                shadow: true,      // default false
+                placeholder: 'Search',  // default Search...
+                onChange: function(values) {
+                    console.log(values)
+            }})  
+
+        }
+
+
+        
     }
 
     
@@ -91,6 +98,7 @@ function MultiSelectTag (el, customs = {shadow: false, rounded:true}) {
         
         // .multi-select-tag
         customSelectContainer = document.createElement('div')
+        customSelectContainer.setAttribute("id", "multiTagSelect")
         customSelectContainer.classList.add('mult-select-tag')
 
         // .container

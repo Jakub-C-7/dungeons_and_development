@@ -1,4 +1,21 @@
-<div class="bg-tavern-landing bg-cover bg-no-repeat bg-center w-full h-full" >
-  <h1 class="font-bold text-4xl">Tavern#home</h1>
-  <p>Find me in app/views/tavern/home.html.erb</p>
+<div class="bg-tavern-landing bg-cover bg-no-repeat bg-center w-full h-full relative" >
+  <h1 class="font-bold text-4xl">Welcome to the Tavern</h1>
+
+  <%= link_to root_path do %>
+   <div class="absolute bottom-[22%] left-[23%] text-center text-white text-opacity-0 hover:text-opacity-100 transition-all after:content-['Quest_Board'] "> 
+      <%= image_tag("character.png", :alt => "npc2", class:"w-[100px] lg:w-[150px] 2xl:w-[200px] transition-grow") %>
+    </div>
+  <% end %>
+
+  <%= link_to root_path do %>
+    <div class="absolute bottom-[37%] left-[32%] text-center text-white text-opacity-0 hover:text-opacity-100 transition-all after:content-['Bard']"> 
+      <%= image_tag("character.png", :alt => "npc2", class:"w-[100px] lg:w-[150px] 2xl:w-[200px] transition-grow") %>
+    </div>
+  <% end %>
+
+  <%= link_to root_path do %>
+    <div class="absolute bottom-[16%] right-[30%] text-center text-white text-opacity-0 hover:text-opacity-100 transition-all after:content-['NPC_3']"> 
+      <%= image_tag("character.png", :alt => "npc2", class:"w-[100px] lg:w-[150px] 2xl:w-[200px] transition-grow") %>
+    </div>
+  <% end %> 
 </div>

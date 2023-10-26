@@ -8,13 +8,20 @@ Rails.application.routes.draw do
     root 'users#profile', as: :authenticated_root
 
     get '/setup', to: "users#setup",  as: :setup  
-    post '/updateInterests', to: "users#update_interests", as: :update_interests
+    post '/updateProfile', to: "users#update_profile", as: :update_profile
 
     get '/tavern', to: 'tavern#home'
+
     get '/questboard', to: 'tavern#quest_board'
     post 'search', to: 'tavern#search_quests'
     post 'updaterecommended', to: "tavern#update_recommended"
+    
+    get '/active_quests', to: 'active_quests#home'
+    get '/active_quests/update', to: 'active_quests#update'
+    get '/active_quests/search', to: 'active_quests#search'
 
+    post '/active_quests/refreshPathway', to: 'active_quests#refreshPathway'
+    post '/active_quests/refreshSection', to: 'active_quests#refreshSection'
 
   end
   

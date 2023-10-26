@@ -24,6 +24,24 @@ canvas {
   z-index: -5;
 }
 
+.edit #save-profile{
+   display: block;
+}
+
+#save-profile{
+   display: none;
+}
+
+select#primary_role:disabled {
+   font-size: inherit;
+   font-weight: inherit;
+   border: none;
+   background-color: #E6DEEB;
+   opacity: 1;
+   background-image: none;
+   text-align: center;
+}
+
 input.character-select:checked + img {
   border: 10px solid #e7dfea;
   scale: 1.3;
@@ -31,7 +49,6 @@ input.character-select:checked + img {
   transition-property: none;
   transform: none;
 }
-
 
 .interest-tag{
     display: inline;
@@ -72,3 +89,4 @@ div#quest-description {
 .tab-content>.active {
   display: inline-grid ;
 }
+
