@@ -50,3 +50,43 @@ input.character-select:checked + img {
   transform: none;
 }
 
+.interest-tag{
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    color: #2c7a7b;
+    padding: 0.2rem 0.4rem;
+    margin: 0.2rem;
+    font-weight: 500;
+    border: 1px solid #81e6d9;
+    background: #e6fffa;
+    border-radius: 9999px;
+    max-width: 100%;
+    line-height: 1;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #2c7a7b;
+    width:fit-content
+}
+
+div#quest-description {
+  /* display: -webkit-box; */
+  font-size: small;
+  line-height: normal;
+  margin-bottom: 20px;
+  /* height: 20px; */
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quest-container:hover div#quest-description {
+  white-space: normal;
+
+}
+
+.tab-content>.active {
+  display: inline-grid ;
+}
+

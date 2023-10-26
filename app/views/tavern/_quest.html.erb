@@ -1,0 +1,19 @@
+<% if (quest != nil) then %>
+    <div class="p-[10px] hover:bg-slate-100 quest-container">
+            <%= quest['name'] %>
+            <div class="">
+                <% quest['interests'].each do |interest| %>
+                    <p class="interest-tag">
+                        <%= interest %>
+                    </p>
+                <% end %>
+            </div>
+            <div id="quest-description" class="">
+                <%= quest['description'] %>
+            </div>
+
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="control-button">+</button>
+            </div>
+        </div>
+<% end %>
