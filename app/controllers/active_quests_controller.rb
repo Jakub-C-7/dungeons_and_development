@@ -14,7 +14,7 @@ class ActiveQuestsController < ApplicationController
     # selected_pathway_id = '1'
 
     # @current_sections = Section.joins(:pathway_sections).where(pathway_sections: { pathway_id: @selected_pathway_id})
-    @current_sections = current_user.sections.joins(:user_sections).joins(:pathway_sections).distinct.where(pathway_sections: { pathway_id: selected_pathway_id})
+    @current_sections = current_user.sections.joins(:pathway_sections).distinct.where(pathway_sections: { pathway_id: selected_pathway_id})
 
     # p @current_sections
 
@@ -36,7 +36,7 @@ class ActiveQuestsController < ApplicationController
     selected_section_id = params[:select_section]
 
     # current_tasks = Task.joins(:section_tasks).where(section_tasks: { section_id: @selected_section_id})
-    current_tasks = current_user.tasks.joins(:user_tasks).joins(:section_tasks).distinct.where(section_tasks: { section_id: selected_section_id})
+    current_tasks = current_user.tasks.joins(:section_tasks).distinct.where(section_tasks: { section_id: selected_section_id})
 
     # p current_tasks
     
@@ -47,6 +47,11 @@ class ActiveQuestsController < ApplicationController
         turbo_stream.update('active_tasks_partial_div', partial: 'active_quests/active_tasks', locals: { active_tasks: current_tasks })
       end
     end
+    
+  end
+
+  #called when a user completes/updates a task
+  def updateTask
     
   end
 

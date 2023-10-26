@@ -25,7 +25,7 @@
     @apply sub-text-small opacity-70 hover:opacity-90 m-1;
   }
   .btn-primary {
-    @apply p-2 mt-2 mb-10 hover:text-white hover:bg-primary border-solid border-b-[2px] border-primary text-center cursor-pointer;
+    @apply p-2 mt-2 mb-10 hover:text-white bg-transparent hover:bg-primary border-solid border-b-[2px] border-primary text-center cursor-pointer;
   }
   .background-image {
     @apply fixed z-[-10];
@@ -34,12 +34,11 @@
     @apply transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-200 motion-reduce:transition-none motion-reduce:hover:transform-none;
   }
 
-  .control-button{
+  .control-button {
     @apply block mt-4 lg:inline-block lg:mt-0 text-primary mr-4 border-solid border-l-[2px] border-r-[2px] border-primaryFaded bg-primaryFaded px-4 py-2;
   }
 
   .active-quest-btn {
     @apply p-2 m-2 transition-grow border-solid border-[2px] border-black hover:border-primary text-center cursor-pointer sub-text-small;
   }
-  
 }

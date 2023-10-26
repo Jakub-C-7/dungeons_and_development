@@ -1,8 +1,11 @@
 <% if active_tasks != nil %>
 
     <% active_tasks.each do |task| %>
-        <%= task.name %>
-
+        <div class="p-[10px] hover:bg-slate-100 quest-container">
+            <%= label_tag task.id, " #{task.id}: #{task.name}", class: 'z-0 pointer-events-none border-solid border-b-[2px]' %>
+            <p class="sub-text-small "> <%= task.description %></p>
+            <%= button_tag 'Mark as complete', class:"character-select z-50 cursor-pointer active-quest-btn", :onclick => "this.form.requestSubmit();" %>
+        </div>
     <% end %>
 
 <% end %>
