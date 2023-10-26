@@ -10,8 +10,8 @@ class ActiveQuestsController < ApplicationController
     # p params
     # p params[:selected_pathway]
 
-    # @selected_pathway_id = params[:selected_pathway]
-    selected_pathway_id = '1'
+    selected_pathway_id = params[:selected_pathway]
+    # selected_pathway_id = '1'
 
     # @current_sections = Section.joins(:pathway_sections).where(pathway_sections: { pathway_id: @selected_pathway_id})
     @current_sections = current_user.sections.joins(:user_sections).joins(:pathway_sections).distinct.where(pathway_sections: { pathway_id: selected_pathway_id})

@@ -20,7 +20,7 @@ require_relative './seedData/06_pathwaySeed.rb'
 
 # User.destroy_all
 
-# user1 = User.create! :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+testUser = User.create! :email => 'test@gmail.com', :password => 'pass123', :password_confirmation => 'pass123'
 # user2 = User.create! :email => 'sally@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
 # user3 = User.create! :email => 'jane@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
 
@@ -130,25 +130,69 @@ require_relative './seedData/06_pathwaySeed.rb'
 
 UserPathway.destroy_all
 
-user1.user_pathways.create(
-    pathway_id: 1,
-    progress: 0
+pathways = Pathway.first(3)
+sections = Section.first(3)
+tasks = Task.first(3)
+
+testUser.user_pathways.create(
+    pathway_id: pathways[0].id,
+    progress: 1
     )
 
-user1.user_pathways.create(
-    pathway_id: 2,
-    progress: 2
+testUser.user_pathways.create(
+    pathway_id: pathways[1].id,
+    progress: 1
     )
+
+testUser.user_pathways.create(
+    pathway_id: pathways[2].id,
+    progress: 1
+    )
+
+PathwaySection.destroy_all
+
+pathwaySectionCount = 0
+
+pathways.each do |pway|
+    pway.pathway_sections.create(
+        section: sections[pathwaySectionCount],
+        pathway: pway
+    )
+    pathwaySectionCount = pathwaySectionCount + 1
+end
 
 UserSection.destroy_all
 
-user1.user_sections.create(
-    section_id: 1,
-    progress: 0
+userSectionCount = 0
+
+pathways.each do |pway|
+    testUser.user_sections.create(
+        section: sections[userSectionCount] ,
+        progress: 1
     )
-    
-user1.user_sections.create(
-    section_id: 2,
-    progress: 2
+    userSectionCount = userSectionCount + 1
+end
+
+SectionTask.destroy_all
+
+sectionTaskCount = 0
+
+sections.each do |section|
+    section.section_tasks.create(
+        task: tasks[sectionTaskCount] ,
     )
+    sectionTaskCount = sectionTaskCount + 1
+end
+
+UserTask.destroy_all
+
+userTaskCount = 0
+
+sections.each do |section|
+    testUser.user_tasks.create(
+        task: tasks[userTaskCount] ,
+        progress: 1
+    )
+    userTaskCount = userTaskCount + 1
+end
     
