@@ -1,19 +1,21 @@
-<% if status == "started" %> 
-    <%= form_with url: pausequest_path, method: :post do |form| %>
-            <%= form.radio_button :quest_id, questid, class:"hidden", checked: true %>
-            <%= form.submit "||", class: "control-button" %>
-    <% end %>
+<div class="quest-status-<%= status%>">    
+    <% if status == "started" %> 
+        <%= form_with url: pausequest_path, method: :post do |form| %>
+                <%= form.radio_button :quest_id, questid, class:"hidden", checked: true %>
+                <%= form.submit "||", class: "control-button" %>
+        <% end %>
 
-<% elsif status == "completed" %> 
+    <% elsif status == "completed" %> 
 
-<% elsif status == "notStarted" %> 
-    <%= form_with url: resumequest_path, method: :post do |form| %>
-        <%= form.radio_button :quest_id, questid, class:"hidden", checked: true %>
-        <%= form.submit ">", class: "control-button" %>
-    <% end %>
-<% else %>
-    <%= form_with url: addquest_path, method: :post do |form| %>
+    <% elsif status == "notStarted" %> 
+        <%= form_with url: resumequest_path, method: :post do |form| %>
             <%= form.radio_button :quest_id, questid, class:"hidden", checked: true %>
-            <%= form.submit "+", class: "control-button" %>
+            <%= form.submit ">", class: "control-button" %>
+        <% end %>
+    <% else %>
+        <%= form_with url: addquest_path, method: :post do |form| %>
+                <%= form.radio_button :quest_id, questid, class:"hidden", checked: true %>
+                <%= form.submit "+", class: "control-button" %>
+        <% end %>
     <% end %>
-<% end %>
+</div>
