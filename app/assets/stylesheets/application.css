@@ -69,7 +69,7 @@ input.character-select:checked + img {
     width:fit-content
 }
 
-div#quest-description {
+div.quest-description {
   /* display: -webkit-box; */
   font-size: small;
   line-height: normal;
@@ -81,7 +81,7 @@ div#quest-description {
   white-space: nowrap;
 }
 
-.quest-container:hover div#quest-description {
+.quest-container:hover div.quest-description {
   white-space: normal;
 
 }
@@ -90,3 +90,18 @@ div#quest-description {
   display: inline-grid ;
 }
 
+.quest-container:has(div.quest-status-started){
+  background-color: #e6fffa;
+}
+
+
+.quest-container div.quest-sections {
+  display: none;
+  font-size: medium;
+}
+
+
+
+.quest-container:hover div.quest-sections {
+  display: block;
+}

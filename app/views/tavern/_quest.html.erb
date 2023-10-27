@@ -8,12 +8,20 @@
                     </p>
                 <% end %>
             </div>
-            <div id="quest-description" class="">
+            <div id="" class="quest-description">
                 <%= quest['description'] %>
             </div>
+            <div id="" class="quest-sections">
+                Sections covered in the pathway:
+                <ul class="list-group-numbered">
+                <% quest['sections'].each do |section| %>
+                    <li class="list-group-item"> <%= section %> </li>
+                <% end %>
+                </ul>
+            </div>
 
-            <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="control-button">+</button>
+            <div class="btn-group" id= "quest-status-<%=quest['id']%><%=location%>" role="group" aria-label="Basic example">
+                    <%= render partial: 'tavern/quest_status', locals: {questid: quest['id'], status: quest['status'], location:location} %>
             </div>
         </div>
 <% end %>

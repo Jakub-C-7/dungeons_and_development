@@ -28,7 +28,7 @@
     @apply p-2 mt-2 mb-10 hover:text-white bg-transparent hover:bg-primary border-solid border-b-[2px] border-primary hover:border-black text-center cursor-pointer;
   }
   .btn-primary-dark-text {
-    @apply p-2 mt-2 mb-10 text-primaryText hover:text-white bg-transparent hover:bg-primary border-solid border-b-[2px] border-primary hover:border-black text-center cursor-pointer;
+    @apply text-primaryText btn-primary;
   }
   .background-image {
     @apply fixed z-[-10];
