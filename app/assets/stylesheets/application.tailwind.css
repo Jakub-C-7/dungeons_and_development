@@ -25,7 +25,7 @@
     @apply sub-text-small opacity-70 hover:opacity-90 m-1;
   }
   .btn-primary {
-    @apply p-2 mt-2 mb-10 hover:text-white hover:bg-primary border-solid border-b-[2px] border-primary text-center cursor-pointer;
+    @apply p-2 mt-2 mb-10 text-black hover:text-white hover:bg-primary border-solid border-b-[2px] border-primary text-center cursor-pointer;
   }
   .background-image {
     @apply fixed z-[-10];
