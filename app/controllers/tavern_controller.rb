@@ -47,9 +47,9 @@ class TavernController < ApplicationController
       format.html { render :quest_board }
       format.turbo_stream do 
         render turbo_stream:
-          turbo_stream.update('quest-status-' + params[:quest_id],
+          turbo_stream.update('quest-status-' + params[:quest_id] + params[:location],
                               partial: 'tavern/quest_status',
-                              locals: { questid: params[:quest_id], status: "started" })
+                              locals: { questid: params[:quest_id], status: "started", location:params[:location] })
       end
     end
   
@@ -61,9 +61,9 @@ class TavernController < ApplicationController
       format.html { render :quest_board }
       format.turbo_stream do 
         render turbo_stream:
-          turbo_stream.update('quest-status-' + params[:quest_id],
+          turbo_stream.update('quest-status-' + params[:quest_id]+ params[:location],
                               partial: 'tavern/quest_status',
-                              locals: { questid: params[:quest_id], status: "notStarted" })
+                              locals: { questid: params[:quest_id], status: "notStarted",location:params[:location]  })
       end
     end
     #  sections = pathway.sections
@@ -115,9 +115,9 @@ class TavernController < ApplicationController
       format.html { render :quest_board }
       format.turbo_stream do 
         render turbo_stream:
-          turbo_stream.update('quest-status-' + params[:quest_id],
+          turbo_stream.update('quest-status-' + params[:quest_id] + params[:location],
                               partial: 'tavern/quest_status',
-                              locals: { questid: params[:quest_id], status: "started" })
+                              locals: { questid: params[:quest_id], status: "started",location:params[:location]  })
       end
     end
   end
@@ -138,7 +138,7 @@ class TavernController < ApplicationController
           render turbo_stream:
             turbo_stream.update('recommended-quest-display',
                                 partial: 'tavern/quest',
-                                locals: { quest: quest })
+                                locals: { quest: quest, location:"recommended" })
         end
       end
   end

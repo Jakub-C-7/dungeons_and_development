@@ -20,8 +20,8 @@
                 </ul>
             </div>
 
-            <div class="btn-group" id= "quest-status-<%=quest['id']%>" role="group" aria-label="Basic example">
-                    <%= render partial: 'tavern/quest_status', locals: {questid: quest['id'], status: quest['status']} %>
+            <div class="btn-group" id= "quest-status-<%=quest['id']%><%=location%>" role="group" aria-label="Basic example">
+                    <%= render partial: 'tavern/quest_status', locals: {questid: quest['id'], status: quest['status'], location:location} %>
             </div>
         </div>
 <% end %>
