@@ -14,7 +14,7 @@
     <div class="text-base lg:flex-grow">
       <% if current_user %>
         <%= link_to "Profile", authenticated_root_path, class: "nav-btn-primary-left" %>
-        <%= link_to "Active Quests", edit_user_registration_path, class: "nav-btn-primary-left" %>
+        <%= link_to "Active Quests", active_quests_path, class: "nav-btn-primary-left" %>
         <%= link_to "Hub", tavern_path, class: "nav-btn-primary-left" %>
         <%= link_to "Memorial Hall", edit_user_registration_path, class: "nav-btn-primary-left" %>
       <% else %>
