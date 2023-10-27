@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
     post '/active_quests/refreshPathway', to: 'active_quests#refreshPathway'
     post '/active_quests/refreshSection', to: 'active_quests#refreshSection'
+    post '/active_quests/updateTask', to: 'active_quests#updateTask'
+
 
   end
   

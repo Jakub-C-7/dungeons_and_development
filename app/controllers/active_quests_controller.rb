@@ -14,7 +14,7 @@ class ActiveQuestsController < ApplicationController
     # selected_pathway_id = '1'
 
     # @current_sections = Section.joins(:pathway_sections).where(pathway_sections: { pathway_id: @selected_pathway_id})
-    @current_sections = current_user.sections.joins(:user_sections).joins(:pathway_sections).distinct.where(pathway_sections: { pathway_id: selected_pathway_id})
+    @current_sections = current_user.sections.joins(:pathway_sections).distinct.where(pathway_sections: { pathway_id: selected_pathway_id})
 
     # p @current_sections
 
@@ -36,7 +36,8 @@ class ActiveQuestsController < ApplicationController
     selected_section_id = params[:select_section]
 
     # current_tasks = Task.joins(:section_tasks).where(section_tasks: { section_id: @selected_section_id})
-    current_tasks = current_user.tasks.joins(:user_tasks).joins(:section_tasks).distinct.where(section_tasks: { section_id: selected_section_id})
+    current_tasks = current_user.tasks.joins(:section_tasks).distinct.where(section_tasks: { section_id: selected_section_id}).select('tasks.*,user_tasks.*');
+    # current_tasks = current_user.tasks.joins(:user_tasks).select('tasks.*,user_tasks.*');
 
     # p current_tasks
     
@@ -48,6 +49,30 @@ class ActiveQuestsController < ApplicationController
       end
     end
     
+  end
+
+  #called when a user completes/updates a task
+  def updateTask
+    p params[:task_to_update]
+    
+    taskProgress = UserTask.where(task_id: params[:task_to_update]).where(user_id: current_user.id).first
+
+    if taskProgress.progress != "completed"
+      progress = 2
+      UserTask.where(task_id: params[:task_to_update]).where(user_id: current_user.id).update_all(progress: 2)
+    else
+      progress = 1
+      UserTask.where(task_id: params[:task_to_update]).where(user_id: current_user.id).update_all(progress: 1)
+    end 
+
+    respond_to do |format|      
+      format.html { render :home }  #fall back if render fails
+      format.turbo_stream do 
+        render turbo_stream:
+        turbo_stream.update('task_status_partial_div-' + params[:task_to_update], partial: 'active_quests/task_status', locals: { task_status: progress })
+      end
+    end
+
   end
 
   def update
