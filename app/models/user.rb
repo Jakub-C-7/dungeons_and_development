@@ -12,4 +12,6 @@ class User < ApplicationRecord
   has_many :pathways, through: :user_pathways 
   has_many :user_sections
   has_many :sections, through: :user_sections 
+  has_many :user_equipments
+  has_many :equipments, through: :user_equipments 
 end
