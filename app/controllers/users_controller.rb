@@ -7,6 +7,11 @@ class UsersController < ApplicationController
         @selected_interests = current_user.interests.pluck(:id);
         @jobs = Interest.where(isRole: true)
         @current_job= current_user.user_interests.where(isPrimaryRole: true).pluck(:interest_id)
+        @equipmentHelmet = current_user.equipments.where(category: 0)
+        @equipmentWeapon = current_user.equipments.where(category: 1)
+        @equipmentChest = current_user.equipments.where(category: 2)
+        @equipmentBottoms = current_user.equipments.where(category: 3)
+
         p @current_job
 
         

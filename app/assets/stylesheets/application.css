@@ -105,3 +105,8 @@ div.quest-description {
 .quest-container:hover div.quest-sections {
   display: block;
 }
+
+.equipment-container{
+  margin-bottom: 100px;
+  border:rgb(175, 168, 168) solid 5px;
+}

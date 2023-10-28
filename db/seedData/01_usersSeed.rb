@@ -2,6 +2,8 @@ UserInterest.destroy_all
 UserPathway.destroy_all
 UserSection.destroy_all
 UserTask.destroy_all
+UserEquipment.destroy_all
+
 User.destroy_all
 
 user1 = User.create! :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
