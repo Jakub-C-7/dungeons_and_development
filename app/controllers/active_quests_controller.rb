@@ -110,13 +110,28 @@ class ActiveQuestsController < ApplicationController
     p count
     p current_user.user_pathways.where(pathway_id: selected_pathway_id)
 
-    #If this was the last section to complete. Mark the pathway as complete.
+    #If this was the last section to complete. 
     if count == 0
+      #Mark the pathway as complete.
       current_user.user_pathways.where(pathway_id: selected_pathway_id).update(progress: 2)
+
+      #GRANT Equipent ON COMPLETION
+    
+      #find the equipment item relating to the pathway
+      if Equipment.where(pathway_id: selected_pathway_id).exists?
+        reward_equipment = Equipment.where(pathway_id: selected_pathway_id).first
+      end
+
+      #check if equipment has already been granted, if not, grant it.
+      if !current_user.user_equipments.where(equipment_id: reward_equipment.id).exists?
+        UserEquipment.create(:user_id => current_user.id, :equipment_id => reward_equipment.id)
+      end
+
     end
+
     p "AFTER PATHWAY CHANGE"
 
-    p current_user.user_pathways.where(pathway_id: selected_pathway_id)
+    p current_user.user_pathways.where(pathway_id: selected_pathway_id)  
 
     respond_to do |format|      
       format.html { render :home }  #fall back if render fails
