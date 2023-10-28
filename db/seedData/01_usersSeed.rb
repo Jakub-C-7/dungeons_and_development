@@ -1,5 +1,7 @@
 UserInterest.destroy_all
-
+UserPathway.destroy_all
+UserSection.destroy_all
+UserTask.destroy_all
 User.destroy_all
 
 user1 = User.create! :email => 'john@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
@@ -26,9 +28,9 @@ user3 = User.create! :email => 'jane@gmail.com', :password => 'topsecret', :pass
 # interest: interest,
 # isPrimaryRole: true
 # )
-# # user1.user_interests.create(
-# # interest: interest
-# # )
+# user1.user_interests.create(
+# interest: interest
+# )
 # user1.user_interests.create(
 # interest: interestLast,
 # isPrimaryRole: true

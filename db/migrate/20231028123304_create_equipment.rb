@@ -5,7 +5,7 @@ class CreateEquipment < ActiveRecord::Migration[7.1]
       t.string :name
       t.string :description
       t.string :icon
-      t.integer :type
+      t.integer :category
 
       t.timestamps
     end
