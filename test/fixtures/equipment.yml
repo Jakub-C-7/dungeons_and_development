@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pathway: one
+  name: MyString
+  description: MyString
+  icon: MyString
+  type: 1
+
+two:
+  pathway: two
+  name: MyString
+  description: MyString
+  icon: MyString
+  type: 1
