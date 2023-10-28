@@ -11,8 +11,12 @@ class UsersController < ApplicationController
         @equipmentWeapon = current_user.equipments.where(category: 1)
         @equipmentChest = current_user.equipments.where(category: 2)
         @equipmentBottoms = current_user.equipments.where(category: 3)
+        @equippedHelmet = current_user.equipments.where(category: "helmet").where(user_equipments: {equipped: true}).pluck(:id)[0]
+        @equippedBottoms = current_user.equipments.where(category: "bottoms").where(user_equipments: {equipped: true}).pluck(:id)[0]
+        @equippedChest = current_user.equipments.where(category: "chest").where(user_equipments: {equipped: true}).pluck(:id)[0]
+        @equippedWeapon = current_user.equipments.where(category: "weapon").where(user_equipments: {equipped: true}).pluck(:id)[0]
 
-        p @current_job
+
 
         
     end
@@ -29,10 +33,11 @@ class UsersController < ApplicationController
     end
 
     def update_profile
-
+        if(interest_params[:helmetSelect])
+            update_all_equipment()
+        end
         if (interest_params[:interests] && interest_params[:primary_role])
-            p interest_params[:primary_role]
-            p update_interests()
+            update_interests()
         end
         if (interest_params[:character_selection])
             update_character_selection()
@@ -54,9 +59,20 @@ class UsersController < ApplicationController
 
      # Only allow a list of trusted parameters through.
      def interest_params
-        params.permit(:primary_role, :character_selection, :name, :interests => [])
+        params.permit(:primary_role, :character_selection, :name, :helmetSelect, :bottomsSelect, :chestSelect, :weaponSelect, :interests => [])
     end
 
+    def update_all_equipment 
+        current_user.user_equipments.update_all(equipped: false)
+        update_equipment(interest_params[:helmetSelect])
+        update_equipment(interest_params[:bottomsSelect])
+        update_equipment(interest_params[:chestSelect])
+        update_equipment(interest_params[:weaponSelect])
+
+    end
+    def update_equipment(id)
+        current_user.user_equipments.where(equipment_id: id).update_all(equipped: true)
+    end
 
     def update_interests
         if UserInterest.destroy_by(user_id: current_user.id)
