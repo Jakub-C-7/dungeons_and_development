@@ -107,6 +107,9 @@ div.quest-description {
 }
 
 .equipment-container{
-  margin-bottom: 100px;
+  margin-top: 50px;
   border:rgb(175, 168, 168) solid 5px;
+}
+span.select2 {
+  width: 100% !important;
 }

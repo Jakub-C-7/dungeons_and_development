@@ -13,7 +13,6 @@ export default class extends Controller{
                 e.on("change", () =>{
                     e[0].previousElementSibling.src = e[0].options[e[0].selectedIndex].dataset.icon
                 })
-               nextElementSibling.addEventListener("click", (() => updateImage(e[0])))
 
             })
            
