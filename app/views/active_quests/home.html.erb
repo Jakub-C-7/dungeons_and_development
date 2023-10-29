@@ -1,3 +1,5 @@
+    <%= render partial: "layouts/flash" %>
+
     <div class="flex flex-col xl:flex-row mb-12 p-12 w-full h-full"> 
         <%= form_tag({:controller => "active_quests", :action => "refreshPathway", :method => "post" }, {:class => "flex flex-col w-1/4"}) do  %>
 
