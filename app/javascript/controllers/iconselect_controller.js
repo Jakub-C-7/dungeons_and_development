@@ -9,7 +9,10 @@ export default class extends Controller{
                 e.select2({
                     templateResult: formatState
                 });
-                e[0].previousElementSibling.src = e[0].options[e[0].selectedIndex].dataset.icon
+                if(e[0].selectedIndex != -1){
+                    e[0].previousElementSibling.src = e[0].options[e[0].selectedIndex].dataset.icon
+                }
+                
                 e.on("change", () =>{
                     e[0].previousElementSibling.src = e[0].options[e[0].selectedIndex].dataset.icon
                 })

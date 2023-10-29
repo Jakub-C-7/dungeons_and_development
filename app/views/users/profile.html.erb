@@ -10,11 +10,11 @@
                 <div class="flex-col">
                   
                     <img class="equipment-container w-[100px] h-[100px]"  />
-                    <%= select_tag "helmetSelect", options_for_select(@equipmentHelmet.map{|e| [e.name, e.id, {'data-icon' => e.icon }]}, @equippedHelmet), data: {"iconselect-target" =>"selectField"} %>
+                    <%= select_tag "helmetSelect", options_for_select(@equipmentHelmet.map{|e| [e.name, e.id, {'data-icon' => e.icon }]}, @equippedHelmet), :disabled => true, data: {"iconselect-target" =>"selectField","profileedit-target" =>"editableField"} %>
 
                      <%# <%= select_tag "helmet", options_from_collection_for_select(@equipmentHelmet, "id", "name") %> 
                     <img class="equipment-container w-[100px] h-[100px]"  />
-                    <%= select_tag "bottomsSelect", options_for_select(@equipmentBottoms.map{|e| [e.name, e.id, {'data-icon' => e.icon }]},@equippedBottoms), data: {"iconselect-target" =>"selectField"} %>
+                    <%= select_tag "bottomsSelect", options_for_select(@equipmentBottoms.map{|e| [e.name, e.id, {'data-icon' => e.icon }]},@equippedBottoms), :disabled => true, data: {"iconselect-target" =>"selectField","profileedit-target" =>"editableField"} %>
 
                 </div >
                 <div class="flex" >
@@ -22,11 +22,11 @@
                 </div>
                 <div class="flex-col">
                    <img class="equipment-container w-[100px] h-[100px]"  />
-                    <%= select_tag "weaponSelect", options_for_select(@equipmentWeapon.map{|e| [e.name, e.id, {'data-icon' => e.icon }]},@equippedWeapon), data: {"iconselect-target" =>"selectField"} %>
+                    <%= select_tag "weaponSelect", options_for_select(@equipmentWeapon.map{|e| [e.name, e.id, {'data-icon' => e.icon }]},@equippedWeapon), :disabled => true, data: {"iconselect-target" =>"selectField","profileedit-target" =>"editableField"} %>
 
                      <%# <%= select_tag "helmet", options_from_collection_for_select(@equipmentHelmet, "id", "name") %> 
                     <img class="equipment-container w-[100px] h-[100px]"  />
-                    <%= select_tag "chestSelect", options_for_select(@equipmentChest.map{|e| [e.name, e.id, {'data-icon' => e.icon }]},@equippedChest), data: {"iconselect-target" =>"selectField"} %>
+                    <%= select_tag "chestSelect", options_for_select(@equipmentChest.map{|e| [e.name, e.id, {'data-icon' => e.icon }]},@equippedChest), :disabled => true,data: {"iconselect-target" =>"selectField","profileedit-target" =>"editableField"} %>
 
 
                 </div >

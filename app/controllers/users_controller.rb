@@ -16,8 +16,6 @@ class UsersController < ApplicationController
         @equippedChest = current_user.equipments.where(category: "chest").where(user_equipments: {equipped: true}).pluck(:id)[0]
         @equippedWeapon = current_user.equipments.where(category: "weapon").where(user_equipments: {equipped: true}).pluck(:id)[0]
 
-
-
         
     end
 
