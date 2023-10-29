@@ -6,9 +6,13 @@ export default class extends Controller{
         console.log("icon select")
             this.selectFieldTargets.forEach((selectField) =>{
                 var e = $('#' + selectField.id)
+                if(e[0].nextElementSibling?.classList.contains("select2") ){
+                    e[0].nextElementSibling?.remove()
+                }
                 e.select2({
                     templateResult: formatState
                 });
+                console.log(e[0].nextElementSibling?.classList.contains("select2") )
                 if(e[0].selectedIndex != -1){
                     e[0].previousElementSibling.src = e[0].options[e[0].selectedIndex].dataset.icon
                 }
