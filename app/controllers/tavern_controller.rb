@@ -89,28 +89,28 @@ class TavernController < ApplicationController
         progress: 1
     )
 
-    # selected_sections  = pathway.sections;
-    # selected_sections.each do |section|
-    #   if !UserSection.exists?(user_id: current_user.id, section_id: section.id)
-    #       UserSection.create(
-    #         user_id: current_user.id,
-    #         section_id: section.id,
-    #         progress: 1
-    #     )
+    selected_sections  = pathway.sections;
+    selected_sections.each do |section|
+      if !UserSection.exists?(user_id: current_user.id, section_id: section.id)
+          UserSection.create(
+            user_id: current_user.id,
+            section_id: section.id,
+            progress: 1
+        )
    
-    #     selected_tasks = section.tasks;
-    #     selected_tasks.each do |task|
-    #         if !UserTask.exists?(user_id: current_user.id, task_id: task.id)
-    #           UserTask.create(
-    #             user_id: current_user.id,
-    #             task_id: task.id,
-    #             progress: 1
-    #           )
-    #         end
+        selected_tasks = section.tasks;
+        selected_tasks.each do |task|
+            if !UserTask.exists?(user_id: current_user.id, task_id: task.id)
+              UserTask.create(
+                user_id: current_user.id,
+                task_id: task.id,
+                progress: 1
+              )
+            end
           
-    #     end
-    #   end
-    # end
+        end
+      end
+    end
     respond_to do |format|      
       format.html { render :quest_board }
       format.turbo_stream do 
