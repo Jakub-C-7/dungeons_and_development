@@ -17,6 +17,15 @@ require_relative './seedData/05_sectionSeed.rb'
 require_relative './seedData/06_pathwaySeed.rb'
 
 
+user1 = User.create! :email => 'test@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+equipments  = Equipment.first(rand(1..10))
+
+equipments.each  do |equipment|
+    UserEquipment.create([{
+        user_id: user1.id,
+        equipment_id: equipment.id
+    }])
+end
 
 # User.destroy_all
 

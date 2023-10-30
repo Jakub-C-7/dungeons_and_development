@@ -1,9 +1,36 @@
+<script src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js' ></script>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css' rel='stylesheet' type='text/css'>
+
 <div class="flex flex-col mt-16"> 
 
     <div class="flex flex-col xl:flex-row mb-12 m-8" data-controller="profileedit" data-profileedit-target="editContainer"> 
         <%= form_tag({:controller => "users", :action => "update_profile", :method => "post" }, {:class => "flex flex-col mx-auto justify-center items-center text-center gap-4"}) do  %>
             <h2 class="p-1 bg-[#E6DEEB]">The AWS Enigma</h2> 
-            <%= image_tag (current_user.character_selection.url), width: '300px' %> 
+            <div class="flex flex-row" data-controller="iconselect">
+                <div class="flex-col">
+                  
+                    <img class="equipment-container w-[100px] h-[100px]"  />
+                    <%= select_tag "helmetSelect", options_for_select(@equipmentHelmet.map{|e| [e.name, e.id, {'data-icon' => e.icon }]}, @equippedHelmet), :disabled => true, data: {"iconselect-target" =>"selectField","profileedit-target" =>"editableField"} %>
+
+                     <%# <%= select_tag "helmet", options_from_collection_for_select(@equipmentHelmet, "id", "name") %> 
+                    <img class="equipment-container w-[100px] h-[100px]"  />
+                    <%= select_tag "bottomsSelect", options_for_select(@equipmentBottoms.map{|e| [e.name, e.id, {'data-icon' => e.icon }]},@equippedBottoms), :disabled => true, data: {"iconselect-target" =>"selectField","profileedit-target" =>"editableField"} %>
+
+                </div >
+                <div class="flex" >
+                    <%= image_tag (current_user.character_selection.url), width: '300px' %> 
+                </div>
+                <div class="flex-col">
+                   <img class="equipment-container w-[100px] h-[100px]"  />
+                    <%= select_tag "weaponSelect", options_for_select(@equipmentWeapon.map{|e| [e.name, e.id, {'data-icon' => e.icon }]},@equippedWeapon), :disabled => true, data: {"iconselect-target" =>"selectField","profileedit-target" =>"editableField"} %>
+
+                     <%# <%= select_tag "helmet", options_from_collection_for_select(@equipmentHelmet, "id", "name") %> 
+                    <img class="equipment-container w-[100px] h-[100px]"  />
+                    <%= select_tag "chestSelect", options_for_select(@equipmentChest.map{|e| [e.name, e.id, {'data-icon' => e.icon }]},@equippedChest), :disabled => true,data: {"iconselect-target" =>"selectField","profileedit-target" =>"editableField"} %>
+
+
+                </div >
+            </div>
             <h2 class="p-1 bg-[#E6DEEB]"><%= current_user.name %> - Level 2</h2> 
             <%= select_tag "primary_role" , options_from_collection_for_select(@jobs, "id", "name", selected: @current_job), class:"grow" , :required => true, :disabled => true,data: { "profileedit-target" =>"editableField"} %>
             <h2 class="p-1 btn-primary sub-link" id="toggleEdit">Customise Profile</h2> 
