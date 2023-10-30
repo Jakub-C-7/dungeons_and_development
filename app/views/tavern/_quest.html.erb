@@ -1,5 +1,5 @@
 <% if (quest != nil) then %>
-    <div class="p-[10px] hover:bg-slate-100 quest-container">
+    <div class="p-[10px] hover:bg-slate-100 quest-container" data-controller="togglehidden" data-togglehidden-target="toggleButton">
             <%= quest['name'] %>
             <div class="">
                 <% quest['interests'].each do |interest| %>
@@ -11,7 +11,7 @@
             <div id="" class="quest-description">
                 <%= quest['description'] %>
             </div>
-            <div id="" class="quest-sections">
+            <div id="" class="quest-sections hidden" data-togglehidden-target="toggledElement">
                 Sections covered in the pathway:
                 <ul class="list-group-numbered">
                 <% quest['sections'].each do |section| %>

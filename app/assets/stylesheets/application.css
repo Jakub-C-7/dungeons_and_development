@@ -81,6 +81,7 @@ div.quest-description {
   white-space: nowrap;
 }
 
+
 .quest-container:hover div.quest-description {
   white-space: normal;
 
@@ -96,15 +97,13 @@ div.quest-description {
 
 
 .quest-container div.quest-sections {
-  display: none;
   font-size: medium;
+  
 }
 
 
 
-.quest-container:hover div.quest-sections {
-  display: block;
-}
+
 
 .equipment-container{
   margin-top: 50px;
