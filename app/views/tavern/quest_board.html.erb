@@ -21,12 +21,16 @@
               <div class="tab-content" id="quest-board-content">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <%= form_with url: search_path, method: :post do |form| %>
-                      <%= form.text_field :search %>
+                      <%= label_tag :search, "Search by title:" %>
+
+                      <%= form.text_field :search, class:"w-full" %>
                       
+                      <%= label_tag :interests, "Filter on interest tag:", class:"block mt-[30px]"%>
+
                       <%# <%= form.select :category, options_for_select([['All', 0], ['Pathways',1], ['Modules',2]]) %> 
                       <%= render partial: 'users/interests', locals: {selected_interests: @selected_interests, mode:"edit", required: false} %>
 
-                      <%= form.submit "Search", class: "btn-primary" %>
+                      <%= form.submit "Search", class: "btn-primary-dark-text" %>
                     <% end %>
                      <div id="quests" class="overflow-y-scroll max-h-[500px] w-full">
                          <%= render partial: 'tavern/quests', locals: {quests: @quests} %>
