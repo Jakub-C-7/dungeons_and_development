@@ -8,7 +8,7 @@
             <% @current_pathways.each do |pathway| %>
                 <label class="active-quest-btn">
                     <%= radio_button_tag :selected_pathway, pathway.pathway_id, class:"character-select hidden z-50 cursor-pointer", required: 'required', checked: true, :onclick => "this.form.requestSubmit();" %>
-                    <%= label_tag pathway.id, "Quest!!! #{pathway.pathway_id}: #{pathway.name}", class: 'z-0 pointer-events-none' %>
+                    <%= label_tag pathway.id, "#{pathway.pathway_id}: #{pathway.name}", class: 'z-0 pointer-events-none' %>
                 </label>
             <% end %>
 
