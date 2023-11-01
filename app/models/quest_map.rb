@@ -1,0 +1,2 @@
+class QuestMap < ApplicationRecord
+end

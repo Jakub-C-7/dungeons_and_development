@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_28_172617) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_31_114722) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_28_172617) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "quest_maps", force: :cascade do |t|
+    t.string "image"
+    t.integer "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "coordinates_left", default: [], array: true
+    t.integer "coordinates_bot", default: [], array: true
   end
 
   create_table "section_interests", force: :cascade do |t|
