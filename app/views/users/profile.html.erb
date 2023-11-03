@@ -17,9 +17,11 @@
                     <%= select_tag "bottomsSelect", options_for_select(@equipmentBottoms.map{|e| [e.name, e.id, {'data-icon' => e.icon }]},@equippedBottoms), :disabled => true, data: {"iconselect-target" =>"selectField","profileedit-target" =>"editableField"} %>
 
                 </div >
+
                 <div class="flex" >
                     <%= image_tag (current_user.character_selection.url), width: '300px' %> 
                 </div>
+
                 <div class="flex-col">
                    <img class="equipment-container w-[100px] h-[100px]"  />
                     <%= select_tag "weaponSelect", options_for_select(@equipmentWeapon.map{|e| [e.name, e.id, {'data-icon' => e.icon }]},@equippedWeapon), :disabled => true, data: {"iconselect-target" =>"selectField","profileedit-target" =>"editableField"} %>
@@ -28,18 +30,21 @@
                     <img class="equipment-container w-[100px] h-[100px]"  />
                     <%= select_tag "chestSelect", options_for_select(@equipmentChest.map{|e| [e.name, e.id, {'data-icon' => e.icon }]},@equippedChest), :disabled => true,data: {"iconselect-target" =>"selectField","profileedit-target" =>"editableField"} %>
 
-
                 </div >
             </div>
-            <h2 class="p-1 bg-[#E6DEEB]"><%= current_user.name %> - Level 2</h2> 
-            <%= select_tag "primary_role" , options_from_collection_for_select(@jobs, "id", "name", selected: @current_job), class:"grow" , :required => true, :disabled => true,data: { "profileedit-target" =>"editableField"} %>
+
+            <h2 class="p-2 bg-[#E6DEEB]"><%= current_user.name %> - Level 1</h2> 
+
+            <%= select_tag "primary_role" , options_from_collection_for_select(@jobs, "id", "name", selected: @current_job), class:"leading-normal" , :required => true, :disabled => true,data: { "profileedit-target" =>"editableField"} %>
+
             <h2 class="p-1 btn-primary sub-link" id="toggleEdit">Customise Profile</h2> 
+
             <%= render partial: 'users/interests', locals: {selected_interests: @selected_interests, mode:"display", required:true } %>
+
             <div class="flex  items-center" id="save-profile">
-                <%= submit_tag 'Save', class:'btn-primary' %>
+                <%= submit_tag 'Save', class:'btn-primary-dark-text' %>
             </div>
         <% end %>
-
 
         <div class="flex flex-col mx-auto justify-center items-start gap-4 mt-16 self-start xl:mt-0 min-w-[50vw]"> 
 
