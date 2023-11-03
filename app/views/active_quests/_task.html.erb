@@ -1,14 +1,16 @@
-<%= form_tag({:controller => "active_quests", :action => "updateTask", :method => "post" }, {:class => ""}) do  %>
-    <div class="p-[10px] hover:bg-slate-100 quest-container">
-        <%= label_tag task.task_id, " #{task.task_id}: #{task.name}", class: 'z-0 pointer-events-none border-solid border-b-[2px]' %>
-        <p class="sub-text-small "> <%= task.description %></p>
+<% if task then %>
+    <%= form_tag({:controller => "active_quests", :action => "updateTask", :method => "post" }, {:class => ""}) do  %>
+        <div class="p-[10px] hover:bg-slate-100 quest-container">
+            <%= label_tag task.task_id, " #{task.task_id}: #{task.name}", class: 'z-0 pointer-events-none border-solid border-b-[2px]' %>
+            <p class="sub-text-small "> <%= task.description %></p>
 
-        <div id="task_status_partial_div-<%= task.task_id %>" class="self-center mb-2"> 
-            <%= render partial: 'active_quests/task_status', locals: {task_status: task.progress} %>
+            <div id="task_status_partial_div-<%= task.task_id %>" class="self-center mb-2"> 
+                <%= render partial: 'active_quests/task_status', locals: {task_status: task.progress} %>
+            </div>
+
+            <%= radio_button_tag :task_to_update, task.task_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
+            <%= radio_button_tag :select_section, @selected_section_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
+            <%= radio_button_tag :selected_pathway, @selected_pathway_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
         </div>
-
-        <%= radio_button_tag :task_to_update, task.task_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
-        <%= radio_button_tag :select_section, @selected_section_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
-        <%= radio_button_tag :selected_pathway, @selected_pathway_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
-    </div>
+    <% end %>
 <% end %>

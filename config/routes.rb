@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     get '/questboard', to: 'tavern#quest_board'
     post 'search', to: 'tavern#search_quests'
     post 'updaterecommended', to: "tavern#update_recommended"
+    post 'updatemaptask', to: "active_quests#update_map_task"
+
     post 'addquest', to: 'tavern#add_quest'
     post 'pausequest', to: 'tavern#pause_quest'
     post 'resumequest', to: 'tavern#resume_quest'

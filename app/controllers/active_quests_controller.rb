@@ -151,6 +151,22 @@ class ActiveQuestsController < ApplicationController
 
   end
 
+  def update_map_task 
+    @selected_pathway_id = params[:selected_pathway]
+    @selected_section_id = params[:select_section]
+
+    task = current_user.tasks.distinct.where(tasks: {id: params[:selected_task]}).select('tasks.*,user_tasks.*').first;
+    respond_to do |format|      
+      format.html { render :active_quests }
+      format.turbo_stream do 
+        render turbo_stream:
+          turbo_stream.update('map-task-display',
+                              partial: 'active_quests/task',
+                              locals: { task: task })
+      end
+    end
+  end
+
   def update
   end
 
