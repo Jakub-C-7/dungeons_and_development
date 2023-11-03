@@ -96,8 +96,9 @@ div.quest-description {
 }
 
 
-.quest-container div.quest-sections {
+.quest-container div.quest-more {
   font-size: medium;
+  margin-right:100px;
   
 }
 
