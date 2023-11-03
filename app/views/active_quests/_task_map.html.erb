@@ -1,15 +1,15 @@
 <div class="w-full relative" >
-    <%= image_tag("map1.jpg", :alt => "map1", class:"w-full h-full") %>
+    <%= image_tag(map.image, :alt => "map image", class:"w-full h-full") %>
 
-    <div class="absolute bottom-[47%] left-[29%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['Quest_Board'] "> 
-        <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
-    </div>
+    <% if tasks != nil %>
+        <% tasks.each do |task| %>
+            <div class="absolute transition-all cursor-pointer"
+                style="bottom: <%= map.coordinates_bot[task.step_number - 1] %>%;
+                      left: <%= map.coordinates_left[task.step_number - 1] %>%;"
+            > 
+                <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
+            </div>
+        <% end %>
+    <% end %>
 
-    <div class="absolute bottom-[56%] left-[63%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['Quest_Board'] "> 
-        <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
-    </div>
-
-    <div class="absolute bottom-[32%] left-[78%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['Quest_Board'] "> 
-        <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
-    </div>
 </div>

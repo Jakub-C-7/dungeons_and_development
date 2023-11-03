@@ -3,7 +3,7 @@
     <%#> box underneath the map that changes dependent on task selection <%>
 
     <div id="task_map_partial" class="w-full flex justify-center items-center hidden" data-togglemap-target="toggledContainer">
-        <%= render partial: 'active_quests/task_map', locals: {tasks: active_tasks} %>
+        <%= render partial: 'active_quests/task_map', locals: {tasks: active_tasks, map: map} %>
     </div>
 
     <% active_tasks.each do |task| %>
