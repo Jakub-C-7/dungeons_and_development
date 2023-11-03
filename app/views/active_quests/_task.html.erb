@@ -1,7 +1,7 @@
 <% if task then %>
     <%= form_tag({:controller => "active_quests", :action => "updateTask", :method => "post" }, {:class => ""}) do  %>
         <div class="p-[10px] hover:bg-slate-100 quest-container">
-            <%= label_tag task.task_id, " #{task.task_id}: #{task.name}", class: 'z-0 pointer-events-none border-solid border-b-[2px]' %>
+            <%= label_tag task.task_id, " #{task.step_number}: #{task.name}", class: 'z-0 pointer-events-none border-solid border-b-[2px]' %>
             <p class="sub-text-small "> <%= task.description %></p>
 
             <div id="task_status_partial_div-<%= task.task_id %>" class="self-center mb-2"> 

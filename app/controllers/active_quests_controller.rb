@@ -42,8 +42,8 @@ class ActiveQuestsController < ApplicationController
 
     @selected_map = QuestMap.where(size: @current_tasks.length).first
 
-    # p "CURRENT TASKS"
-    # p @current_tasks
+    p "CURRENT TASKS"
+    p @current_tasks
 
     respond_to do |format|      
       format.html { render :home }  #fall back if render fails
@@ -155,7 +155,11 @@ class ActiveQuestsController < ApplicationController
     @selected_pathway_id = params[:selected_pathway]
     @selected_section_id = params[:select_section]
 
-    task = current_user.tasks.distinct.where(tasks: {id: params[:selected_task]}).select('tasks.*,user_tasks.*').first;
+    task = current_user.tasks.joins(:section_tasks).distinct.where(section_tasks: { section_id: @selected_section_id}).distinct.where(tasks: {id: params[:selected_task]}).select('tasks.*,user_tasks.*,section_tasks.*').first;
+    
+    # p "PRINTING TASK"
+    # p task
+
     respond_to do |format|      
       format.html { render :active_quests }
       format.turbo_stream do 
