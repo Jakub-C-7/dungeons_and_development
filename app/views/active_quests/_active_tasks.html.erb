@@ -1,21 +1,17 @@
 <% if active_tasks != nil %>
+    <%#> image of the map for the section and image for each task - like for tavern <%>
+    <%#> box underneath the map that changes dependent on task selection <%>
+
+    <div id="task_map_partial" class="w-full flex flex-col justify-center items-center hidden" data-togglemap-target="toggledContainer">
+        <%= render partial: 'active_quests/task_map', locals: {tasks: active_tasks, map: map} %>
+    </div>
 
     <% active_tasks.each do |task| %>
-        <%= form_tag({:controller => "active_quests", :action => "updateTask", :method => "post" }, {:class => ""}) do  %>
-            <div class="p-[10px] hover:bg-slate-100 quest-container">
-                <%= label_tag task.task_id, " #{task.task_id}: #{task.name}", class: 'z-0 pointer-events-none border-solid border-b-[2px]' %>
-                <p class="sub-text-small "> <%= task.description %></p>
 
-                <div id="task_status_partial_div-<%= task.task_id %>" class="self-center mb-2"> 
-                    <%= render partial: 'active_quests/task_status', locals: {task_status: task.progress} %>
-                </div>
+        <div id="task_partial" class="w-full" data-togglemap-target="toggledContainer">
+            <%= render partial: 'active_quests/task', locals: {task: task} %>
+        </div>
 
-                <%= radio_button_tag :task_to_update, task.task_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
-                <%= radio_button_tag :select_section, @selected_section_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
-                <%= radio_button_tag :selected_pathway, @selected_pathway_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
-
-            </div>
-        <% end %>
     <% end %>
 
 <% end %>

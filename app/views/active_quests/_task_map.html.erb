@@ -1,0 +1,59 @@
+<%
+=begin%>
+ <div class=" w-full h-full relative" >
+    <%= image_tag(map.image, :alt => "map image", class:"w-full h-full") %>
+
+   <div class="absolute bottom-[15%] left-[16%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['Quest_Board'] "> 
+      <%= image_tag("character.png", :alt => "npc", class:"w-[50px] lg:w-[70px] transition-grow") %>
+    </div>
+
+    <div class="absolute bottom-[15%] left-[35%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['Bard']"> 
+      <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
+    </div>
+
+    <div class="absolute bottom-[35%] left-[45%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['NPC_3']"> 
+      <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
+    </div>
+
+    <div class="absolute bottom-[28%] left-[54%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['NPC_3']"> 
+      <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
+    </div>
+
+    <div class="absolute bottom-[15%] left-[73%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['NPC_3']"> 
+      <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
+    </div>
+</div> 
+<%
+=end%>
+
+
+<div class="w-full relative" >
+    <%= form_with url: updatemaptask_path, method: :post, remote: true  do  |form|  %>
+
+        <%= image_tag(map.image, :alt => "map image", class:"w-full h-full") %>
+
+        <% if tasks != nil %>
+            <% tasks.each do |task| %>
+                <label>
+                    <div class="absolute transition-all cursor-pointer transition-grow"
+                        style="bottom: <%= map.coordinates_bot[task.step_number - 1] %>%;
+                            left: <%= map.coordinates_left[task.step_number - 1] %>%;"
+                    > 
+                        <%= form.radio_button :selected_task, task.task_id, class:"hidden", checked: true, :onclick => "this.form.requestSubmit();"   %>
+                        <p class="absolute inset-0 text-center text-white font-logoTitle"> <%= task.step_number%></p>
+                        <%= image_tag("StepRed.svg", :alt => "Quest Step", class:"w-[39px]") %>
+                        
+                        <%= radio_button_tag :select_section, @selected_section_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
+                        <%= radio_button_tag :selected_pathway, @selected_pathway_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
+     
+                    </div>
+                </label>
+            <% end %>
+        <% end %>
+        
+    <% end %>
+</div>
+
+<div id="map-task-display" class="w-full">
+    <%= render partial: 'active_quests/task', locals: {task: nil} %>
+</div>

@@ -37,16 +37,19 @@ class ActiveQuestsController < ApplicationController
     @selected_pathway_id = params[:selected_pathway]
 
     # current_tasks = Task.joins(:section_tasks).where(section_tasks: { section_id: @selected_section_id})
-    @current_tasks = current_user.tasks.joins(:section_tasks).distinct.where(section_tasks: { section_id: @selected_section_id}).select('tasks.*,user_tasks.*');
+    @current_tasks = current_user.tasks.joins(:section_tasks).distinct.where(section_tasks: { section_id: @selected_section_id}).select('tasks.*,user_tasks.*,section_tasks.*').order(:step_number);
     # current_tasks = current_user.tasks.joins(:user_tasks).select('tasks.*,user_tasks.*');
 
-    # p @current_tasks
+    @selected_map = QuestMap.where(size: @current_tasks.length).first
+
+    p "CURRENT TASKS"
+    p @current_tasks
 
     respond_to do |format|      
       format.html { render :home }  #fall back if render fails
       format.turbo_stream do 
         render turbo_stream:
-        turbo_stream.update('active_tasks_partial_div', partial: 'active_quests/active_tasks', locals: { active_tasks: @current_tasks })
+        turbo_stream.update('active_tasks_partial_div', partial: 'active_quests/active_tasks', locals: { active_tasks: @current_tasks, map: @selected_map })
       end
     end
     
@@ -146,6 +149,26 @@ class ActiveQuestsController < ApplicationController
       end
     end
 
+  end
+
+  def update_map_task 
+    @selected_pathway_id = params[:selected_pathway]
+    @selected_section_id = params[:select_section]
+
+    task = current_user.tasks.joins(:section_tasks).distinct.where(section_tasks: { section_id: @selected_section_id}).distinct.where(tasks: {id: params[:selected_task]}).select('tasks.*,user_tasks.*,section_tasks.*').first;
+    
+    # p "PRINTING TASK"
+    # p task
+
+    respond_to do |format|      
+      format.html { render :active_quests }
+      format.turbo_stream do 
+        render turbo_stream:
+          turbo_stream.update('map-task-display',
+                              partial: 'active_quests/task',
+                              locals: { task: task })
+      end
+    end
   end
 
   def update
