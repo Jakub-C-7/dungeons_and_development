@@ -128,3 +128,40 @@ span.select2 {
   display: block !important;
 
 }
+
+
+.speech-bubble {
+	position: relative;
+	background: #bcc7c8;
+	border-radius: .4em;
+  padding: 20px;
+  font-size: large;
+}
+
+.speech-bubble-down:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-top-color: #bcc7c8;
+	border-bottom: 0;
+	margin-left: -20px;
+	margin-bottom: -20px;
+}
+
+.speech-bubble-up:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-bottom-color: #bcc7c8;
+	border-top: 0;
+	margin-left: -20px;
+	margin-top: -20px;
+}
