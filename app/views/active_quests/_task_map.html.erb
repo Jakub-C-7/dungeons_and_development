@@ -35,13 +35,13 @@
         <% if tasks != nil %>
             <% tasks.each do |task| %>
                 <label>
-                    <div class="absolute transition-all cursor-pointer"
+                    <div class="absolute transition-all cursor-pointer transition-grow"
                         style="bottom: <%= map.coordinates_bot[task.step_number - 1] %>%;
                             left: <%= map.coordinates_left[task.step_number - 1] %>%;"
                     > 
                         <%= form.radio_button :selected_task, task.task_id, class:"hidden", checked: true, :onclick => "this.form.requestSubmit();"   %>
-                        <%= image_tag("StepRed.svg", :alt => "Quest Step", class:"w-[39px] transition-grow") %>
                         <p class="absolute inset-0 text-center text-white font-logoTitle"> <%= task.step_number%></p>
+                        <%= image_tag("StepRed.svg", :alt => "Quest Step", class:"w-[39px]") %>
                         
                         <%= radio_button_tag :select_section, @selected_section_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
                         <%= radio_button_tag :selected_pathway, @selected_pathway_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
