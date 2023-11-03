@@ -1,3 +1,32 @@
+<%
+=begin%>
+ <div class=" w-full h-full relative" >
+    <%= image_tag(map.image, :alt => "map image", class:"w-full h-full") %>
+
+   <div class="absolute bottom-[15%] left-[16%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['Quest_Board'] "> 
+      <%= image_tag("character.png", :alt => "npc", class:"w-[50px] lg:w-[70px] transition-grow") %>
+    </div>
+
+    <div class="absolute bottom-[15%] left-[35%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['Bard']"> 
+      <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
+    </div>
+
+    <div class="absolute bottom-[35%] left-[45%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['NPC_3']"> 
+      <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
+    </div>
+
+    <div class="absolute bottom-[28%] left-[54%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['NPC_3']"> 
+      <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
+    </div>
+
+    <div class="absolute bottom-[15%] left-[73%] text-center text-neutral-50 text-opacity-0 hover:text-opacity-100 transition-all after:content-['NPC_3']"> 
+      <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
+    </div>
+</div> 
+<%
+=end%>
+
+
 <div class="w-full relative" >
     <%= form_with url: updatemaptask_path, method: :post, remote: true  do  |form|  %>
 
@@ -11,7 +40,8 @@
                             left: <%= map.coordinates_left[task.step_number - 1] %>%;"
                     > 
                         <%= form.radio_button :selected_task, task.task_id, class:"hidden", checked: true, :onclick => "this.form.requestSubmit();"   %>
-                        <%= image_tag("character.png", :alt => "npc2", class:"w-[50px] lg:w-[70px] transition-grow") %>
+                        <%= image_tag("StepRed.svg", :alt => "Quest Step", class:"w-[39px] transition-grow") %>
+                        <p class="absolute inset-0 text-center text-white font-logoTitle"> <%= task.step_number%></p>
                         
                         <%= radio_button_tag :select_section, @selected_section_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>
                         <%= radio_button_tag :selected_pathway, @selected_pathway_id, class:"character-select hidden z-0 pointer-events-none", required: 'required', checked: true %>

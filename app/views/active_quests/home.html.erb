@@ -1,20 +1,20 @@
     <%= render partial: "layouts/flash" %>
 
     <div class="flex flex-col xl:flex-row mb-12 p-12 w-full h-full" data-controller="togglemap"> 
-        <%= form_tag({:controller => "active_quests", :action => "refreshPathway", :method => "post" }, {:class => "flex flex-col w-1/4"}) do  %>
+        <%= form_tag({:controller => "active_quests", :action => "refreshPathway", :method => "post" }, {:class => "flex flex-col w-1/5"}) do  %>
 
-            <h2> My Active Quests </h2> 
+            <h2 class="text-center">Active Quests</h2> 
 
             <% @current_pathways.each do |pathway| %>
                 <label class="active-quest-btn">
                     <%= radio_button_tag :selected_pathway, pathway.pathway_id, class:"character-select hidden z-50 cursor-pointer", required: 'required', checked: true, :onclick => "this.form.requestSubmit();" %>
-                    <%= label_tag pathway.id, "#{pathway.pathway_id}: #{pathway.name}", class: 'z-0 pointer-events-none' %>
+                    <%= label_tag pathway.id, "#{pathway.name}", class: 'z-0 pointer-events-none' %>
                 </label>
             <% end %>
 
         <% end %>
 
-        <div class="flex flex-row mx-auto justify-center items-center text-center gap-4 w-3/4">
+        <div class="flex flex-row mx-auto justify-center items-center text-center gap-4 w-full">
 
             <div class="flex flex-col self-start items-start justify-start w-2/3 text-start "> 
                 <div id="active_sections_partial_div" class="self-center mb-2"> 
@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div class="flex flex-col self-start items-start justify-start w-1/4 " >
+            <div class="flex flex-col self-start items-start justify-start w-1/5" >
                 <%= image_tag ("map1.jpg"), width: '100%', height: '100%' %> 
 
                 <h2 class="p-1 btn-primary sub-link" id="toggleMap">Switch to map view</h2> 

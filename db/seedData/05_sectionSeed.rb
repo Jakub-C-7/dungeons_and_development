@@ -3,7 +3,7 @@ Section.destroy_all
 
 50.times do 
     @section = Section.create(name: Faker::Educator.unique.course_name, description: Faker::Lorem.sentence(word_count: (rand(10..50))))
-    tasks  = Task.order("RANDOM()").first(3)
+    tasks  = Task.order("RANDOM()").first(5)
     x = 1
     tasks.each do |task|
         SectionTask.create({section_id: @section.id, task_id: task.id, step_number: x})
