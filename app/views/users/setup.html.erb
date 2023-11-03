@@ -1,13 +1,13 @@
 <div class="w-full mx-auto"> 
     <div class="flex mt-16"> 
-        <h1 class="text-4xl font-bold mx-auto border-b-[10px] border-primary w-full ml-[200px] pb-2">
+        <h1 class="text-4xl font-bold mx-auto border-b-[10px] border-[#87619A] w-full ml-[200px] pb-2 pl-4">
             Finish setting up your profile
         </h1>               
     </div>
 </div>
 
 <div class="flex "> 
-    <h2 class="text-2xl font-bold mx-auto w-full ml-[200px]">
+    <h2 class="text-2xl font-bold mx-auto w-full ml-[200px] pl-4">
     You can always change these later
     </h2>              
 </div>
@@ -43,7 +43,7 @@
             </div>
             <%= render partial: 'users/interests', locals: {selected_interests: [], mode:"edit", required: true} %>
             <div class="flex items-center w-1/4 mx-auto ">
-                <%= submit_tag 'Next', class:'btn-primary w-full' %>
+                <%= submit_tag 'Next', class:'btn-primary-dark-text w-full' %>
             </div>
         </div>
 <% end %>

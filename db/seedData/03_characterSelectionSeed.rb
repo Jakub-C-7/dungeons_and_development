@@ -1,3 +1,5 @@
+CharacterSelection.destroy_all
+
 CharacterSelection.create(url:"character1.png")
 CharacterSelection.create(url:"character2.png")
 CharacterSelection.create(url:"character3.png")
