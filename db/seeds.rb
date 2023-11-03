@@ -18,7 +18,7 @@ require_relative './seedData/06_pathwaySeed.rb'
 require_relative './seedData/07_quest_mapSeed.rb'
 
 user1 = User.create! :email => 'test@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
-equipments  = Equipment.first(rand(1..10))
+equipments  = Equipment.first(10)
 
 equipments.each  do |equipment|
     UserEquipment.create([{

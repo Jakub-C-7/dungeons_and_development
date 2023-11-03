@@ -40,36 +40,38 @@
             </div>
         <% end %>
 
+
         <div class="flex flex-col mx-auto justify-center items-start gap-4 mt-16 self-start xl:mt-0 min-w-[50vw]"> 
-            <%= link_to tavern_path, class: "flex flex-col justify-center items-center w-full" do %>
-                <div class="flex flex-row-reverse p-2 bg-[#D8E9F0] w-3/4 justify-end items-center gap-8 transition-grow"> 
+
+         <div class="flex flex-col justify-center items-center w-full">
+                <%= link_to tavern_path, class: "flex flex-row-reverse p-2 bg-[#D8E9F0] w-3/4 justify-end items-center gap-8 transition-grow" do %>
                     <div class="sub-text-small">
                         <h2 class="sub-text underline">The Hub</h2>
                         <p> Network with others and find new quests! </p>
                     </div>
                     <%= image_tag ("tavern-removebg.png"), class: "w-1/4" %> 
-                </div>
-            <% end %>
-            
-            <%= link_to active_quests_path, class: "flex flex-col justify-center items-center w-full" do %>
-                <div class="flex flex-row-reverse p-2 bg-[#D5ECE2] w-3/4 justify-end items-center gap-8 transition-grow"> 
-                    <div class="sub-text-small">
+                <% end %>
+            </div>
+        
+            <div class="flex flex-col justify-center items-center w-full">
+                <%= link_to active_quests_path, class: "flex flex-row-reverse p-2 bg-[#D5ECE2] w-3/4 justify-end items-center gap-8 transition-grow" do %>
+                        <div class="sub-text-small">
                         <h2 class="sub-text underline">Active Quests</h2>
                         <p> Progress your quests! </p>
                     </div>
                     <%= image_tag ("map-removebg.png"), class: "w-1/4" %> 
-                </div>
-            <% end %>
-
-            <%= link_to edit_user_registration_path, class: "flex flex-col justify-center items-center w-full" do %>
-                <div class="flex flex-row-reverse p-2 bg-[#F9EFD6] w-3/4 justify-end items-center gap-8 transition-grow"> 
-                    <div class="sub-text-small">
-                        <h2 class="sub-text underline">Treasure Hall</h2>
-                        <p> Your accumulated haul and previously completed adventures! </p>
-                    </div>
-                    <%= image_tag ("diary-removebg.png"), class: "w-1/4" %> 
-                </div>
-            <% end %>
+                <% end %>
+            </div>
+            
+            <div class="flex flex-col justify-center items-center w-full">
+                <%= link_to edit_user_registration_path, class: "flex flex-row-reverse p-2 bg-[#F9EFD6] w-3/4 justify-end items-center gap-8 transition-grow" do %>
+                        <div class="sub-text-small">
+                            <h2 class="sub-text underline">Treasure Hall</h2>
+                            <p> Your accumulated haul and previously completed adventures! </p>
+                        </div>
+                        <%= image_tag ("diary-removebg.png"), class: "w-1/4" %> 
+                <% end %>
+            </div>
 
         </div>
         

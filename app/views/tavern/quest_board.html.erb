@@ -1,15 +1,19 @@
 
 <div class="flex flex-col mt-16"> 
 
-  <h1 class="font-bold text-4xl">Tavern#questboard</h1>
 
   <div class="flex flex-col xl:flex-row mb-12"> 
-          <div class="flex flex-col mx-auto justify-center items-center gap-4 w-1/2"> 
-             <%= image_tag ("architect.png"), width: '50%' %> 
+          <div class="flex flex-col mx-auto justify-center items-center gap-4 w-1/3 h-full"> 
+            <div class="speech-bubble speech-bubble-down">
+              Welcome to the quest board
+            </div>
+              <%= image_tag ("architect.png"), width: '50%' %> 
+            <div class="speech-bubble speech-bubble-up w-2/3">
+              Here you can browse all available quests, filter on your interests, and pick from recommendations that we think will suit you at this stage of your journey!
+            </div>
           </div>
-
-          <div class="flex flex-col mx-auto justify-center items-center gap-4 mt-16 self-center xl:mt-0 min-w-[50vw] w-1/2"> 
-              <ul class="nav nav-tabs" id="quest-board-tabs" role="tablist">
+          <div class="flex flex-col mx-auto justify-center items-center gap-4 mt-16 self-center xl:mt-0 w-2/3 h-full"> 
+              <ul class="nav nav-tabs w-full" id="quest-board-tabs" role="tablist">
                 <li class="nav-item" role="presentation">
                   <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">All Quests</button>
                 </li>
@@ -18,15 +22,19 @@
                 </li>
                 
               </ul>
-              <div class="tab-content" id="quest-board-content">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="tab-content w-full" id="quest-board-content">
+                <div class="tab-pane fade show active w-full" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <%= form_with url: search_path, method: :post do |form| %>
-                      <%= form.text_field :search %>
+                      <%= label_tag :search, "Search by title:" %>
+
+                      <%= form.text_field :search, class:"w-full" %>
                       
+                      <%= label_tag :interests, "Filter on interest tag:", class:"block mt-[30px]"%>
+
                       <%# <%= form.select :category, options_for_select([['All', 0], ['Pathways',1], ['Modules',2]]) %> 
                       <%= render partial: 'users/interests', locals: {selected_interests: @selected_interests, mode:"edit", required: false} %>
 
-                      <%= form.submit "Search", class: "btn-primary" %>
+                      <%= form.submit "Search", class: "btn-primary-dark-text" %>
                     <% end %>
                      <div id="quests" class="overflow-y-scroll max-h-[500px] w-full">
                          <%= render partial: 'tavern/quests', locals: {quests: @quests} %>
@@ -34,8 +42,8 @@
                         
                 
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <div class="relative bg-[url('questboard-bg.jpg')] bg-cover bg-no-repeat bg-center w-[600px] h-[500px]" >
+                <div class="tab-pane fade w-full" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="relative bg-[url('questboard-bg.jpg')] bg-cover bg-no-repeat bg-center w-[600px] h-[500px] m-auto" >
                         <%= form_with url: updaterecommended_path, method: :post, remote: true  do  |form|  %>
                             <label>
                               <div class="absolute bottom-[22%] left-[23%] text-center text-white text-opacity-0 hover:text-opacity-100 transition-all after:content-[''] "> 
@@ -58,7 +66,7 @@
                             </label> 
                         <% end %>
                     </div>
-                    <div id="recommended-quest-display" class="w-[600px]">
+                    <div id="recommended-quest-display" class="min-w-full" >
                           <%= render partial: 'tavern/quest', locals: {quest: nil,location:"recommendation"} %>
                     </div>
                 

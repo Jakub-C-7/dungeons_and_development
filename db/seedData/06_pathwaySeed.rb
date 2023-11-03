@@ -8,7 +8,7 @@ Pathway.destroy_all
         name: Faker::Games::Minecraft.unique.item, 
         description: Faker::Lorem.sentence(word_count: (rand(10..50))), 
         pathway_id: @pathway.id,
-        icon: Faker::Avatar.image(size: "50x50"),
+        icon: Faker::Avatar.image(size: "100x100"),
         category: rand(0..4)
     )
 

@@ -1,5 +1,5 @@
 <% if (quest != nil) then %>
-    <div class="p-[10px] hover:bg-slate-100 quest-container">
+    <div class="p-[10px] hover:bg-slate-100 quest-container" data-controller="togglehidden" data-togglehidden-target="toggleButton">
             <%= quest['name'] %>
             <div class="">
                 <% quest['interests'].each do |interest| %>
@@ -11,13 +11,20 @@
             <div id="" class="quest-description">
                 <%= quest['description'] %>
             </div>
-            <div id="" class="quest-sections">
-                Sections covered in the pathway:
-                <ul class="list-group-numbered">
-                <% quest['sections'].each do |section| %>
-                    <li class="list-group-item"> <%= section %> </li>
-                <% end %>
-                </ul>
+            <div class="hidden flex flex-row" data-togglehidden-target="toggledElement">
+                <div id="" class="quest-more" >
+                    Sections covered in the pathway:
+                    <ul class="list-group-numbered">
+                    <% quest['sections'].each do |section| %>
+                        <li class="list-group-item"> <%= section %> </li>
+                    <% end %>
+                    </ul>
+                </div>
+                <div class="quest-more">
+                    Reward for completing the quest:
+                    <img src="<%=quest['reward_icon']%>" class="w-[150px] h-[150px]"/>
+                    <%= quest['reward_name']%>
+                </div>
             </div>
 
             <div class="btn-group" id= "quest-status-<%=quest['id']%><%=location%>" role="group" aria-label="Basic example">
