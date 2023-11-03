@@ -2,9 +2,13 @@
     <%#> image of the map for the section and image for each task - like for tavern <%>
     <%#> box underneath the map that changes dependent on task selection <%>
 
+    <div id="task_map_partial" class="w-full flex justify-center items-center hidden" data-togglemap-target="toggledContainer">
+        <%= render partial: 'active_quests/task_map', locals: {tasks: active_tasks} %>
+    </div>
+
     <% active_tasks.each do |task| %>
 
-        <div id="task_partial" class="w-[600px]">
+        <div id="task_partial" class="w-full" data-togglemap-target="toggledContainer">
             <%= render partial: 'active_quests/task', locals: {task: task} %>
         </div>
 
