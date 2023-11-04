@@ -22,8 +22,10 @@ class TavernController < ApplicationController
         q['sections'] = pathway.sections.pluck(:name)
         q['status'] = current_user.pathways.joins(:user_pathways).where(user_pathways: { pathway_id: q['id']} ).pluck("user_pathways.progress")[0]
         reward = Equipment.where(pathway_id: q['id']).first
-        q['reward_icon'] = reward.icon
-        q['reward_name'] = reward.name
+        if reward then
+          q['reward_icon'] = reward.icon
+          q['reward_name'] = reward.name
+        end
         # q['interests'] = Interest.joins(:pathway_interests).where(pathway_interests: { pathway_id: q['id']}).pluck(:name)
         # q['sections'] = Section.joins(:pathway_sections).where(pathway_sections: { pathway_id: q['id']}).pluck(:name)
       end
