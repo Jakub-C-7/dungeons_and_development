@@ -1,13 +1,12 @@
 <div class="h-full ">
     <%= image_tag("long-oneside-triangle.svg", :alt => "Story Book", :class => "background-image", style: "height:100vh; width: 100vw; transform: scale(3,1)") %>
     <div class="flex flex-col button-container items-center">
-        <div class="flex mt-16"> 
-            <%= link_to "Continue your adventure", new_user_session_path,  class:"btn-primary bg-[#87619A] text-white" %>
-        </div>
+        
+        <%= link_to new_user_registration_path, class: "flex mt-32 justify-center relative items-center transition-grow" do %>
+            <%= image_tag("main_button_red.png", :alt => "map image", class:"w-[50%]") %>
+            <p class="absolute text-center items-center justify-center font-logoTitle font-lg text-white">Start a new adventure</p>
+        <%end%>
 
-        <div class="flex mt-16"> 
-            <%= link_to "Start a new adventure", new_user_registration_path,  class:"btn-primary bg-[#87619A] text-white" %>
-        </div>
     </div>
     <%= content_tag(:canvas, "", data: {controller:"landingpage"}) %>
 </div>
