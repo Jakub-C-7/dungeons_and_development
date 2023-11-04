@@ -1,6 +1,11 @@
 pathway = Pathway.create(name: "IAF Introduction", description: "Discover the Integrated Architecture Framework (IAF), Capgemini's enterprise architecture framework")
 sections = ["Discovering IAF", "Practicing IAF", "Getting IAF Level 1 Certified", "Staying sharp on IAF"]
 
+interests  = Interest.order("RANDOM()").first(rand(1..5))
+
+interests.each do |interest|
+    PathwayInterest.create({pathway_id: pathway.id, interest_id: interest.id})
+end
 
 weapon_index = NUM_OF_WEAPONS + 1
 sections.each do |sectionName| 
@@ -11,15 +16,7 @@ sections.each do |sectionName|
         SectionTask.create({section_id: section.id, task_id: task.id, step_number: x})
         x += 1
     end
-
-    interests  = Interest.order("RANDOM()").first(rand(1..5))
-
-    interests.each do |interest|
-        SectionInterest.create({section_id: section.id, interest_id: interest.id})
-    end
-
     PathwaySection.create({pathway_id: pathway.id, section_id: section.id})
-
 end 
 Equipment.create(
     name: Faker::Games::Minecraft.unique.item, 

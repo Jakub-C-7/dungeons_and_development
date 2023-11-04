@@ -36,7 +36,8 @@ class TavernController < ApplicationController
   def quest_board
     @selected_interests = current_user.interests.pluck(:id)
     @interests = Interest.all
-    @recommendedQuests = Pathway.order("RANDOM()").first(3)
+    @recommendedQuests = Pathway.where(name: "IAF Introduction").or(Pathway.where(name: "IC Agile - Agile Fundamentals")).or(Pathway.where(name: "Understand AWS Cloud Security")).first(3)
+    # @recommendedQuests = Pathway.order("RANDOM()").first(3)
 
     pathwayQuests = Pathway.joins(:pathway_interests).where(pathway_interests: { interest_id: @selected_interests }).order(:name).as_json
     # sectionQuests = Section.joins(:section_interests).where(section_interests: { interest_id: @selected_interests }).order(:name).as_json 
