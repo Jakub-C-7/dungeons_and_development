@@ -136,5 +136,5 @@ Equipment.create(
         name: "Sword of Microserving", 
         description: Faker::Lorem.sentence(word_count: (rand(10..50))), 
         pathway_id: pathway.id,
-        icon: "/assets/equipment/weapon" + (weapon_index).to_s + ".jpg",
+        icon: "/assets/equipment/weapon10.jpg",
         category: 1)

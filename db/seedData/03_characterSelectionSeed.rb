@@ -1,9 +1,9 @@
 CharacterSelection.destroy_all
 
-CharacterSelection.create(url:"character1.png")
-CharacterSelection.create(url:"character2.png")
-CharacterSelection.create(url:"character3.png")
-CharacterSelection.create(url:"character4.png")
+CharacterSelection.create(url:"Character1.svg")
+CharacterSelection.create(url:"Character2.svg")
+CharacterSelection.create(url:"Character3.svg")
+CharacterSelection.create(url:"Character4.svg")
 
 
 user = User.first;

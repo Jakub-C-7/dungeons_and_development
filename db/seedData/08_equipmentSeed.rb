@@ -44,3 +44,35 @@ NUM_OF_WEAPONS.times do |x|
     y = y + 1
 end
 
+@pathway = Pathway.create(name: "Registration", description: "Create your account and begin your journey")
+
+
+
+
+Equipment.create(
+    name: "Beginner Sword", 
+    description: Faker::Lorem.sentence(word_count: (rand(10..50))), 
+    pathway_id: @pathway.id,
+    icon: "/assets/equipment/weapon1.jpg",
+    category: 1)
+
+Equipment.create(
+    name: "Beginner Chest", 
+    description: Faker::Lorem.sentence(word_count: (rand(10..50))), 
+    pathway_id: @pathway.id,
+    icon: "/assets/equipment/chest1.jpg",
+    category: 2)
+
+Equipment.create(
+    name: "Beginner Leggings", 
+    description: Faker::Lorem.sentence(word_count: (rand(10..50))), 
+    pathway_id: @pathway.id,
+    icon: "/assets/equipment/bottoms1.jpg",
+    category: 3)
+
+Equipment.create(
+    name: "Beginner Helmet", 
+    description: Faker::Lorem.sentence(word_count: (rand(10..50))), 
+    pathway_id: @pathway.id,
+    icon: "/assets/equipment/helmet1.jpg",
+    category: 0)
