@@ -33,13 +33,16 @@
 
                       <%# <%= form.select :category, options_for_select([['All', 0], ['Pathways',1], ['Modules',2]]) %> 
                       <%= render partial: 'users/interests', locals: {selected_interests: @selected_interests, mode:"edit", required: false} %>
-
-                      <%= form.submit "Search", class: "btn-primary-dark-text" %>
+                      
+                      <div class="flex mt-4 mb-4 relative justify-center items-center transition-grow mx-auto"> 
+                        <%= form.submit "Search", class: "absolute text-center inset-0 font-logoTitle" %>
+                        <%= image_tag("side_button_gold.png", :alt => "submit button", class:"w-[30%]") %>
+                      </div>
                     <% end %>
+
                      <div id="quests" class="overflow-y-scroll max-h-[500px] w-full">
                          <%= render partial: 'tavern/quests', locals: {quests: @quests} %>
                      </div>
-                        
                 
                 </div>
                 <div class="tab-pane fade w-full" id="profile" role="tabpanel" aria-labelledby="profile-tab">
