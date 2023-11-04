@@ -1,12 +1,12 @@
 <% if task_status != 2 %>
     <div class="flex mt-4 mb-4 relative justify-center items-center transition-grow mx-auto"> 
         <%= submit_tag 'Mark as Complete', class:"absolute text-center inset-0 font-logoTitle text-xl" %>
-        <%= image_tag("side_button_silver.png", :alt => "submit button", class:"w-[50%]") %>
+        <%= image_tag("side_button_silver.png", :alt => "submit button", class:"w-[40%]") %>
     </div>
 <% else %>
     <div class="flex mt-4 mb-4 relative justify-center items-center transition-grow mx-auto"> 
         <%= submit_tag 'Done!', class:"absolute text-center inset-0 font-logoTitle" %>
-        <%= image_tag("side_button_gold.png", :alt => "submit button", class:"w-[50%]") %>
+        <%= image_tag("side_button_gold.png", :alt => "submit button", class:"w-[40%]") %>
     </div>
 <% end %>
 
