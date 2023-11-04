@@ -22,8 +22,10 @@ class TavernController < ApplicationController
         q['sections'] = pathway.sections.pluck(:name)
         q['status'] = current_user.pathways.joins(:user_pathways).where(user_pathways: { pathway_id: q['id']} ).pluck("user_pathways.progress")[0]
         reward = Equipment.where(pathway_id: q['id']).first
-        q['reward_icon'] = reward.icon
-        q['reward_name'] = reward.name
+        if reward then
+          q['reward_icon'] = reward.icon
+          q['reward_name'] = reward.name
+        end
         # q['interests'] = Interest.joins(:pathway_interests).where(pathway_interests: { pathway_id: q['id']}).pluck(:name)
         # q['sections'] = Section.joins(:pathway_sections).where(pathway_sections: { pathway_id: q['id']}).pluck(:name)
       end
@@ -34,7 +36,8 @@ class TavernController < ApplicationController
   def quest_board
     @selected_interests = current_user.interests.pluck(:id)
     @interests = Interest.all
-    @recommendedQuests = Pathway.order("RANDOM()").first(3)
+    @recommendedQuests = Pathway.where(name: "IAF Introduction").or(Pathway.where(name: "IC Agile - Agile Fundamentals")).or(Pathway.where(name: "Understand AWS Cloud Security")).first(3)
+    # @recommendedQuests = Pathway.order("RANDOM()").first(3)
 
     pathwayQuests = Pathway.joins(:pathway_interests).where(pathway_interests: { interest_id: @selected_interests }).order(:name).as_json
     # sectionQuests = Section.joins(:section_interests).where(section_interests: { interest_id: @selected_interests }).order(:name).as_json 

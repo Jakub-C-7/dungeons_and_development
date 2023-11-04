@@ -51,6 +51,18 @@ class UsersController < ApplicationController
     def check_setup
         isSetup = UserInterest.where(user_id: current_user.id, isPrimaryRole: true).count
         if(isSetup ==0)
+            equipmentList = current_user.equipments
+            if equipmentList.count < 1 then
+                beginnerEquipment = Equipment.where("name ILIKE ?", "%Beginner%")
+                firstQuest = Pathway.where(name: "Registration").first()
+                UserPathway.create([{user_id: current_user.id, pathway_id: firstQuest.id, progress:2}])
+                beginnerEquipment.each do |equipment|
+                    UserEquipment.create([{
+                        user_id: current_user.id,
+                        equipment_id: equipment.id
+                    }])
+                end
+            end
             redirect_to setup_path
         end
     end

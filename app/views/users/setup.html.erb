@@ -18,7 +18,7 @@
             <% @character_selection.each do |character_selection| %>
                 <label>
                     <%= radio_button_tag :character_selection,character_selection.id, class:"character-select hidden", required: 'required', checked: true %>
-                    <%= image_tag(character_selection.url, :alt => character_selection.id, class:"transition-grow cursor-pointer") %>
+                    <%= image_tag(character_selection.url, :alt => character_selection.id, class:"transition-grow cursor-pointer p-[20px] h-[400px]") %>
                 </label>
             <% end %>
         </div>

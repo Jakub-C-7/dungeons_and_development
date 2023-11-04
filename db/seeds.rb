@@ -9,6 +9,12 @@
 #   end
 require 'faker'
 
+NUM_OF_PATHWAYS = 10
+NUM_OF_CHEST = 2
+NUM_OF_BOTTOMS = 2
+NUM_OF_WEAPONS = 4
+NUM_OF_HELMET = 2
+
 require_relative './seedData/01_usersSeed.rb'
 require_relative './seedData/02_interestSeed.rb'
 require_relative './seedData/03_characterSelectionSeed.rb'
@@ -16,6 +22,8 @@ require_relative './seedData/04_taskSeed.rb'
 require_relative './seedData/05_sectionSeed.rb'
 require_relative './seedData/06_pathwaySeed.rb'
 require_relative './seedData/07_quest_mapSeed.rb'
+require_relative './seedData/08_equipmentSeed.rb'
+require_relative './seedData/09_demoDataSeed.rb'
 
 user1 = User.create! :email => 'test@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
 equipments  = Equipment.first(10)
