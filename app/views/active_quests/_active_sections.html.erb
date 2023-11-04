@@ -13,12 +13,10 @@
     <% end %> 
 <%
 =end%>
-    <h2 class="border-solid border-black border-b-[2px] pb-2 font-logoTitle">Modules</h2>
+    <h2 class="border-solid border-black border-b-[2px] pb-2 font-logoTitle text-[#749A61]">Modules</h2>
 
     <% @current_sections.each do |section| %>
-
         <%= form_tag({:controller => "active_quests", :action => "refreshSection", :method => "post" }, {:class => "flex flex-col w-full h-fit"}) do  %>
-
             <label class="active-quest-btn">
                 <%= radio_button_tag :selected_pathway, @selected_pathway_id, class:"character-select hidden z-50 cursor-pointer", required: 'required', checked: true, :onclick => "this.form.requestSubmit();" %>
                 <%= radio_button_tag :select_section, section.id, class:"character-select hidden z-0", required: 'required', checked: true %>
