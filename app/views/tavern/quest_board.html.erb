@@ -7,11 +7,12 @@
             <div class="speech-bubble speech-bubble-down">
               Welcome to the quest board
             </div>
-              <%= image_tag ("QuestGiver.svg"), style: 'height:50vh' %> 
+            <%= image_tag ("QuestGiver.svg"), style: 'height:50vh' %> 
             <div class="speech-bubble speech-bubble-up w-2/3">
               Here you can <b>browse</b> all available quests, filter on your interests, and <b>select quests</b> from recommendations that we think will suit you at this stage of your journey!
             </div>
           </div>
+
           <div class="flex flex-col mx-auto justify-center items-center gap-4 mt-16 self-center xl:mt-0 w-2/3 h-full"> 
               <ul class="nav nav-tabs w-full" id="quest-board-tabs" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -33,15 +34,19 @@
 
                       <%# <%= form.select :category, options_for_select([['All', 0], ['Pathways',1], ['Modules',2]]) %> 
                       <%= render partial: 'users/interests', locals: {selected_interests: @selected_interests, mode:"edit", required: false} %>
-
-                      <%= form.submit "Search", class: "btn-primary-dark-text" %>
+                      
+                      <div class="flex mt-4 mb-4 relative justify-center items-center transition-grow mx-auto"> 
+                        <%= form.submit "Search", class: "absolute text-center inset-0 font-logoTitle" %>
+                        <%= image_tag("side_button_gold.png", :alt => "submit button", class:"w-[30%]") %>
+                      </div>
                     <% end %>
+
                      <div id="quests" class="overflow-y-scroll max-h-[500px] w-full">
                          <%= render partial: 'tavern/quests', locals: {quests: @quests} %>
                      </div>
-                        
                 
                 </div>
+                
                 <div class="tab-pane fade w-full" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="relative bg-[url('questboard-bg.jpg')] bg-cover bg-no-repeat bg-center w-[600px] h-[500px] m-auto" >
                         <%= form_with url: updaterecommended_path, method: :post, remote: true  do  |form|  %>
