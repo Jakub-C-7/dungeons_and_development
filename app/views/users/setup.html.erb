@@ -30,15 +30,12 @@
         </div>
         
         <div class="w-2/3 flex flex-col justify-center mx-auto bg-primaryFaded mt-16 p-10 space-y-5" >
-
             <div class="flex">
                 <%= label_tag :name, "Full Name:",class:"w-[200px]"  %>
-
                 <%= text_field_tag "name", nil, class:"grow", :required => true %>
             </div>
             <div class="flex">
                 <%= label_tag :primary_role, "Job Title:", class:"w-[200px]" %>
-
                 <%= select_tag "primary_role", options_from_collection_for_select(@jobs, "id", "name"), class:"grow", :include_blank => '-- Select One --' , :required => true %>
             </div>
             <%= render partial: 'users/interests', locals: {selected_interests: [], mode:"edit", required: true} %>

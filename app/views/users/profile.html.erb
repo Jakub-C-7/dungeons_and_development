@@ -41,13 +41,16 @@
                 <h2 class="absolute font-logoTitle p-2 text-2xl" >Customise Profile</h2> 
                 <%= image_tag("side_button_gold.png", :alt => "submit button", class:"w-[50%]") %>
             </div>
+            <div class="flex mt-4 mb-4 relative justify-center items-center transition-grow mx-auto cursor-pointer" id="save-profile">
+                <h2 class="absolute font-logoTitle p-2 text-2xl pointer-events-none">Save</h2> 
+                <%= image_tag("side_button_silver.png", :alt => "submit button", class:"w-[50%]", onclick:"submit()") %>
+
+            </div>
 
 
             <%= render partial: 'users/interests', locals: {selected_interests: @selected_interests, mode:"display", required:true } %>
 
-            <div class="flex  items-center" id="save-profile">
-                <%= submit_tag 'Save', class:'btn-primary-dark-text' %>
-            </div>
+            
         <% end %>
 
         <div class="flex flex-col mx-auto justify-center items-start gap-4 mt-16 self-start xl:mt-0 min-w-[50vw]"> 

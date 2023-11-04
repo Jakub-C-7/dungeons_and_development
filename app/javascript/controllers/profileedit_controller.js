@@ -13,7 +13,8 @@ export default class extends Controller{
             }
             this.editableFieldTargets.forEach((target) =>{
                 target.disabled = ! target.disabled
-            });    
+            }); 
+            toggleEditBtn.classList.add("hidden")   
         })
 
        
