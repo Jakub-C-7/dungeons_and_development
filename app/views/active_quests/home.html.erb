@@ -1,38 +1,60 @@
     <%= render partial: "layouts/flash" %>
 
-    <div class="flex flex-col xl:flex-row mb-12 p-12 w-full h-full" data-controller="togglemap"> 
-        <%= form_tag({:controller => "active_quests", :action => "refreshPathway", :method => "post" }, {:class => "flex flex-col w-1/5"}) do  %>
+    <% if @current_pathways.length > 0 then %>
+        <div class="flex flex-col xl:flex-row mb-12 p-12 w-full h-full" data-controller="togglemap"> 
+            <%= form_tag({:controller => "active_quests", :action => "refreshPathway", :method => "post" }, {:class => "flex flex-col w-1/5"}) do  %>
 
-            <h2 class="text-center">Active Quests</h2> 
+                <div class="speech-bubble speech-bubble-down text-center mb-[20px]">
+                    <p class="text-2xl" > Welcome to your active quests! </p>
+                </div>
+                <%= image_tag ("GuildMaster.svg"), style: 'height:30vh; margin-bottom:20px ' %> 
+                <div class="speech-bubble speech-bubble-up mb-[20px] ">
+                    <% if @current_pathways.length == 3 %>
+                        You have the perfect number of quests on the go!
+                    <% elsif @current_pathways.length > 3 %>
+                        Be careful not to over do it and finish the quests at hand! You can always pause a quest and come back to it later!
+                    <% else %>
+                        It looks like you have space to <b>take on some more quests</b> from the <%= link_to "Quest Board!", "questboard", class:"btn-primary-dark-text " %> 
+                    <% end %>
+                </div>
 
-            <% @current_pathways.each do |pathway| %>
-                <label class="active-quest-btn">
-                    <%= radio_button_tag :selected_pathway, pathway.pathway_id, class:"character-select hidden z-50 cursor-pointer", required: 'required', checked: true, :onclick => "this.form.requestSubmit();" %>
-                    <%= label_tag pathway.id, "#{pathway.name}", class: 'z-0 pointer-events-none' %>
-                </label>
+                <% @current_pathways.each do |pathway| %>
+                    <label class="active-quest-btn">
+                        <%= radio_button_tag :selected_pathway, pathway.pathway_id, class:"character-select hidden z-50 cursor-pointer", required: 'required', checked: true, :onclick => "this.form.requestSubmit();" %>
+                        <%= label_tag pathway.id, "#{pathway.name}", class: 'z-0 pointer-events-none' %>
+                    </label>
+                <% end %>
+
             <% end %>
 
-        <% end %>
+            <div class="flex flex-row mx-auto justify-center items-center text-center gap-4 w-full">
 
-        <div class="flex flex-row mx-auto justify-center items-center text-center gap-4 w-full">
+                <div class="flex flex-col self-start items-start justify-start w-2/3 text-start "> 
+                    <div id="active_sections_partial_div" class="self-center mb-2"> 
+                        <%= render partial: 'active_quests/active_sections', locals: {active_sections: nil} %>
+                    </div>
 
-            <div class="flex flex-col self-start items-start justify-start w-2/3 text-start "> 
-                <div id="active_sections_partial_div" class="self-center mb-2"> 
-                    <%= render partial: 'active_quests/active_sections', locals: {active_sections: nil} %>
+                    <div id="active_tasks_partial_div" class="overflow-y-scroll w-full"> 
+                        <%= render partial: 'active_quests/active_tasks', locals: {active_tasks: nil} %>
+                    </div>
                 </div>
 
-                <div id="active_tasks_partial_div" class="overflow-y-scroll w-full"> 
-                    <%= render partial: 'active_quests/active_tasks', locals: {active_tasks: nil} %>
+                <div class="flex flex-col self-start items-start justify-start w-1/5" >
+                    <%= image_tag ("Size3Map.svg"), width: '100%', height: '100%' %> 
+
+                    <h2 class="p-1 btn-primary sub-link" id="toggleMap">Switch to map view</h2> 
                 </div>
+            
             </div>
 
-            <div class="flex flex-col self-start items-start justify-start w-1/5" >
-                <%= image_tag ("Size3Map.svg"), width: '100%', height: '100%' %> 
-
-                <h2 class="p-1 btn-primary sub-link" id="toggleMap">Switch to map view</h2> 
-            </div>
-        
         </div>
-
-    </div>
+    <% else %>
+            <div class="speech-bubble speech-bubble-down w-1/3 m-auto text-center">
+              <p class="text-2xl" > Welcome to your active quests </p>
+            </div>
+              <%= image_tag ("GuildMaster.svg"), style: 'height:50vh; margin:auto; margin-top:20px' %> 
+            <div class="speech-bubble speech-bubble-up w-1/3 m-auto">
+                It appears you have no quests to pursue! Alas! You can find some worthy of your skills at the <%= link_to "Quest Board!", "questboard", class:"btn-primary-dark-text " %> 
+            </div>
+    <% end %>
 
