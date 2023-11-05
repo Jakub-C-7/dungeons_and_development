@@ -22,7 +22,9 @@ class UsersController < ApplicationController
     def setup
         @interests = Interest.all();
         @jobs = Interest.where(isRole: true)
-        @character_selection = CharacterSelection.all();
+
+        #TO REMOVE
+        @character_selection = CharacterSelection.where.not(url: "Character4alt.svg");
     end
 
 
@@ -78,6 +80,12 @@ class UsersController < ApplicationController
         update_equipment(interest_params[:bottomsSelect])
         update_equipment(interest_params[:chestSelect])
         update_equipment(interest_params[:weaponSelect])
+
+        #TO REMOVE
+        characterSelection = CharacterSelection.where(url: "Character4alt.svg").first();
+        current_user.character_selection_id = characterSelection.id
+        current_user.save
+
 
     end
     def update_equipment(id)
