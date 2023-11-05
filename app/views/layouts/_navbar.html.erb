@@ -16,14 +16,14 @@
         <%= link_to "Profile", authenticated_root_path, class: "nav-btn-primary-left" %>
         <%= link_to "Active Quests", active_quests_path, class: "nav-btn-primary-left" %>
         <%= link_to "Hub", tavern_path, class: "nav-btn-primary-left" %>
-        <%= link_to "Memorial Hall", edit_user_registration_path, class: "nav-btn-primary-left" %>
+        <%= link_to "Treasure Hall", edit_user_registration_path, class: "nav-btn-primary-left" %>
       <% else %>
         <%= link_to "About", about_path, class: "nav-btn-primary-left"  %>
       <% end %>
     </div>
     <div class="flex text-base">
       <% if current_user %>
-        <%= link_to "Settings", edit_user_registration_path, class: "nav-btn-primary-right" %>
+        <%= link_to "Settings", user_settings_path, class: "nav-btn-primary-right" %>
         <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "nav-btn-primary-right" %>
       <% else %>
         <%= link_to "Register", new_user_registration_path, class: "nav-btn-primary-right"  %>
