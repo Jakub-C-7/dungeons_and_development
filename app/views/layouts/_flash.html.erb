@@ -1,10 +1,10 @@
 <div id="flash-messages">
     <% flash.each do |type, message| %>
-      <div class="alert alert-success alert-dismissible fade show mb-0 alert-<%= type %> text-center flex flex-row items-center justify-center" role="alert" >
+      <div class="alert alert-success alert-dismissible fade show mb-0 alert-<%= type %> text-center flex flex-row items-center justify-center gap-8" role="alert" >
         <%= message %>
 
         <% if @reward_image %>
-            <%= image_tag @reward_image, class: "w-1/4"%>
+            <%= image_tag @reward_image, class: "w-[15%]"%>
         <% end %>
 
       </div>

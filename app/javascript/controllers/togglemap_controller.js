@@ -14,11 +14,11 @@ export default class extends Controller {
           target.classList.add("hidden");
         }
       });
-      if (toggleMapBtn.innerHTML == "Switch to map view"){
-        toggleMapBtn.innerHTML = "Switch to list view"
-      }else{
-        toggleMapBtn.innerHTML = "Switch to map view"
-      }
+      // if (toggleMapBtn.innerHTML == "Switch to map view"){
+      //   toggleMapBtn.innerHTML = "Switch to list view"
+      // }else{
+      //   toggleMapBtn.innerHTML = "Switch to map view"
+      // }
     });
   }
 }
