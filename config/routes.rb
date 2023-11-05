@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   authenticated do 
     root 'users#profile', as: :authenticated_root
 
+    get 'settings', to: 'users#settings', as: :user_settings  
+
     get '/setup', to: "users#setup",  as: :setup  
     post '/updateProfile', to: "users#update_profile", as: :update_profile
 

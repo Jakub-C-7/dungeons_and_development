@@ -23,7 +23,7 @@
     </div>
     <div class="flex text-base">
       <% if current_user %>
-        <%= link_to "Settings", edit_user_registration_path, class: "nav-btn-primary-right" %>
+        <%= link_to "Settings", user_settings_path, class: "nav-btn-primary-right" %>
         <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "nav-btn-primary-right" %>
       <% else %>
         <%= link_to "Register", new_user_registration_path, class: "nav-btn-primary-right"  %>
