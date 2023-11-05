@@ -44,4 +44,11 @@
   .active-quest-btn {
     @apply p-2 m-2 transition-grow border-solid border-[2px] border-black hover:border-primary text-center cursor-pointer sub-text-small;
   }
+
+  .active-quest-btn.active-pathway {
+    @apply bg-primary text-white;
+  }
+  .active-quest-btn.active-section {
+    @apply bg-[#749A61] text-white;
+  }
 }
