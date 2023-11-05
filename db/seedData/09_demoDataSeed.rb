@@ -19,15 +19,15 @@ sections.each do |sectionName|
     PathwaySection.create({pathway_id: pathway.id, section_id: section.id})
 end 
 Equipment.create(
-    name: Faker::Games::Minecraft.unique.item, 
+    name: "Trident of integration", 
     description: Faker::Lorem.sentence(word_count: (rand(10..50))), 
     pathway_id: pathway.id,
-    icon: "/assets/equipment/weapon" + weapon_index.to_s + ".jpg",
+    icon: "/assets/equipment/TridentOfIntegration.svg",
     category: 1)
 
 weapon_index = weapon_index + 1
 pathways = ["Microservices Architecture Advanced | Data & AI Campus", "iTransform: Spring Cloud Microservices : Level 1", 
-            "Distributed Systems: Logging and Monitoring in microservice architecture", "Understand AWS Cloud Security", "IC Agile - Agile Fundamentals"
+            "Distributed Systems: Logging and Monitoring in microservice architecture","IC Agile - Agile Fundamentals"
 ]
 
 pathways.each do |pathwayName|
@@ -51,6 +51,33 @@ pathways.each do |pathwayName|
         category: 1)
     weapon_index = weapon_index + 1
 end
+
+pathway = Pathway.create(name: "Understand AWS Cloud Security", description: "This set of on-demand courses will help you develop critical security skills to simplify your organization’s journey to the AWS Cloud, protect data and applications, and innovate with confidence. Learning Plans can also help prepare you for the AWS Certified Security - Specialty certification exam.")
+sections = ["Introduction to AWS Cloud Security", "AWS Identity and Access Management"]
+
+sections.each do |sectionName| 
+    section = Section.create(name: sectionName, description: Faker::Lorem.sentence(word_count: (rand(10..50))))
+    tasks  = Task.order("RANDOM()").first(5)
+    x = 1
+    tasks.each do |task|
+        SectionTask.create({section_id: section.id, task_id: task.id, step_number: x})
+        x += 1
+    end
+    PathwaySection.create({pathway_id: pathway.id, section_id: section.id})
+end 
+interests  = Interest.order("RANDOM()").first(rand(1..5))
+
+interests.each do |interest|
+    PathwayInterest.create({pathway_id: pathway.id, interest_id: interest.id})
+end
+
+Equipment.create(
+        name: "Cloud key of security", 
+        description: Faker::Lorem.sentence(word_count: (rand(10..50))), 
+        pathway_id: pathway.id,
+        icon: "/assets/equipment/CloudKeyOfSecurity.svg",
+        category: 1)
+
 
 pathway = Pathway.create(name: "Microservices Architecture (Beginner)", description: "In software engineering, a microservices architecture is a variant of the service-orientated architecture structural style. 
                                 It is an architectural pattern that arranges an application as a collection of loosely coupled, fine-grained services, communicating through lightweight protocols.
@@ -105,7 +132,7 @@ Docker? Do you want to orchestrate Microservices with Kubernetes?")
 SectionTask.create({section_id: section.id, task_id: task.id, step_number: 2})
 
 task = Task.create(name:"Microservices - AWS", description: "AWS Microservices is an AWS ecosystem tailored for microservices
-architecture. It enables the development, deployment, and scaling of
+architecture. It enables the deployment, and scaling of
 microservices. Amazon ECS and EKS handle container orchestration,
 while AWS Lambda offers serverless compute for event-driven
 microservices. Amazon API Gateway manages APIs, and AWS provides
@@ -129,12 +156,12 @@ interestArray = ["Google Cloud", "AWS", "Microservices"]
 
 interestArray.each do |interest|
     @interest = Interest.create(name: interest, isRole: false )
-    PathwayInterest.create({pathway_id: @pathway.id, interest_id: @interest.id})
+    PathwayInterest.create({pathway_id: pathway.id, interest_id: @interest.id})
 end
 
 Equipment.create(
         name: "Sword of Microserving", 
         description: Faker::Lorem.sentence(word_count: (rand(10..50))), 
         pathway_id: pathway.id,
-        icon: "/assets/equipment/weapon10.jpg",
+        icon: "/assets/equipment/SwordOfMicroserviceProficiency.svg",
         category: 1)
