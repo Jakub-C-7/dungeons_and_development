@@ -34,35 +34,38 @@ New tools are engaging
 
 The more you play, the better you get
 
-- Rewards
+### Rewards
 
-  Small rewards keep us playing
+Small rewards keep us playing
 
-- Challenge
+### Challenge
 
-  Indications of difficulty help you pick new challenges
+Indications of difficulty help you pick new challenges
 
-- Fun Visuals
+### Fun Visuals
 
-  Novelty of 2D/3D/Isometric graphics
+Novelty of 2D/3D/Isometric graphics
 
-- Sharing Success
+### Sharing Success
 
-  Social games are more fun!
+Social games are more fun!
 
-- Replayability
+### Replayability
 
-  Great games make you keep coming back
+Great games make you keep coming back
 
 ## App Features
 
 1. Embark on quests
+
    Tavern and quest board used to manage new quests and adventures
 
 2. Customise your character
+
    Gain new equipment to show off your impressive achievements!
 
 3. Fantasy visuals
+
    Boring lists replaced with interactive 3D fantasy maps to track progress and interact with the world.
 
 ## Running the app
