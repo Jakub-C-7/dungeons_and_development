@@ -4,6 +4,8 @@ A unique gamification twist on personal development that incorporates fantasy th
 
 Embark on quests, customise your character, and experience fantasy visuals!
 
+![Alt text](dnd_logo.png)
+
 ## The Idea and Goals
 
 ### Tracking
@@ -68,13 +70,48 @@ Great games make you keep coming back
 
    Boring lists replaced with interactive 3D fantasy maps to track progress and interact with the world.
 
+## App Pages
+
+### Homepage
+
+![Alt text](dnd_homepage-1.png)
+
+### Character Creation
+
+![Alt text](dnd_character_create.png)
+
+### Personal Profile
+
+![Alt text](dnd_profile.png)
+
+### Tavern
+
+![Alt text](dnd_tavern.png)
+
+### Quest Board
+
+![Alt text](dnd_quest_board.png)
+
+### Quest Board - Search
+
+![Alt text](dnd_quest_search.png)
+
+### Quest Journal - List View
+
+![Alt text](dnd_task_list.png)
+
+### Quest Journal - Map View
+
+![Alt text](dnd_task_map.png)
+
 ## Running the app
 
 ### Running locally
 
 1. Clone down the project
-2. run '.\bin\rails server' in the project root directory
-3. App will run on port 3000 at localhost:3000
+2. run 'bundle install'
+3. run '.\bin\rails server' in the project root directory
+4. App will run on port 3000 at localhost:3000
 
 ### Running with Docker
 
@@ -106,8 +143,7 @@ If you already have the container ready to run, skip to the 'Running the docker 
 - Ruby version 3.2.2
 
 - Rails version 7.1
+
 - Database: PostgreSQL
 
-- System dependencies...
-
-- Configuration...
+- Threejs
