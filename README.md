@@ -6,40 +6,52 @@ Embark on quests, customise your character, and experience fantasy visuals!
 
 ## The Idea and Goals
 
-- Tracking
+### Tracking
 
-  Focus on small achievable goals
+Focus on small achievable goals
 
-- Digital First
-  With hybrid work, digital is necessary
+### Digital First
 
-- Consistency
-  Training every day
+With hybrid work, digital is necessary
 
-- Gamification
-  Sense of reward is more fun and motivating
+### Consistency
 
-- Personalisation
-  Be in control of customising your experience
+Training every day
 
-- Novelty
-  New tools are engaging
+### Gamification
 
-- Progression
-  The more you play, the better you get
+Sense of reward is more fun and motivating
+
+### Personalisation
+
+Be in control of customising your experience
+
+### Novelty
+
+New tools are engaging
+
+### Progression
+
+The more you play, the better you get
 
 - Rewards
+
   Small rewards keep us playing
 
 - Challenge
+
   Indications of difficulty help you pick new challenges
 
 - Fun Visuals
+
   Novelty of 2D/3D/Isometric graphics
 
 - Sharing Success
+
   Social games are more fun!
+
 - Replayability
+
   Great games make you keep coming back
 
 ## App Features
