@@ -1,12 +1,70 @@
 # Dungeons and Development
 
-A unique twist on personal development.
+A unique gamification twist on personal development that incorporates fantasy themes and enables you to develop personally, and professionally, all whilst feeling like you're playing a game!
 
-## Running with Docker
+Embark on quests, customise your character, and experience fantasy visuals!
+
+## The Idea and Goals
+
+- Tracking
+  Focus on small achievable goals
+
+- Digital First
+  With hybrid work, digital is necessary
+
+- Consistency
+  Training every day
+
+- Gamification
+  Sense of reward is more fun and motivating
+
+- Personalisation
+  Be in control of customising your experience
+
+- Novelty
+  New tools are engaging
+
+- Progression
+  The more you play, the better you get
+
+- Rewards
+  Small rewards keep us playing
+
+- Challenge
+  Indications of difficulty help you pick new challenges
+
+- Fun Visuals
+  Novelty of 2D/3D/Isometric graphics
+
+- Sharing Success
+  Social games are more fun!
+- Replayability
+  Great games make you keep coming back
+
+## App Features
+
+1. Embark on quests
+   Tavern and quest board used to manage new quests and adventures
+
+2. Customise your character
+   Gain new equipment to show off your impressive achievements!
+
+3. Fantasy visuals
+   Boring lists replaced with interactive 3D fantasy maps to track progress and interact with the world.
+
+## Running the app
+
+### Running locally
+
+1. Clone down the project
+2. run '.\bin\rails server' in the project root directory
+3. App will run on port 3000 at localhost:3000
+
+### Running with Docker
 
 The application is ready to run in a containerised environment with the use of docker.
 
-### Creating docker image
+#### Creating docker image
 
 If you already have the container ready to run, skip to the 'Running the docker container' section
 
@@ -15,7 +73,7 @@ If you already have the container ready to run, skip to the 'Running the docker 
 3. Run the folowing command to list all available images `docker images`, and confirm that an image with the name 'dungeons_and_development' is present
 4. Your image has been built!
 
-### Running the docker container
+#### Running the docker container
 
 1. Navigate to the project's root directory ('/dungeons_and_development') in a terminal of your choice.
 2. Run the folowing command to run the docker container using the compose file `docker compose up`
