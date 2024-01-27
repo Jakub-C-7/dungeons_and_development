@@ -7,6 +7,7 @@ Embark on quests, customise your character, and experience fantasy visuals!
 ## The Idea and Goals
 
 - Tracking
+
   Focus on small achievable goals
 
 - Digital First
